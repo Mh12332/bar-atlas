@@ -212,7 +212,7 @@ function pantrySummaryLabel() {
 }
 
 function aliasesFor(c) {
-  return NAME_ALIASES[c.id] || [];
+  return (NAME_ALIASES[c.id] || []).filter((alias) => alias !== c.zh && alias !== c.en);
 }
 
 function normalizeVariant(v) {

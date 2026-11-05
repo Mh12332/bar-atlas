@@ -554,6 +554,13 @@ report.mobile = await evaluate(`({
   menuVisible: getComputedStyle(document.querySelector('#menuBtn')).display,
   baseChipRow: (() => { const el = document.querySelector('#baseChips'); return { scrollWidth: el.scrollWidth, clientWidth: el.clientWidth }; })()
 })`);
+report.mobileOverflow = await evaluate(`(() => {
+  const vw = innerWidth;
+  return [...document.querySelectorAll('body *')].filter((el) => {
+    const r = el.getBoundingClientRect();
+    return r.width > 0 && r.height > 0 && r.right > vw + 2 && getComputedStyle(el).position !== 'fixed';
+  }).slice(0, 20).map((el) => ({ tag: el.tagName, cls: el.getAttribute('class'), right: Math.round(el.getBoundingClientRect().right), width: Math.round(el.getBoundingClientRect().width) }));
+})()`);
 await screenshot("12-mobile-hero.png");
 
 await scrollTo("#recipes", 60);
@@ -589,8 +596,27 @@ await sleep(250);
 
 await evaluate("document.querySelector('[data-open=\"bramble\"]').click()");
 await sleep(600);
+report.mobileRecipe = await evaluate(`({
+  panelWidth: Math.round(document.querySelector('.modal-panel').getBoundingClientRect().width),
+  panelHeight: Math.round(document.querySelector('.modal-panel').getBoundingClientRect().height),
+  innerWidth: window.innerWidth,
+  scrollWidth: document.querySelector('#modalScroll').scrollWidth,
+  clientWidth: document.querySelector('#modalScroll').clientWidth
+})`);
 await screenshot("14-mobile-modal.png");
 await evaluate("document.querySelector('.modal-close').click()");
+await sleep(300);
+await evaluate("openSpiritPage('whiskey')");
+await sleep(500);
+report.mobileSpirit = await evaluate(`({
+  open: !document.querySelector('#spiritModal').hidden,
+  panelWidth: Math.round(document.querySelector('.spirit-panel').getBoundingClientRect().width),
+  innerWidth: window.innerWidth,
+  scrollWidth: document.querySelector('#spiritScroll').scrollWidth,
+  clientWidth: document.querySelector('#spiritScroll').clientWidth
+})`);
+await screenshot("14b-mobile-spirit.png");
+await evaluate("closeSpiritPage()");
 await sleep(300);
 
 await evaluate("document.querySelector('#pantryBtn').click()");

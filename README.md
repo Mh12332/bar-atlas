@@ -32,8 +32,11 @@ python build.py
 
 ```text
 bar-atlas.html         生成后的单文件网站
+index.html             跳转到 bar-atlas.html 的入口页
+.nojekyll              GitHub Pages 配置，禁用 Jekyll
 build.py               构建脚本
 preview.png            首屏预览
+README.md              本文件
 src/
   shell.html           页面结构
   styles.css           样式与响应式布局
@@ -41,6 +44,20 @@ src/
   data-*.js            配方、材料、关系、专题等数据
   validate.js          数据校验
   browser-check.mjs    Chrome DevTools 浏览器测试
+```
+
+以下目录由测试自动生成，不参与构建，已被 `.gitignore` 忽略：
+
+```text
+shots/                 浏览器测试截图与 report.json
+.chrome-check/         浏览器测试的临时 Chrome 配置
+```
+
+同一个工作区里还存放着两个与本站无关的 DSH 插件，它们通过绝对路径 link 进 DSH 配置，不要移动：
+
+```text
+balance-meter/         实时余额与单次消耗插件
+plugins/session-delete/ 会话删除插件
 ```
 
 ## 数据与准确性说明

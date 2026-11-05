@@ -4,3 +4,6 @@ tmp-*
 .gh-token
 __pycache__/
 *.pyc
+node_modules/
+*.zip
+*.tgz

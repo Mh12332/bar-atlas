@@ -1,5 +1,7 @@
 # BAR ATLAS · 调酒师鸡尾酒地图
 
+在线版：<https://mh12332.github.io/bar-atlas/>
+
 一个离线可用的单文件鸡尾酒知识库，面向调酒师、酒吧从业者与认真喝酒的人。
 
 ![BAR ATLAS 首屏预览](preview.png)

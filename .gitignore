@@ -1,0 +1,5 @@
+.chrome-check/
+shots/
+tmp-*
+__pycache__/
+*.pyc

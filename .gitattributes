@@ -1,0 +1,14 @@
+# 统一换行符：仓库内一律存 LF，检出也保持 LF，避免跨平台 diff 噪声
+* text=auto eol=lf
+
+# 二进制资源不参与换行与合并处理
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.ico binary
+*.zip binary
+*.tgz binary
+
+# 构建产物：GitHub 上折叠为“生成文件”，不占代码 review 的注意力
+bar-atlas.html linguist-generated=true

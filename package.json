@@ -1,0 +1,12 @@
+{
+  "name": "bar-atlas",
+  "private": true,
+  "description": "调酒师鸡尾酒地图：单文件离线鸡尾酒知识库",
+  "scripts": {
+    "build": "python build.py",
+    "validate": "node src/validate.js",
+    "check:browser": "node src/browser-check.mjs",
+    "check": "npm run validate && npm run check:browser"
+  },
+  "license": "CC-BY-NC-4.0"
+}

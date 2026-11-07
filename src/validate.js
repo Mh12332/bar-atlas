@@ -9,7 +9,7 @@ const names = [
   "COCKTAILS_GIN", "COCKTAILS_WHISKEY", "COCKTAILS_RUM", "COCKTAILS_AGAVE",
   "COCKTAILS_BRANDY", "COCKTAILS_VODKA", "COCKTAILS_OTHER", "COCKTAILS_LIQUEUR",
   "COCKTAILS_WINE", "COCKTAILS_LOW", "COCKTAILS_EXTRA", "COCKTAILS_IBA", "COCKTAILS_CLASSICS", "COCKTAILS_MORE",
-  "BRANDS", "PANTRY_CATS", "PANTRY_INGREDIENTS", "MATERIAL_NOTES", "MATERIAL_ALIASES", "MATERIAL_CATEGORY_ORDER", "MATERIAL_CATEGORY_HINTS", "SPIRIT_DETAILS", "ARCH_MODEL", "ARCH_LINEAGE", "ARCH_DERIVATIONS", "KNOWLEDGE", "GRAPH_REL_TYPES", "GRAPH_RELATIONS", "EXTRA_VARIANTS", "TOPIC_SYSTEMS", "NAME_ALIASES", "IBA_INDEX", "IBA_SPECS", "HISTORY", "NON_IBATAGS", "VARIANT_SPECS", "BIBLIOGRAPHY", "TIMELINE",
+  "BOTTLE_FAMILIES", "BRANDS", "PANTRY_CATS", "PANTRY_INGREDIENTS", "MATERIAL_NOTES", "MATERIAL_ALIASES", "MATERIAL_CATEGORY_ORDER", "MATERIAL_CATEGORY_HINTS", "SPIRIT_DETAILS", "ARCH_MODEL", "ARCH_LINEAGE", "ARCH_DERIVATIONS", "KNOWLEDGE", "GRAPH_REL_TYPES", "GRAPH_RELATIONS", "EXTRA_VARIANTS", "TOPIC_SYSTEMS", "NAME_ALIASES", "IBA_INDEX", "IBA_SPECS", "HISTORY", "NON_IBATAGS", "VARIANT_SPECS", "BIBLIOGRAPHY", "TIMELINE",
   "TECHNIQUES", "SYRUPS", "FAULTS", "GLASSES",
   "CONVERSIONS", "STARTER", "MENU_GUIDE", "GLOSSARY"
 ];
@@ -109,9 +109,25 @@ for (const group of ctx.ARCH_DERIVATIONS) {
     if (!ids.has(edge.target)) { console.log("DERIVATION BAD TARGET", edge.target); errors++; }
   }
 }
+const SPIRIT_FIELDS = ["id", "zh", "en", "abv", "note", "craft", "profile", "bottles", "use"];
+let spiritStyles = 0;
+for (const base of ctx.BASES) {
+  const detail = ctx.SPIRIT_DETAILS[base.id];
+  if (!detail) { console.log("SPIRIT DETAIL MISSING BASE", base.id); errors++; continue; }
+  if (!Array.isArray(detail.subtypes) || detail.subtypes.length < 3) { console.log("SPIRIT DETAIL TOO FEW SUBTYPES", base.id); errors++; continue; }
+  if (!Array.isArray(detail.choose) || detail.choose.length < 3) { console.log("SPIRIT DETAIL FEW CHOOSE", base.id); errors++; }
+  const seenStyles = new Set();
+  for (const style of detail.subtypes) {
+    spiritStyles++;
+    for (const field of SPIRIT_FIELDS) if (!style[field]) { console.log("SPIRIT SUBTYPE MISSING", field, base.id, style.id || style.zh); errors++; }
+    if (seenStyles.has(style.id)) { console.log("SPIRIT SUBTYPE DUP ID", base.id, style.id); errors++; }
+    seenStyles.add(style.id);
+  }
+}
 for (const id of Object.keys(ctx.SPIRIT_DETAILS)) {
   if (!ctx.BASES.some((b) => b.id === id)) { console.log("SPIRIT DETAIL BAD BASE", id); errors++; }
 }
+console.log("Spirit styles:", spiritStyles);
 for (const [a, b, type] of ctx.GRAPH_RELATIONS) {
   if (!ids.has(a) || !ids.has(b)) { console.log("GRAPH RELATION MISSING RECIPE", a, b); errors++; }
   if (!ctx.GRAPH_REL_TYPES[type]) { console.log("GRAPH RELATION BAD TYPE", a, b, type); errors++; }
@@ -124,6 +140,44 @@ for (const [key, spec] of Object.entries(ctx.VARIANT_SPECS)) {
   if (!variant) continue;
   if (!Array.isArray(spec.ing) || spec.ing.length < 2) { console.log("VARIANT SPEC NO ING", key); errors++; }
 }
+const bottleFamilies = ctx.BOTTLE_FAMILIES;
+const bottleStyles = ctx.BRANDS;
+const bottleFamilyById = new Map();
+if (!Array.isArray(bottleFamilies) || bottleFamilies.length === 0) {
+  console.log("BAD BOTTLE FAMILIES"); errors++;
+} else {
+  for (const fam of bottleFamilies) {
+    for (const field of ["id", "zh", "en", "intro"]) {
+      if (typeof fam[field] !== "string" || !fam[field].trim()) { console.log("BOTTLE FAMILY FIELD", fam.id || "?", field); errors++; }
+    }
+    if (bottleFamilyById.has(fam.id)) { console.log("BOTTLE FAMILY DUP ID", fam.id); errors++; }
+    bottleFamilyById.set(fam.id, fam);
+    if (!ctx.BASES.some((b) => b.id === fam.base)) { console.log("BOTTLE FAMILY BAD BASE", fam.id, fam.base); errors++; }
+  }
+}
+if (!Array.isArray(bottleStyles) || bottleStyles.length === 0) {
+  console.log("BAD BOTTLE STYLES"); errors++;
+} else {
+  const seenStyles = new Set();
+  const familyCounts = {};
+  for (const row of bottleStyles) {
+    if (seenStyles.has(row.id)) { console.log("BOTTLE DUP ID", row.id); errors++; }
+    seenStyles.add(row.id);
+    for (const field of ["id", "family", "type", "en", "abv", "note", "swap", "tip"]) {
+      if (typeof row[field] !== "string" || !row[field].trim()) { console.log("BOTTLE FIELD", row.id || "?", field); errors++; }
+    }
+    if (!bottleFamilyById.has(row.family)) { console.log("BOTTLE BAD FAMILY", row.id, row.family); errors++; }
+    else familyCounts[row.family] = (familyCounts[row.family] || 0) + 1;
+    if (![1, 2, 3].includes(row.tier)) { console.log("BOTTLE BAD TIER", row.id, row.tier); errors++; }
+    if (!Array.isArray(row.flavors) || row.flavors.length === 0) { console.log("BOTTLE NO FLAVORS", row.id); errors++; }
+    else for (const f of row.flavors) if (!ctx.FLAVOR_TAGS.includes(f)) { console.log("BOTTLE BAD FLAVOR", row.id, f); errors++; }
+    if (!Array.isArray(row.brands) || row.brands.length < 2 || row.brands.some((x) => typeof x !== "string" || !x.trim())) { console.log("BOTTLE BAD BRANDS", row.id); errors++; }
+    if (!Array.isArray(row.drinks) || row.drinks.length < 1) { console.log("BOTTLE BAD DRINKS", row.id); errors++; }
+    else for (const d of row.drinks) if (!ids.has(d)) { console.log("BOTTLE DRINK MISSING", row.id, d); errors++; }
+  }
+  for (const fam of bottleFamilies || []) if (!familyCounts[fam.id]) { console.log("BOTTLE FAMILY EMPTY", fam.id); errors++; }
+}
+console.log("Bottle styles:", bottleStyles ? bottleStyles.length : 0, "/ Bottle families:", bottleFamilies ? bottleFamilies.length : 0);
 console.log("Errors:", errors);
 const byBase = {};
 const byFam = {};
@@ -131,3 +185,5 @@ for (const c of cocktails) { byBase[c.base] = (byBase[c.base] || 0) + 1; byFam[c
 console.log("By base:", byBase);
 console.log("By family:", byFam);
 console.log("Families:", ctx.FAMILIES.length, "Bases:", ctx.BASES.length, "Mod groups:", ctx.MODGROUPS.length);
+
+process.exitCode = errors ? 1 : 0;

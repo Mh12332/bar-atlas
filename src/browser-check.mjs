@@ -139,7 +139,8 @@ report.initial = await evaluate(`({
   ibaCount: document.querySelector('[data-count="iba"]').textContent,
   timeline: document.querySelectorAll('.timeline-item').length,
   bibliography: document.querySelectorAll('.bib-item').length,
-  brandRows: document.querySelectorAll('#brandBody tr').length,
+  brandRows: document.querySelectorAll('#brandBody tr.brand-row').length,
+  brandGroups: document.querySelectorAll('#brandBody tr.brand-group-row').length,
   knowledgeCards: document.querySelectorAll('.knowledge-card').length,
   materialRows: document.querySelectorAll('#materialBody tr').length,
   topicCards: document.querySelectorAll('.topic-card').length,
@@ -147,6 +148,36 @@ report.initial = await evaluate(`({
   graphEdges: document.querySelectorAll('.graph-edge').length,
   sectionHeights: [...document.querySelectorAll('main section[data-section]')].map(s => [s.id, Math.round(s.getBoundingClientRect().height)])
 })`);
+
+report.brandCounts = await evaluate(`({
+  brandCards: document.querySelectorAll('#brandCards [data-brand-item]').length,
+  brandFamilies: document.querySelectorAll('#brandCards [data-brand-group]').length,
+  brandTableRows: document.querySelectorAll('#brandBody tr.brand-row').length,
+  brandTableGroups: document.querySelectorAll('#brandBody tr.brand-group-row').length,
+  brandCardDrinks: document.querySelectorAll('#brandCards .brand-drink[data-open]').length,
+  brandTableDrinks: document.querySelectorAll('#brandBody .brand-drink-link[data-open]').length,
+  brandChips: document.querySelectorAll('#brandCats [data-brand-cat]').length,
+  brandTierLabels: document.querySelectorAll('#brandCards .brand-tier-label').length,
+  firstTierLabel: document.querySelector('#brandCards .brand-tier-label')?.textContent.trim(),
+  firstTierAria: document.querySelector('#brandCards .brand-tier')?.getAttribute('aria-label'),
+  stat: document.querySelector('#brandStat')?.textContent.trim(),
+  cardsHidden: document.querySelector('#brandCards')?.hidden,
+  tableHidden: document.querySelector('#brandTableWrap')?.hidden
+})`);
+report.brandCards = report.brandCounts.brandCards;
+report.brandFamilies = report.brandCounts.brandFamilies;
+report.brandTableRows = report.brandCounts.brandTableRows;
+report.brandTableGroups = report.brandCounts.brandTableGroups;
+report.brandDrinkLinks = report.brandCounts.brandCardDrinks + report.brandCounts.brandTableDrinks;
+report.brandTierLabels = report.brandCounts.brandTierLabels;
+const tierSet = new Set(["日常", "进阶", "高价"]);
+report.brandTierLabelCheck = {
+  count: report.brandCounts.brandTierLabels,
+  firstLabel: report.brandCounts.firstTierLabel,
+  firstAria: report.brandCounts.firstTierAria,
+  ok: tierSet.has(report.brandCounts.firstTierLabel)
+    && tierSet.has((report.brandCounts.firstTierAria || "").replace(/^价格档：/, ""))
+};
 
 await scrollTo("#overview", 0);
 await screenshot("01-hero.png");
@@ -394,6 +425,161 @@ await evaluate("document.querySelector('[data-spirit-close]').click()");
 await sleep(250);
 await scrollTo("#brands", 70);
 await screenshot("05b-brands.png");
+
+/* 酒款速查：搜索「波本」（全字段搜索，命中 bourbon + rye + japanese 均属预期） */
+await evaluate(`(() => {
+  const input = document.querySelector('#brandSearch');
+  input.value = '波本';
+  input.dispatchEvent(new Event('input', { bubbles: true }));
+  return true;
+})()`);
+await sleep(400);
+report.brandSearch = await evaluate(`(() => {
+  const cards = [...document.querySelectorAll('#brandCards [data-brand-item]')];
+  const bourbon = document.querySelector('#brand-bourbon');
+  return {
+    visibleCards: cards.filter((el) => el.offsetParent !== null).length,
+    visibleFamilies: [...document.querySelectorAll('#brandCards [data-brand-group]')].filter((el) => el.offsetParent !== null).length,
+    bourbonPresent: !!bourbon,
+    bourbonHidden: bourbon ? bourbon.hidden : null,
+    bourbonVisible: bourbon ? bourbon.offsetParent !== null : false,
+    stat: document.querySelector('#brandStat')?.textContent.trim()
+  };
+})()`);
+report.brandSearch.match = report.brandSearch.visibleCards >= 1
+  && report.brandSearch.bourbonPresent
+  && report.brandSearch.bourbonHidden === false
+  && report.brandSearch.bourbonVisible
+  && (report.brandSearch.stat || '').includes('/ 32');
+await evaluate(`(() => {
+  const input = document.querySelector('#brandSearch');
+  input.value = '';
+  input.dispatchEvent(new Event('input', { bubbles: true }));
+  return true;
+})()`);
+await sleep(350);
+
+/* 酒款速查：唯一品牌搜索「Maker's Mark」 */
+await evaluate(`(() => {
+  const input = document.querySelector('#brandSearch');
+  input.value = "Maker's Mark";
+  input.dispatchEvent(new Event('input', { bubbles: true }));
+  return true;
+})()`);
+await sleep(400);
+report.brandSingleBrandSearch = await evaluate(`(() => {
+  const cards = [...document.querySelectorAll('#brandCards [data-brand-item]')].filter((el) => el.offsetParent !== null);
+  const bourbon = document.querySelector('#brand-bourbon');
+  return {
+    visibleCards: cards.length,
+    visibleIds: cards.map((el) => el.id),
+    bourbonPresent: !!bourbon,
+    bourbonVisible: bourbon ? bourbon.offsetParent !== null : false,
+    stat: document.querySelector('#brandStat')?.textContent.trim()
+  };
+})()`);
+report.brandSingleBrandSearch.match = report.brandSingleBrandSearch.visibleCards === 1
+  && report.brandSingleBrandSearch.visibleIds[0] === 'brand-bourbon'
+  && report.brandSingleBrandSearch.bourbonVisible
+  && (report.brandSingleBrandSearch.stat || '').includes('/ 32');
+await evaluate(`(() => {
+  const input = document.querySelector('#brandSearch');
+  input.value = '';
+  input.dispatchEvent(new Event('input', { bubbles: true }));
+  return true;
+})()`);
+await sleep(350);
+
+/* 酒款速查：家族 chip「威士忌」 */
+await evaluate(`(() => {
+  const chip = document.querySelector('#brandCats [data-brand-cat="whiskey"]');
+  if (!chip) return false;
+  chip.click();
+  return true;
+})()`);
+await sleep(400);
+report.brandFamilyChip = await evaluate(`({
+  exists: !!document.querySelector('#brandCats [data-brand-cat="whiskey"]'),
+  pressed: document.querySelector('#brandCats [data-brand-cat="whiskey"]')?.getAttribute('aria-pressed'),
+  active: document.querySelector('#brandCats [data-brand-cat="whiskey"]')?.classList.contains('is-active'),
+  visibleCards: [...document.querySelectorAll('#brandCards [data-brand-item]')].filter((el) => el.offsetParent !== null).length,
+  visibleFamilies: [...document.querySelectorAll('#brandCards [data-brand-group]')].filter((el) => el.offsetParent !== null).length,
+  stat: document.querySelector('#brandStat')?.textContent.trim()
+})`);
+report.brandFamilyChip.statIncludes = (report.brandFamilyChip.stat || '').includes('显示 6 / 32');
+await scrollTo('#brands [data-brand-group="whiskey"]', 90);
+await sleep(250);
+await screenshot("05b1-brands-family.png");
+
+/* 酒款速查：视图切换 → 对照表 */
+await evaluate("document.querySelector('#brandCats [data-brand-cat=\"all\"]')?.click()");
+await sleep(350);
+await evaluate("document.querySelector('[data-brand-view=\"table\"]')?.click()");
+await sleep(400);
+report.brandTableView = await evaluate(`({
+  tableVisible: !document.querySelector('#brandTableWrap').hidden,
+  cardsHidden: document.querySelector('#brandCards').hidden,
+  tablePressed: document.querySelector('[data-brand-view="table"]')?.getAttribute('aria-pressed'),
+  cardsPressed: document.querySelector('[data-brand-view="cards"]')?.getAttribute('aria-pressed'),
+  tableRows: document.querySelectorAll('#brandBody tr.brand-row').length,
+  tableGroups: document.querySelectorAll('#brandBody tr.brand-group-row').length
+})`);
+await scrollTo("#brands", 70);
+await sleep(250);
+await screenshot("05b2-brands-table.png");
+await evaluate("document.querySelector('[data-brand-view=\"cards\"]')?.click()");
+await sleep(350);
+
+/* 酒款速查：卡片上的配方 chip → 配方弹窗 */
+report.brandDrinkClick = await evaluate(`(() => {
+  const btn = document.querySelector('#brandCards .brand-drink[data-open]');
+  if (!btn) return { found: false };
+  const recipeId = btn.dataset.open;
+  let expectedTitle = null;
+  try {
+    expectedTitle = typeof BY_ID !== 'undefined' && BY_ID[recipeId] ? BY_ID[recipeId].zh : null;
+  } catch (e) {}
+  btn.click();
+  return { found: true, recipeId, buttonLabel: btn.textContent.trim(), expectedTitle };
+})()`);
+await sleep(650);
+report.brandDrinkModal = await evaluate(`({
+  open: !document.querySelector('#recipeModal').hidden,
+  title: document.querySelector('#modalTitle')?.textContent.trim()
+})`);
+report.brandDrinkModal.recipeId = report.brandDrinkClick.recipeId;
+report.brandDrinkModal.buttonLabel = report.brandDrinkClick.buttonLabel;
+report.brandDrinkModal.expectedTitle = report.brandDrinkClick.expectedTitle;
+report.brandDrinkModal.match = !!report.brandDrinkModal.title
+  && report.brandDrinkModal.title === (report.brandDrinkClick.expectedTitle || report.brandDrinkClick.buttonLabel);
+await evaluate("document.querySelector('#recipeModal .modal-close')?.click()");
+await sleep(450);
+
+/* 酒款速查：基酒卡片的 .base-guide-link → 跳转并筛选 */
+await scrollTo("#bases", 70);
+await sleep(250);
+report.brandBaseLink = await evaluate(`({
+  links: document.querySelectorAll('.base-guide-link').length,
+  whiskey: !!document.querySelector('.base-guide-link[data-brand-family="whiskey"]')
+})`);
+await evaluate(`(() => {
+  const btn = document.querySelector('.base-guide-link[data-brand-family="whiskey"]');
+  if (!btn) return false;
+  btn.click();
+  return true;
+})()`);
+await sleep(1200);
+report.brandBaseJump = await evaluate(`({
+  chipPressed: document.querySelector('#brandCats [data-brand-cat="whiskey"]')?.getAttribute('aria-pressed'),
+  chipActive: document.querySelector('#brandCats [data-brand-cat="whiskey"]')?.classList.contains('is-active'),
+  visibleCards: [...document.querySelectorAll('#brandCards [data-brand-item]')].filter((el) => el.offsetParent !== null).length,
+  stat: document.querySelector('#brandStat')?.textContent.trim(),
+  brandsTop: Math.round(document.querySelector('#brands').getBoundingClientRect().top),
+  flash: !!document.querySelector('.brand-family.is-flash')
+})`);
+await evaluate("document.querySelector('#brandCats [data-brand-cat=\"all\"]')?.click()");
+await sleep(300);
+
 await scrollTo("#modifiers");
 await screenshot("06-modifiers.png");
 await scrollTo("#materials", 70);
@@ -562,6 +748,27 @@ report.mobileOverflow = await evaluate(`(() => {
   }).slice(0, 20).map((el) => ({ tag: el.tagName, cls: el.getAttribute('class'), right: Math.round(el.getBoundingClientRect().right), width: Math.round(el.getBoundingClientRect().width) }));
 })()`);
 await screenshot("12-mobile-hero.png");
+
+await scrollTo("#brands", 70);
+await sleep(400);
+report.brandMobile = await evaluate(`(() => {
+  const brands = document.querySelector('#brands');
+  const cards = [...document.querySelectorAll('#brandCards .brand-card')];
+  const toolbar = document.querySelector('.brand-toolbar');
+  return {
+    cards: document.querySelectorAll('#brandCards [data-brand-item]').length,
+    families: document.querySelectorAll('#brandCards [data-brand-group]').length,
+    cardsHidden: document.querySelector('#brandCards').hidden,
+    brandsScrollWidth: brands.scrollWidth,
+    brandsClientWidth: brands.clientWidth,
+    brandsOverflow: brands.scrollWidth - brands.clientWidth,
+    docScrollWidth: document.documentElement.scrollWidth,
+    innerWidth: window.innerWidth,
+    maxCardWidth: Math.round(Math.max(0, ...cards.map((el) => el.getBoundingClientRect().width))),
+    toolbarOverflow: toolbar ? toolbar.scrollWidth - toolbar.clientWidth : null
+  };
+})()`);
+await screenshot("05b3-brands-mobile.png");
 
 await scrollTo("#recipes", 60);
 await screenshot("13-mobile-recipes.png");

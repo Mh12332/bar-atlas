@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="调酒师鸡尾酒地图：227 杯配方与 435 个变体，完整覆盖 IBA 102 杯官方酒单，含 IBA 与非 IBA 来源标签、品牌速查、风味雷达、关系图谱与按材料反选的高级筛选。">
   <meta name="theme-color" content="#15352c">
+  <meta name="bar-atlas-version" content="__VERSION__">
+  <meta name="bar-atlas-build" content="__BUILD__">
   <title>BAR ATLAS · 调酒师鸡尾酒地图</title>
   <script>
     try {
@@ -622,21 +624,40 @@
           <div class="base-grid" id="baseGrid"></div>
           <p class="section-footnote"><svg class="icon"><use href="#i-info"></use></svg> 还想找某一瓶具体酒？下面材料库已按全部配方反推、合并同义写法，并给出类别、使用次数与一句话定位。<a class="text-link" href="#materials">打开完整材料索引 <svg class="icon"><use href="#i-arrow"></use></svg></a></p>
 
-          <div class="subsection" id="brands">
+          <div class="subsection brand-guide" id="brands">
             <div class="subsection-head">
               <div>
                 <p class="eyebrow">BOTTLE GUIDE / 酒款速查</p>
                 <h3>同一类酒，品牌决定方向</h3>
               </div>
-              <p>以下品牌是常见、较易获得的类别示例，不是商业推荐；同一类别内风格、甜度与酒精度差异很大，先试再定。</p>
+              <p>32 类常见酒款按 9 个家族整理：先认清这是什么风格，再看它适合做哪些酒、换一瓶会怎样，最后才决定买哪一瓶。品牌只是类别示例，不是采购推荐。</p>
             </div>
-            <div class="table-wrap brand-table-wrap">
+
+            <div class="brand-toolbar">
+              <label class="brand-search">
+                <svg class="icon"><use href="#i-search"></use></svg>
+                <input id="brandSearch" type="search" placeholder="搜索家族、风格、品牌、风味或配方，例如 波本、Campari、内格罗尼" autocomplete="off">
+              </label>
+              <div class="brand-view" role="group" aria-label="切换展示方式">
+                <button class="brand-view-btn is-active" type="button" data-brand-view="cards" aria-pressed="true">卡片</button>
+                <button class="brand-view-btn" type="button" data-brand-view="table" aria-pressed="false">对照表</button>
+              </div>
+              <span class="brand-stat" id="brandStat" aria-live="polite"></span>
+            </div>
+
+            <div class="brand-cats" id="brandCats" role="group" aria-label="按家族筛选酒款"></div>
+
+            <div class="brand-cards" id="brandCards"></div>
+
+            <div class="table-wrap brand-table-wrap" id="brandTableWrap" hidden>
               <table class="data-table brand-table">
-                <thead><tr><th>类别</th><th>类型</th><th>常用品牌</th><th>典型用途</th><th>备注</th></tr></thead>
+                <thead><tr><th scope="col">风格</th><th scope="col">酒精度</th><th scope="col">常用瓶</th><th scope="col">拿它做什么</th><th scope="col">一句话</th></tr></thead>
                 <tbody id="brandBody"></tbody>
               </table>
             </div>
-            <p class="source-disclaimer"><svg class="icon"><use href="#i-info"></use></svg> 品牌与可得性会因国家和年份变化；本表用于建立“类别—风格—用途”的对应关系，而不是采购清单。</p>
+
+            <p class="brand-empty" id="brandEmpty" hidden>没有匹配的酒款，试试减少一个条件，或只搜品牌名的前两个字。</p>
+            <p class="source-disclaimer"><svg class="icon"><use href="#i-info"></use></svg> 品牌与可得性会因国家和年份变化；价格档位只是「日常 / 进阶 / 高价」的相对刻度，不是具体售价。本表用于建立“类别—风格—用途”的对应关系，而不是采购清单。</p>
           </div>
         </section>
 
@@ -900,6 +921,7 @@
               <p>不需要一整面酒墙。先配齐能覆盖 15 类架构的核心瓶，再用新鲜材料补足。</p>
             </div>
             <div class="starter-grid" id="starterGrid"></div>
+            <p class="section-footnote"><svg class="icon"><use href="#i-info"></use></svg> 不确定某一瓶该买哪支？<a class="text-link" href="#brands">酒款速查按 9 个家族列出 32 类风格、常见瓶与换瓶方向 <svg class="icon"><use href="#i-arrow"></use></svg></a></p>
           </div>
 
           <div class="subsection">
@@ -971,6 +993,7 @@
       <footer class="site-footer">
         <span>BAR ATLAS</span>
         <p>调酒师鸡尾酒地图 · 为学习与出品而整理</p>
+        <span class="site-version" title="构建于 __BUILD__">v__VERSION__</span>
         <a href="#overview">回到顶部 <svg class="icon"><use href="#i-arrow"></use></svg></a>
       </footer>
     </div>

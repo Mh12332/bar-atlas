@@ -45,6 +45,12 @@ for (const c of ALL) {
 }
 
 const BASE_BY_ID = Object.fromEntries(BASES.map((b) => [b.id, b]));
+
+/* 子类别只在 SPIRIT_DETAILS 里声明一次，BASES 不再重复维护 styles。 */
+function stylesOf(b) {
+  const d = SPIRIT_DETAILS[b.id];
+  return d ? d.subtypes.map((s) => s.zh) : [];
+}
 const FAM_BY_ID = Object.fromEntries(FAMILIES.map((f) => [f.id, f]));
 const MOD_BY_ID = Object.fromEntries(MODGROUPS.map((m) => [m.id, m]));
 const PANTRY_BY_ID = Object.fromEntries(PANTRY_INGREDIENTS.map((x) => [x.id, x]));
@@ -552,6 +558,9 @@ function renderBases() {
   grid.innerHTML = BASES.map((b) => {
     const count = ALL.filter((c) => c.base === b.id).length;
     const first = b.first.filter((id) => BY_ID[id]).slice(0, 4);
+    const styles = stylesOf(b);
+    const brandFamily = BRAND_FAMILIES.find((f) => f.base === b.id);
+    const guideCount = brandFamily ? (BRAND_FAMILY_COUNTS[brandFamily.id] || 0) : 0;
     return `
       <article class="base-card" style="--base-color:${b.color}">
         <div class="base-head">
@@ -564,7 +573,7 @@ function renderBases() {
           <span class="base-abv">${esc(b.abv)}</span>
         </div>
         <p class="base-profile">${esc(b.profile)}</p>
-        <div class="base-styles">${b.styles.map((s) => `<span>${esc(s)}</span>`).join("")}</div>
+        <div class="base-styles">${styles.slice(0, 6).map((s) => `<span>${esc(s)}</span>`).join("")}${styles.length > 6 ? `<span class="base-style-more">+${styles.length - 6}</span>` : ""}</div>
         <div class="base-detail">
           <div><span class="detail-label">常用瓶</span><ul>${b.bottles.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>
           <div><span class="detail-label">在结构里</span><p>${esc(b.role)}</p><p class="base-avoid"><b>注意：</b>${esc(b.avoid)}</p></div>
@@ -573,6 +582,7 @@ function renderBases() {
           <span>从这几杯开始</span>
           ${first.map((id) => openLink(id)).join("")}
         </div>
+        ${brandFamily && guideCount ? `<button class="base-guide-link" type="button" data-brand-family="${esc(brandFamily.id)}">酒款速查 · ${guideCount} 类 <svg class="icon"><use href="#i-arrow"></use></svg></button>` : ""}
         <button class="base-page-action" type="button" data-spirit-page="${esc(b.id)}">
           打开基酒详解 <svg class="icon"><use href="#i-arrow"></use></svg>
         </button>
@@ -699,17 +709,241 @@ function renderGlossary() {
     <div class="glossary-item"><b>${esc(term)}</b><p>${esc(def)}</p></div>`).join("");
 }
 
-function renderBrands() {
+/* 酒款速查：家族数据由 data-brands.js 提供；未就绪时安全退化为空。 */
+const BRAND_FAMILIES = (typeof BOTTLE_FAMILIES !== "undefined" && Array.isArray(BOTTLE_FAMILIES)) ? BOTTLE_FAMILIES : [];
+const BRAND_FAMILY_BY_ID = Object.fromEntries(BRAND_FAMILIES.map((f) => [f.id, f]));
+const BRAND_FAMILY_COUNTS = BRANDS.reduce((acc, row) => {
+  acc[row.family] = (acc[row.family] || 0) + 1;
+  return acc;
+}, {});
+const BRAND_BOTTLE_TOTAL = BRANDS.reduce((sum, row) => sum + (Array.isArray(row.brands) ? row.brands.length : 0), 0);
+const BRAND_TIER_LABELS = { 1: "日常", 2: "进阶", 3: "高价" };
+
+let brandState = { family: "all", q: "", view: "cards" };
+
+function brandSearchText(row) {
+  const fam = BRAND_FAMILY_BY_ID[row.family] || null;
+  const drinks = (row.drinks || []).map((id) => (BY_ID[id] ? BY_ID[id].zh : "")).join(" ");
+  return [
+    row.type, row.en, fam && fam.zh, fam && fam.en,
+    ...(row.flavors || []), ...(row.brands || []),
+    drinks, row.note, row.swap, row.tip
+  ].filter(Boolean).join(" ").toLowerCase();
+}
+
+function brandTierHTML(tier) {
+  const num = Number(tier);
+  const level = [1, 2, 3].includes(num) ? num : 1;
+  const dots = [1, 2, 3].map((i) => (i <= level ? "<i></i>" : `<i class="is-off"></i>`)).join("");
+  return `<span class="brand-tier" data-tier="${level}" aria-label="价格档：${BRAND_TIER_LABELS[level]}" title="价格档：${BRAND_TIER_LABELS[level]}">${dots}<span class="brand-tier-label">${BRAND_TIER_LABELS[level]}</span></span>`;
+}
+
+function brandCardHTML(row) {
+  const flavors = (row.flavors || []).map((f) => `<span class="brand-flavor">${esc(f)}</span>`).join("");
+  const brands = (row.brands || []).map((b) => esc(b)).join(" · ");
+  const drinks = (row.drinks || []).filter((id) => BY_ID[id])
+    .map((id) => `<button type="button" class="brand-drink" data-open="${esc(id)}">${esc(BY_ID[id].zh)}</button>`).join("");
+  return `<article class="brand-card" data-brand-item data-family="${esc(row.family)}" id="brand-${esc(row.id)}" data-search="${esc(brandSearchText(row))}">
+    <header class="brand-card-head">
+      <h4 class="brand-card-name">${esc(row.type)}<span>${esc(row.en)}</span></h4>
+      ${brandTierHTML(row.tier)}
+    </header>
+    <div class="brand-card-meta">
+      <span class="brand-abv">${esc(row.abv)}</span>
+      ${flavors}
+    </div>
+    <p class="brand-card-brands">${brands}</p>
+    <div class="brand-card-drinks">
+      <span class="brand-card-label">做这些酒</span>
+      ${drinks}
+    </div>
+    <p class="brand-card-note">${esc(row.note)}</p>
+    <p class="brand-card-swap"><b>换一瓶</b>${esc(row.swap)}</p>
+    <p class="brand-card-tip"><b>选购</b>${esc(row.tip)}</p>
+  </article>`;
+}
+
+function brandRowHTML(row) {
+  const brands = (row.brands || []).map((b) => esc(b)).join(" · ");
+  const drinks = (row.drinks || []).filter((id) => BY_ID[id])
+    .map((id) => `<button type="button" class="brand-drink-link" data-open="${esc(id)}">${esc(BY_ID[id].zh)}</button>`).join(" / ");
+  return `<tr class="brand-row" data-brand-item data-family="${esc(row.family)}" data-search="${esc(brandSearchText(row))}">
+    <td class="brand-type"><b>${esc(row.type)}</b><span class="brand-type-en">${esc(row.en)}</span></td>
+    <td class="brand-abv-cell">${esc(row.abv)}</td>
+    <td class="brand-bottles">${brands}</td>
+    <td class="brand-use">${drinks}</td>
+    <td class="brand-note">${esc(row.note)}</td>
+  </tr>`;
+}
+
+function renderBrandGuide() {
+  const cards = $("#brandCards");
   const body = $("#brandBody");
-  if (!body) return;
-  body.innerHTML = BRANDS.map((row) => `
-    <tr>
-      <td><b>${esc(row.cat)}</b></td>
-      <td>${esc(row.type)}</td>
-      <td class="brand-list">${esc(row.brands)}</td>
-      <td>${esc(row.use)}</td>
-      <td>${esc(row.note)}</td>
-    </tr>`).join("");
+  if (!cards || !body) return;
+  const sections = BRAND_FAMILIES.map((family) => ({
+    family,
+    rows: BRANDS.filter((row) => row.family === family.id),
+    color: (BASE_BY_ID[family.base] && BASE_BY_ID[family.base].color) || "#8a6a45"
+  }));
+  cards.innerHTML = sections.map(({ family, rows, color }) => `
+    <section class="brand-family" data-brand-group="${esc(family.id)}" style="--base-color:${color}">
+      <header class="brand-family-head">
+        <div class="brand-family-title">
+          <span class="brand-family-zh">${esc(family.zh)}</span>
+          <span class="brand-family-en">${esc(family.en)}</span>
+        </div>
+        <p class="brand-family-intro">${esc(family.intro)}</p>
+        <div class="brand-family-actions">
+          <span class="brand-family-count" data-family-count>${rows.length} 类</span>
+          <button class="brand-family-link" type="button" data-spirit-page="${esc(family.base)}">基酒详解<svg class="icon"><use href="#i-arrow"></use></svg></button>
+        </div>
+      </header>
+      <div class="brand-grid">${rows.map(brandCardHTML).join("")}</div>
+    </section>`).join("");
+  body.innerHTML = sections.map(({ family, rows }) => {
+    if (!rows.length) return "";
+    return `<tr class="brand-group-row" data-brand-group="${esc(family.id)}">
+        <th colspan="5" scope="colgroup"><span class="brand-group-name">${esc(family.zh)}</span><span class="brand-group-rule"></span><span class="brand-group-count" data-family-count>${rows.length} 类</span></th>
+      </tr>${rows.map(brandRowHTML).join("")}`;
+  }).join("");
+  const cats = $("#brandCats");
+  if (cats) {
+    const chips = [{ id: "all", zh: "全部", count: BRANDS.length }]
+      .concat(sections.map(({ family, rows }) => ({ id: family.id, zh: family.zh, count: rows.length })));
+    cats.innerHTML = chips.map((chip) => {
+      const on = chip.id === brandState.family;
+      return `<button type="button" class="brand-cat-chip${on ? " is-active" : ""}" data-brand-cat="${esc(chip.id)}" aria-pressed="${on}">${esc(chip.zh)}<span>${chip.count}</span></button>`;
+    }).join("");
+  }
+  applyBrandFilter();
+}
+
+function setupBrandGuide() {
+  const input = $("#brandSearch");
+  if (input) {
+    input.addEventListener("input", () => {
+      brandState.q = input.value;
+      applyBrandFilter();
+    });
+    input.addEventListener("keydown", (e) => {
+      if (e.key !== "Escape" || !input.value) return;
+      input.value = "";
+      brandState.q = "";
+      applyBrandFilter();
+    });
+  }
+  const cats = $("#brandCats");
+  if (cats) {
+    cats.addEventListener("click", (e) => {
+      const chip = e.target.closest("[data-brand-cat]");
+      if (!chip) return;
+      selectBrandFamily(chip.dataset.brandCat);
+    });
+  }
+  const view = $("#brands .brand-view");
+  if (view) {
+    view.addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-brand-view]");
+      if (!btn) return;
+      setBrandView(btn.dataset.brandView);
+      applyBrandFilter();
+    });
+  }
+}
+
+function setBrandView(view) {
+  brandState.view = view === "table" ? "table" : "cards";
+  $$("[data-brand-view]").forEach((btn) => {
+    const on = btn.dataset.brandView === brandState.view;
+    btn.classList.toggle("is-active", on);
+    btn.setAttribute("aria-pressed", String(on));
+  });
+}
+
+function scrollToBrands() {
+  const target = $("#brands");
+  if (!target) return;
+  const root = document.documentElement;
+  const prev = root.style.scrollBehavior;
+  root.style.scrollBehavior = "auto";
+  window.scrollTo(0, target.getBoundingClientRect().top + window.scrollY - 88);
+  root.style.scrollBehavior = prev;
+  updateScrollUI();
+}
+
+function selectBrandFamily(id, jump = false) {
+  brandState.family = (id === "all" || BRAND_FAMILY_BY_ID[id]) ? id : "all";
+  if (jump) {
+    const input = $("#brandSearch");
+    if (input) input.value = "";
+    brandState.q = "";
+    setBrandView("cards");
+  }
+  applyBrandFilter();
+  if (!jump) return;
+  scrollToBrands();
+  const group = $(`#brandCards [data-brand-group="${CSS.escape(brandState.family)}"]`);
+  if (!group) return;
+  group.classList.add("is-flash");
+  window.setTimeout(() => group.classList.remove("is-flash"), 1600);
+}
+
+function applyBrandFilter() {
+  const query = brandState.q.trim().toLowerCase();
+  const family = brandState.family;
+  const isFiltered = family !== "all" || !!query;
+  const cardsWrap = $("#brandCards");
+  const tableWrap = $("#brandTableWrap");
+  const empty = $("#brandEmpty");
+  const stat = $("#brandStat");
+  const matches = (el) => (family === "all" || el.dataset.family === family) && (!query || (el.dataset.search || "").includes(query));
+
+  let visible = 0;
+  for (const item of $$("#brandCards [data-brand-item]")) {
+    const show = matches(item);
+    item.hidden = !show;
+    if (show) visible++;
+  }
+  for (const item of $$("#brandBody [data-brand-item]")) item.hidden = !matches(item);
+
+  for (const group of $$("#brandCards [data-brand-group]")) {
+    group.hidden = !$$("[data-brand-item]", group).some((el) => !el.hidden);
+  }
+  for (const group of $$("#brandBody tr.brand-group-row")) {
+    let shown = false;
+    for (let el = group.nextElementSibling; el && !el.classList.contains("brand-group-row"); el = el.nextElementSibling) {
+      if (!el.hidden) { shown = true; break; }
+    }
+    group.hidden = !shown;
+  }
+
+  const visibleByFamily = {};
+  for (const item of $$("#brandCards [data-brand-item]")) {
+    if (!item.hidden) visibleByFamily[item.dataset.family] = (visibleByFamily[item.dataset.family] || 0) + 1;
+  }
+  for (const label of $$("[data-family-count]")) {
+    const host = label.closest("[data-brand-group]");
+    const id = host ? host.dataset.brandGroup : "";
+    const total = BRAND_FAMILY_COUNTS[id] || 0;
+    label.textContent = isFiltered ? `${visibleByFamily[id] || 0}/${total} 类` : `${total} 类`;
+  }
+
+  for (const chip of $$("[data-brand-cat]")) {
+    const on = chip.dataset.brandCat === family;
+    chip.classList.toggle("is-active", on);
+    chip.setAttribute("aria-pressed", String(on));
+  }
+
+  if (stat) {
+    stat.textContent = isFiltered
+      ? `显示 ${visible} / ${BRANDS.length} 类`
+      : `${BRANDS.length} 类风格 · ${BRAND_BOTTLE_TOTAL} 只常用瓶 · ${BRAND_FAMILIES.length} 个家族`;
+  }
+  const showCards = brandState.view === "cards" && visible > 0;
+  const showTable = brandState.view === "table" && visible > 0;
+  if (cardsWrap) cardsWrap.hidden = !showCards;
+  if (tableWrap) tableWrap.hidden = !showTable;
+  if (empty) empty.hidden = visible !== 0;
 }
 
 function renderMaterials() {
@@ -2083,7 +2317,7 @@ function spiritModalHTML(b) {
     <p class="spirit-kicker">${esc(b.tag)}</p>
     <h1 id="spiritTitle">${esc(b.zh)}</h1>
     <p class="spirit-headline">${esc(d.headline)}</p>
-    <div class="spirit-meta"><span>${esc(b.en)}</span><span>${b.styles.length} 个子类别</span><span>${ALL.filter((c) => c.base === b.id).length} 杯配方</span></div>
+    <div class="spirit-meta"><span>${esc(b.en)}</span><span>${d.subtypes.length} 个子类别</span><span>${ALL.filter((c) => c.base === b.id).length} 杯配方</span></div>
   </header>
   <div class="spirit-body">
     <section class="spirit-section">
@@ -2094,9 +2328,10 @@ function spiritModalHTML(b) {
     <section class="spirit-section">
       <div class="spirit-section-head"><h3>子类别</h3><span>${d.subtypes.length} STYLES</span></div>
       <div class="spirit-subtypes">${d.subtypes.map((s) => `<article class="spirit-subtype">
-        <div class="spirit-subtype-head"><h4>${esc(s.zh)}</h4><span>${esc(s.en)}</span></div>
+        <div class="spirit-subtype-head"><h4>${esc(s.zh)}</h4><span>${esc(s.en)}</span>${s.abv ? `<span class="spirit-subtype-abv">${esc(s.abv)}</span>` : ""}</div>
         <p>${esc(s.note)}</p>
-        <dl><dt>常见瓶</dt><dd>${esc(s.bottles)}</dd><dt>适合</dt><dd>${esc(s.use)}</dd></dl>
+        <dl><dt>工艺</dt><dd>${esc(s.craft)}</dd><dt>风味</dt><dd>${esc(s.profile)}</dd><dt>常见瓶</dt><dd>${esc(s.bottles)}</dd><dt>适合</dt><dd>${esc(s.use)}</dd></dl>
+        ${s.avoid ? `<p class="spirit-subtype-avoid"><b>注意：</b>${esc(s.avoid)}</p>` : ""}
       </article>`).join("")}</div>
     </section>
     <section class="spirit-section spirit-choose">
@@ -2531,6 +2766,11 @@ function setupEvents() {
       goToRecipes();
       return;
     }
+    const brandJump = e.target.closest("[data-brand-family]");
+    if (brandJump) {
+      selectBrandFamily(brandJump.dataset.brandFamily, true);
+      return;
+    }
     const spiritPage = e.target.closest("[data-spirit-page]");
     if (spiritPage) {
       openSpiritPage(spiritPage.dataset.spiritPage);
@@ -2643,7 +2883,8 @@ renderFamilies();
   renderStarter();
   renderMenu();
   renderGlossary();
-  renderBrands();
+  renderBrandGuide();
+  setupBrandGuide();
   renderMaterials();
 setupMaterialSearch();
   renderTopics();

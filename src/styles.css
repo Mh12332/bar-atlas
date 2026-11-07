@@ -526,6 +526,15 @@ ul, ol { padding: 0; }
   line-height: 1.65;
 }
 .section-footnote .icon { width: 14px; height: 14px; margin-top: 2px; }
+.section-footnote .text-link {
+  margin-top: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
+  font-family: inherit;
+  font-size: 11px;
+  letter-spacing: 0;
+}
+.section-footnote .text-link:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 /* ---------------- Hero ---------------- */
 
@@ -1999,6 +2008,7 @@ ul, ol { padding: 0; }
   color: var(--muted);
   font-size: 8px;
 }
+.base-styles .base-style-more { border: 1px dashed var(--line); background: transparent; }
 .base-detail {
   display: grid;
   grid-template-columns: .9fr 1.1fr;
@@ -2070,6 +2080,24 @@ ul, ol { padding: 0; }
   font-weight: 600;
 }
 .base-action .icon { width: 12px; height: 12px; }
+
+.base-guide-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 12px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--base-color, var(--accent));
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: .02em;
+  text-align: left;
+}
+.base-guide-link .icon { width: 12px; height: 12px; }
+.base-guide-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+[data-theme="dark"] .base-guide-link { color: color-mix(in srgb, var(--base-color, var(--accent)) 58%, #fff); }
 
 /* ---------------- Modifiers ---------------- */
 
@@ -2797,6 +2825,7 @@ ul, ol { padding: 0; }
   background: var(--card-2);
 }
 .site-footer > span { font-family: var(--font-mono); font-size: 9px; letter-spacing: .18em; }
+.site-footer > .site-version { color: var(--muted); letter-spacing: .14em; }
 .site-footer p { color: var(--muted); font-size: 9px; }
 .site-footer a {
   margin-left: auto;
@@ -3620,16 +3649,351 @@ ul, ol { padding: 0; }
   text-align: center;
 }
 
-.brand-table-wrap { margin-top: 4px; }
-.brand-table td { vertical-align: top; }
-.brand-table td:first-child b { white-space: nowrap; }
-.brand-table td:nth-child(3) {
-  color: var(--accent);
+/* ---------------- 酒款速查（BOTTLE GUIDE） ---------------- */
+.brand-guide .brand-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 12px;
+  margin: 0 0 13px;
+}
+.brand-guide .brand-search {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex: 1 1 300px;
+  max-width: 470px;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper-2);
+  transition: border-color .2s, background .2s;
+}
+.brand-guide .brand-search:focus-within { border-color: var(--accent); background: var(--card); }
+.brand-guide .brand-search .icon { width: 14px; height: 14px; color: var(--muted); flex: 0 0 auto; }
+.brand-guide .brand-search input { width: 100%; border: 0; outline: 0; background: transparent; color: var(--ink); font-size: 11px; }
+.brand-guide .brand-search input::placeholder { color: var(--muted); }
+
+.brand-guide .brand-view {
+  display: inline-flex;
+  flex: 0 0 auto;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+}
+.brand-guide .brand-view-btn {
+  min-height: 31px;
+  padding: 0 14px;
+  border: 0;
+  border-right: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted);
+  font-size: 10.5px;
+  transition: background .2s, color .2s;
+}
+.brand-guide .brand-view-btn:last-child { border-right: 0; }
+.brand-guide .brand-view-btn:hover { color: var(--ink); }
+.brand-guide .brand-view-btn.is-active,
+.brand-guide .brand-view-btn[aria-pressed="true"] { background: var(--deep); color: var(--deep-ink); }
+
+.brand-guide .brand-stat {
+  margin-left: auto;
+  color: var(--muted);
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 9.5px;
   white-space: nowrap;
 }
-.brand-table td:last-child { min-width: 180px; }
+
+.brand-guide .brand-cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 20px;
+}
+.brand-guide .brand-cat-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 10.5px;
+  transition: border-color .2s, color .2s, background .2s;
+}
+.brand-guide .brand-cat-chip span { font-family: var(--font-mono); font-size: 8.5px; opacity: .72; }
+.brand-guide .brand-cat-chip:hover { border-color: var(--accent); color: var(--ink); }
+.brand-guide .brand-cat-chip.is-active { border-color: var(--accent); background: var(--accent-soft); color: var(--accent-dark); }
+[data-theme="dark"] .brand-guide .brand-cat-chip.is-active { color: var(--accent); }
+
+/* ---- 卡片视图：家族分组 ---- */
+.brand-guide .brand-cards { display: grid; gap: 30px; }
+.brand-guide .brand-family {
+  position: relative;
+  padding: 0 0 2px;
+  border-top: 2px solid var(--base-color, var(--accent));
+  scroll-margin-top: 96px;
+}
+.brand-guide .brand-family.is-flash { animation: brand-flash 1.6s ease-out; }
+@keyframes brand-flash {
+  0%, 25% { background: var(--accent-soft); box-shadow: inset 0 0 0 1px var(--accent); }
+  100% { background: transparent; box-shadow: none; }
+}
+.brand-guide .brand-family-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 3px 20px;
+  padding: 13px 2px 13px;
+  border-bottom: 1px solid var(--line);
+}
+.brand-guide .brand-family-title {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 11px;
+  grid-column: 1;
+  grid-row: 1;
+}
+.brand-guide .brand-family-zh {
+  color: var(--ink);
+  font-family: var(--font-serif);
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.15;
+}
+.brand-guide .brand-family-en {
+  color: var(--base-color, var(--accent));
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: .14em;
+}
+.brand-guide .brand-family-intro {
+  grid-column: 1;
+  grid-row: 2;
+  max-width: 760px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+.brand-guide .brand-family-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 7px;
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+.brand-guide .brand-family-count {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  letter-spacing: .08em;
+  white-space: nowrap;
+}
+.brand-guide .brand-family-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--base-color, var(--accent));
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.brand-guide .brand-family-link .icon { width: 12px; height: 12px; }
+.brand-guide .brand-family-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+[data-theme="dark"] .brand-guide .brand-family-en,
+[data-theme="dark"] .brand-guide .brand-family-link { color: color-mix(in srgb, var(--base-color, var(--accent)) 58%, #fff); }
+[data-theme="dark"] .brand-guide .brand-family { border-top-color: color-mix(in srgb, var(--base-color, var(--accent)) 58%, #fff); }
+[data-theme="dark"] .brand-guide .brand-tier i { background: color-mix(in srgb, var(--base-color, var(--accent)) 58%, #fff); }
+[data-theme="dark"] .brand-guide .brand-tier i.is-off { background: transparent; }
+
+.brand-guide .brand-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 11px;
+  padding-top: 12px;
+}
+.brand-guide .brand-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 15px 15px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+  transition: border-color .2s, box-shadow .2s, transform .2s;
+  scroll-margin-top: 100px;
+}
+.brand-guide .brand-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+}
+.brand-guide .brand-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.brand-guide .brand-card-name {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+.brand-guide .brand-card-name span {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+.brand-guide .brand-tier { display: inline-flex; align-items: center; gap: 3px; padding-top: 3px; flex: 0 0 auto; }
+.brand-guide .brand-tier i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--base-color, var(--accent));
+}
+.brand-guide .brand-tier i.is-off { background: transparent; border: 1px solid var(--line-strong); }
+.brand-guide .brand-tier-label {
+  margin-left: 4px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  letter-spacing: .04em;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+.brand-guide .brand-card-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; }
+.brand-guide .brand-abv {
+  padding: 2px 7px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: .03em;
+  white-space: nowrap;
+}
+.brand-guide .brand-flavor {
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: var(--paper-2);
+  color: var(--ink-soft);
+  font-size: 10.5px;
+  line-height: 1.5;
+}
+.brand-guide .brand-card-brands {
+  margin: 0;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 1.65;
+  letter-spacing: .01em;
+}
+.brand-guide .brand-card-drinks { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
+.brand-guide .brand-card-label {
+  margin-right: 2px;
+  color: var(--muted);
+  font-size: 8.5px;
+  letter-spacing: .06em;
+}
+.brand-guide .brand-drink {
+  padding: 3px 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 10px;
+  transition: border-color .2s, color .2s, background .2s;
+}
+.brand-guide .brand-drink:hover { border-color: var(--accent); background: var(--accent-soft); color: var(--accent-dark); }
+[data-theme="dark"] .brand-guide .brand-drink:hover { color: var(--accent); }
+
+.brand-guide .brand-card-note { margin: 0; color: var(--ink-soft); font-size: 11px; line-height: 1.7; }
+.brand-guide .brand-card-swap,
+.brand-guide .brand-card-tip {
+  margin: 0;
+  padding-top: 7px;
+  border-top: 1px dashed var(--line);
+  color: var(--muted);
+  font-size: 10.5px;
+  line-height: 1.62;
+}
+.brand-guide .brand-card-swap b,
+.brand-guide .brand-card-tip b {
+  margin-right: 6px;
+  color: var(--base-color, var(--accent));
+  font-weight: 600;
+}
+[data-theme="dark"] .brand-guide .brand-card-swap b,
+[data-theme="dark"] .brand-guide .brand-card-tip b { color: color-mix(in srgb, var(--base-color, var(--accent)) 58%, #fff); }
+
+/* ---- 对照表视图 ---- */
+.brand-guide .brand-table-wrap { margin-top: 0; }
+.brand-guide .brand-table { min-width: 760px; }
+.brand-guide .brand-table th:nth-child(1) { width: 15%; }
+.brand-guide .brand-table th:nth-child(2) { width: 10%; }
+.brand-guide .brand-table th:nth-child(3) { width: 25%; }
+.brand-guide .brand-table th:nth-child(4) { width: 22%; }
+.brand-guide .brand-table th:nth-child(5) { width: 28%; }
+.brand-guide .brand-table td { vertical-align: top; padding: 10px 13px; }
+
+.brand-guide .brand-group-row th {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 13px 13px 8px;
+  border-bottom: 1px solid var(--line);
+  background: var(--card-2);
+  text-align: left;
+}
+.brand-guide .brand-group-name {
+  color: var(--ink);
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: .02em;
+}
+.brand-guide .brand-group-rule { flex: 1 1 auto; height: 1px; background: var(--line); }
+.brand-guide .brand-group-count { color: var(--muted); font-family: var(--font-mono); font-size: 8.5px; letter-spacing: .08em; white-space: nowrap; }
+
+.brand-guide .brand-type b { display: block; color: var(--ink); font-size: 11.5px; font-weight: 600; }
+.brand-guide .brand-type-en {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.brand-guide .brand-abv-cell { color: var(--ink-soft); font-family: var(--font-mono); font-size: 9.5px; white-space: nowrap; }
+.brand-guide .brand-bottles { color: var(--accent); font-family: var(--font-mono); font-size: 9.5px; line-height: 1.75; }
+.brand-guide .brand-use { color: var(--ink-soft); font-size: 10.5px; line-height: 1.75; }
+.brand-guide .brand-drink-link {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 10.5px;
+  text-decoration: underline;
+  text-decoration-color: var(--line-strong);
+  text-underline-offset: 3px;
+  transition: color .2s, text-decoration-color .2s;
+}
+.brand-guide .brand-drink-link:hover { color: var(--accent); text-decoration-color: var(--accent); }
+.brand-guide .brand-note { color: var(--muted); font-size: 10.5px; line-height: 1.7; }
+
+.brand-guide .brand-empty { padding: 26px 0 6px; color: var(--muted); font-size: 11px; text-align: center; }
 .material-table { min-width: 820px; }
 .material-table td { vertical-align: top; font-size: 10px; line-height: 1.65; }
 .material-table td:nth-child(2) b { white-space: nowrap; }
@@ -4400,6 +4764,7 @@ ul, ol { padding: 0; }
   .modal-head { padding: 30px 28px 24px; }
   .modal-body { padding: 28px; }
   .modal-head h2 { font-size: 3.8rem; }
+  .brand-guide .brand-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 700px) {
@@ -4483,7 +4848,32 @@ ul, ol { padding: 0; }
   .pantry-panel { width: 100vw; height: 100dvh; max-height: none; border-radius: 0; padding: 20px 16px 14px; }
   .pantry-head h2 { font-size: 24px; }
   .active-filters { justify-content: flex-start; }
-  .brand-table { min-width: 720px; }
+  .brand-guide .brand-toolbar { flex-direction: column; align-items: stretch; gap: 9px; }
+  .brand-guide .brand-search { max-width: none; flex-basis: auto; }
+  .brand-guide .brand-view { align-self: flex-start; }
+  .brand-guide .brand-stat { margin-left: 0; white-space: normal; }
+  .brand-guide .brand-cats {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .brand-guide .brand-cats::-webkit-scrollbar { display: none; }
+  .brand-guide .brand-cat-chip { flex: 0 0 auto; }
+  .brand-guide .brand-cards { gap: 24px; }
+  .brand-guide .brand-family-head { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .brand-guide .brand-family-actions {
+    grid-column: 1;
+    grid-row: auto;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brand-guide .brand-grid { grid-template-columns: minmax(0, 1fr); }
+  .brand-guide .brand-table-wrap { overflow-x: auto; }
+  .brand-guide .brand-table { min-width: 720px; }
+  .brand-guide .brand-table td { padding: 9px 11px; }
   .decision-strip { grid-template-columns: 1fr; }
   .decision-strip > div { border-right: 0 !important; }
   .layer-stack { grid-template-columns: 1fr 1fr; }
@@ -4577,7 +4967,6 @@ body {
 .graph-detail > p { font-size: 10.5px; }
 .graph-neighbor { font-size: 9.5px; }
 .graph-neighbor small { font-size: 7.5px; }
-.brand-table td { font-size: 10px; line-height: 1.65; }
 .knowledge-card p { font-size: 10.5px; }
 .knowledge-card small { font-size: 9px; }
 .pantry-lede { font-size: 11px; }
@@ -4610,7 +4999,6 @@ body {
 .topic-link small { font-size: 8px; }
 .topic-guide b { font-size: 9px; }
 .topic-guide p { font-size: 11px; }
-.brand-table td { font-size: 10.5px; }
 .material-table td { font-size: 10.5px; }
 .material-toolbar {
   display: flex;
@@ -4694,6 +5082,8 @@ body {
 .spirit-subtype dl { display: grid; grid-template-columns: 48px 1fr; gap: 3px 6px; margin-top: 9px; }
 .spirit-subtype dt { color: var(--muted); font-family: var(--font-mono); font-size: 7.5px; }
 .spirit-subtype dd { color: var(--muted); font-size: 8.5px; line-height: 1.5; }
+.spirit-subtype-head .spirit-subtype-abv { margin-left: auto; color: var(--muted); }
+.spirit-subtype > .spirit-subtype-avoid { margin-top: 7px; padding-top: 6px; border-top: 1px dashed var(--line); color: var(--muted); font-size: 8.5px; line-height: 1.55; }
 .spirit-choose ul { display: grid; gap: 5px; margin: 12px 0; padding-left: 17px; color: var(--ink-soft); font-size: 10px; line-height: 1.6; }
 .spirit-avoid { padding: 10px 12px; border-left: 2px solid var(--accent); background: var(--accent-soft); color: var(--ink-soft); font-size: 10px; line-height: 1.6; }
 .spirit-recipes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 12px; }

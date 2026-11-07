@@ -4,9 +4,9 @@
 
 const COCKTAILS_AGAVE = [
   {
-    id: "margarita", zh: "玛格丽特", en: "Margarita", fam: "daisy", base: "agave", sub: "龙舌兰 Blanco",
+    id: "margarita", zh: "玛格丽特", en: "Margarita", fam: "daisy", base: "agave", sub: "白色龙舌兰",
     mods: ["citrus", "liqueur", "aromatic"], method: "摇和", glass: "碟形杯 / 古典杯", strength: 4, diff: 1,
-    ing: [["龙舌兰 Blanco", "50 ml"], ["青柠汁", "25 ml"], ["君度", "20 ml"], ["盐", "1 小撮（可选）"]],
+    ing: [["白色龙舌兰 Blanco Tequila", "50 ml"], ["青柠汁 Lime Juice", "25 ml"], ["君度 Cointreau", "20 ml"], ["盐 Salt", "1 小撮（可选）"]],
     steps: [
       "杯口用青柠角润湿，半圈蘸盐（可选），杯身冰镇。",
       "龙舌兰、青柠汁与君度加冰摇和 10–12 秒。",
@@ -24,9 +24,9 @@ const COCKTAILS_AGAVE = [
     ]
   },
   {
-    id: "tommys-margarita", zh: "汤米玛格丽特", en: "Tommy's Margarita", fam: "sour", base: "agave", sub: "龙舌兰 Blanco",
+    id: "tommys-margarita", zh: "汤米玛格丽特", en: "Tommy's Margarita", fam: "sour", base: "agave", sub: "白色龙舌兰",
     mods: ["citrus", "syrup", "aromatic"], method: "摇和", glass: "古典杯", strength: 3, diff: 1,
-    ing: [["龙舌兰 Blanco", "60 ml"], ["青柠汁", "30 ml"], ["龙舌兰糖浆", "15 ml"], ["盐", "1 小撮"]],
+    ing: [["白色龙舌兰 Blanco Tequila", "60 ml"], ["青柠汁 Lime Juice", "30 ml"], ["龙舌兰糖浆 Agave Syrup", "15 ml"], ["盐 Salt", "1 小撮"]],
     steps: [
       "所有材料加冰摇和 10–12 秒。",
       "滤入加冰古典杯，或双重过滤入碟形杯。",
@@ -41,9 +41,9 @@ const COCKTAILS_AGAVE = [
     ]
   },
   {
-    id: "frozen-margarita", zh: "冰沙玛格丽特", en: "Frozen Margarita", fam: "blended", base: "agave", sub: "龙舌兰 Blanco",
+    id: "frozen-margarita", zh: "冰沙玛格丽特", en: "Frozen Margarita", fam: "blended", base: "agave", sub: "白色龙舌兰",
     mods: ["citrus", "liqueur", "aromatic"], method: "搅拌机", glass: "高球杯 / 玛格丽特杯", strength: 3, diff: 1,
-    ing: [["龙舌兰 Blanco", "50 ml"], ["青柠汁", "25 ml"], ["君度", "20 ml"], ["单糖浆", "5 ml"], ["碎冰", "1 杯"]],
+    ing: [["白色龙舌兰 Blanco Tequila", "50 ml"], ["青柠汁 Lime Juice", "25 ml"], ["君度 Cointreau", "20 ml"], ["单糖浆 Simple Syrup", "5 ml"], ["碎冰 Crushed Ice", "1 杯"]],
     steps: [
       "所有液体与碎冰放入搅拌机。",
       "高速搅打 15 秒，至雪泥状。",
@@ -58,9 +58,9 @@ const COCKTAILS_AGAVE = [
     ]
   },
   {
-    id: "paloma", zh: "帕洛玛", en: "Paloma", fam: "highball", base: "agave", sub: "龙舌兰 Blanco",
+    id: "paloma", zh: "帕洛玛", en: "Paloma", fam: "highball", base: "agave", sub: "白色龙舌兰",
     mods: ["mixer", "citrus", "aromatic"], method: "直调", glass: "高球杯", strength: 2, diff: 1,
-    ing: [["龙舌兰 Blanco", "50 ml"], ["西柚汽水", "100 ml"], ["青柠汁", "10 ml"], ["盐", "1 小撮"]],
+    ing: [["白色龙舌兰 Blanco Tequila", "50 ml"], ["西柚汽水 Grapefruit Soda", "100 ml"], ["青柠汁 Lime Juice", "10 ml"], ["盐 Salt", "1 小撮"]],
     steps: [
       "高球杯加满冰，倒入龙舌兰与青柠汁。",
       "补满冰镇西柚汽水，加一小撮盐。",
@@ -78,7 +78,7 @@ const COCKTAILS_AGAVE = [
   {
     id: "oaxaca-old-fashioned", zh: "瓦哈卡古典", en: "Oaxaca Old Fashioned", fam: "old-fashioned", base: "agave", sub: "龙舌兰 + 梅斯卡尔",
     mods: ["syrup", "bitters", "aromatic"], method: "搅拌", glass: "古典杯", strength: 4, diff: 2,
-    ing: [["龙舌兰 Reposado", "45 ml"], ["梅斯卡尔", "15 ml"], ["龙舌兰糖浆", "7.5 ml"], ["莫尔苦精", "2 dash"], ["橙皮", "1 片"]],
+    ing: [["微陈龙舌兰 Reposado Tequila", "45 ml"], ["梅斯卡尔 Mezcal", "15 ml"], ["龙舌兰糖浆 Agave Syrup", "7.5 ml"], ["莫尔苦精 Mole Bitters", "2 dash"], ["橙皮 Orange Peel", "1 片"]],
     steps: [
       "古典杯加大冰预冷。",
       "所有液体加冰搅拌 20–25 秒。",
@@ -93,9 +93,9 @@ const COCKTAILS_AGAVE = [
     ]
   },
   {
-    id: "ranch-water", zh: "牧场水", en: "Ranch Water", fam: "highball", base: "agave", sub: "龙舌兰 Blanco",
+    id: "ranch-water", zh: "牧场水", en: "Ranch Water", fam: "highball", base: "agave", sub: "白色龙舌兰",
     mods: ["mixer", "citrus", "aromatic"], method: "直调", glass: "高球杯", strength: 1, diff: 1,
-    ing: [["龙舌兰 Blanco", "50 ml"], ["青柠汁", "20 ml"], ["苏打水", "100 ml"], ["盐", "1 小撮"]],
+    ing: [["白色龙舌兰 Blanco Tequila", "50 ml"], ["青柠汁 Lime Juice", "20 ml"], ["苏打水 Soda Water", "100 ml"], ["盐 Salt", "1 小撮"]],
     steps: [
       "高球杯加满冰，倒入龙舌兰、青柠汁与盐。",
       "补满冰镇苏打水，轻提拉。",
@@ -110,9 +110,9 @@ const COCKTAILS_AGAVE = [
     ]
   },
   {
-    id: "tequila-sunrise", zh: "龙舌兰日出", en: "Tequila Sunrise", fam: "highball", base: "agave", sub: "龙舌兰 Blanco",
+    id: "tequila-sunrise", zh: "龙舌兰日出", en: "Tequila Sunrise", fam: "highball", base: "agave", sub: "白色龙舌兰",
     mods: ["juice", "syrup"], method: "直调", glass: "高球杯", strength: 2, diff: 1,
-    ing: [["龙舌兰 Blanco", "45 ml"], ["橙汁", "90 ml"], ["石榴糖浆", "10 ml"], ["橙片", "1 片"]],
+    ing: [["白色龙舌兰 Blanco Tequila", "45 ml"], ["橙汁 Orange Juice", "90 ml"], ["石榴糖浆 Grenadine", "10 ml"], ["橙片 Orange Wheel", "1 片"]],
     steps: [
       "高球杯加冰，倒入龙舌兰与橙汁，搅拌均匀。",
       "沿杯壁缓慢倒入石榴糖浆，形成沉底渐变。",
@@ -127,9 +127,9 @@ const COCKTAILS_AGAVE = [
     ]
   },
   {
-    id: "batanga", zh: "巴坦加", en: "Batanga", fam: "highball", base: "agave", sub: "龙舌兰 Blanco",
+    id: "batanga", zh: "巴坦加", en: "Batanga", fam: "highball", base: "agave", sub: "白色龙舌兰",
     mods: ["mixer", "citrus", "aromatic"], method: "直调", glass: "高球杯", strength: 2, diff: 1,
-    ing: [["龙舌兰 Blanco", "50 ml"], ["可乐", "100 ml"], ["青柠汁", "15 ml"], ["盐", "1 小撮"]],
+    ing: [["白色龙舌兰 Blanco Tequila", "50 ml"], ["可乐 Cola", "100 ml"], ["青柠汁 Lime Juice", "15 ml"], ["盐 Salt", "1 小撮"]],
     steps: [
       "高球杯口蘸盐，加满冰。",
       "倒入龙舌兰与青柠汁，补满可乐。",
@@ -144,9 +144,9 @@ const COCKTAILS_AGAVE = [
     ]
   },
   {
-    id: "mexican-firing-squad", zh: "墨西哥行刑队", en: "Mexican Firing Squad", fam: "sour", base: "agave", sub: "龙舌兰 Blanco",
+    id: "mexican-firing-squad", zh: "墨西哥行刑队", en: "Mexican Firing Squad", fam: "sour", base: "agave", sub: "白色龙舌兰",
     mods: ["citrus", "syrup", "bitters", "mixer"], method: "摇和", glass: "高球杯", strength: 3, diff: 2,
-    ing: [["龙舌兰 Blanco", "60 ml"], ["青柠汁", "20 ml"], ["石榴糖浆", "15 ml"], ["安高天娜苦精", "2 dash"], ["苏打水", "30 ml"]],
+    ing: [["白色龙舌兰 Blanco Tequila", "60 ml"], ["青柠汁 Lime Juice", "20 ml"], ["石榴糖浆 Grenadine", "15 ml"], ["安高天娜苦精 Angostura Bitters", "2 dash"], ["苏打水 Soda Water", "30 ml"]],
     steps: [
       "除苏打外全部材料加冰摇和 10–12 秒。",
       "滤入加冰高球杯，补少量苏打。",
@@ -163,7 +163,7 @@ const COCKTAILS_AGAVE = [
   {
     id: "naked-and-famous", zh: "声名狼藉", en: "Naked and Famous", fam: "sour", base: "agave", sub: "梅斯卡尔",
     mods: ["citrus", "liqueur", "amaro"], method: "摇和", glass: "碟形杯", strength: 4, diff: 2,
-    ing: [["梅斯卡尔", "22.5 ml"], ["Aperol", "22.5 ml"], ["黄查特", "22.5 ml"], ["青柠汁", "22.5 ml"]],
+    ing: [["梅斯卡尔 Mezcal", "22.5 ml"], ["Aperol", "22.5 ml"], ["黄查特 Yellow Chartreuse", "22.5 ml"], ["青柠汁 Lime Juice", "22.5 ml"]],
     steps: [
       "所有材料加冰摇和 10–12 秒。",
       "双重过滤入冰镇碟形杯。",
@@ -180,7 +180,7 @@ const COCKTAILS_AGAVE = [
   {
     id: "division-bell", zh: "分界钟", en: "Division Bell", fam: "sour", base: "agave", sub: "梅斯卡尔",
     mods: ["citrus", "liqueur", "amaro"], method: "摇和", glass: "碟形杯", strength: 4, diff: 2,
-    ing: [["梅斯卡尔", "30 ml"], ["Aperol", "20 ml"], ["黑樱桃利口酒", "15 ml"], ["青柠汁", "20 ml"]],
+    ing: [["梅斯卡尔 Mezcal", "30 ml"], ["Aperol", "20 ml"], ["黑樱桃利口酒 Maraschino Liqueur", "15 ml"], ["青柠汁 Lime Juice", "20 ml"]],
     steps: [
       "所有材料加冰摇和 10–12 秒。",
       "双重过滤入冰镇碟形杯。",
@@ -195,9 +195,9 @@ const COCKTAILS_AGAVE = [
     ]
   },
   {
-    id: "siesta", zh: "午睡", en: "Siesta", fam: "sour", base: "agave", sub: "龙舌兰 Blanco",
+    id: "siesta", zh: "午睡", en: "Siesta", fam: "sour", base: "agave", sub: "白色龙舌兰",
     mods: ["citrus", "liqueur", "amaro", "syrup"], method: "摇和", glass: "碟形杯", strength: 4, diff: 2,
-    ing: [["龙舌兰 Blanco", "45 ml"], ["金巴利", "15 ml"], ["西柚汁", "15 ml"], ["青柠汁", "15 ml"], ["单糖浆", "10 ml"]],
+    ing: [["白色龙舌兰 Blanco Tequila", "45 ml"], ["金巴利 Campari", "15 ml"], ["西柚汁 Grapefruit Juice", "15 ml"], ["青柠汁 Lime Juice", "15 ml"], ["单糖浆 Simple Syrup", "10 ml"]],
     steps: [
       "所有材料加冰摇和 10–12 秒。",
       "双重过滤入冰镇碟形杯。",

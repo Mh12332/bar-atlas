@@ -6,7 +6,7 @@ const COCKTAILS_OTHER = [
   {
     id: "rabo-de-galo", zh: "公鸡尾巴", en: "Rabo de Galo", fam: "old-fashioned", base: "cane", sub: "卡莎萨",
     mods: ["vermouth", "amaro", "aromatic"], method: "搅拌", glass: "古典杯", strength: 4, diff: 1,
-    ing: [["卡莎萨", "50 ml"], ["Cynar", "20 ml"], ["甜味美思", "20 ml"], ["橙皮", "1 片"]],
+    ing: [["卡莎萨 Cachaça", "50 ml"], ["Cynar", "20 ml"], ["甜味美思 Sweet Vermouth", "20 ml"], ["橙皮 Orange Peel", "1 片"]],
     steps: [
       "古典杯加大冰预冷。",
       "所有液体加冰搅拌 20 秒。",
@@ -23,7 +23,7 @@ const COCKTAILS_OTHER = [
   {
     id: "batida-de-coco", zh: "椰子巴提达", en: "Batida de Coco", fam: "blended", base: "cane", sub: "卡莎萨",
     mods: ["cream", "syrup", "juice"], method: "搅拌机", glass: "高球杯", strength: 2, diff: 1,
-    ing: [["卡莎萨", "60 ml"], ["椰奶", "60 ml"], ["炼乳", "20 ml"], ["青柠汁", "15 ml"], ["碎冰", "1 杯"]],
+    ing: [["卡莎萨 Cachaça", "60 ml"], ["椰奶 Coconut Milk", "60 ml"], ["炼乳 Condensed Milk", "20 ml"], ["青柠汁 Lime Juice", "15 ml"], ["碎冰 Crushed Ice", "1 杯"]],
     steps: [
       "所有液体与碎冰放入搅拌机。",
       "高速搅打 15–20 秒，至顺滑。",
@@ -38,9 +38,9 @@ const COCKTAILS_OTHER = [
     ]
   },
   {
-    id: "somaek", zh: "烧啤", en: "Somaek", fam: "highball", base: "rice", sub: "韩国烧酒",
+    id: "somaek", zh: "烧啤", en: "Somaek", fam: "highball", base: "rice", sub: "烧酒",
     mods: ["mixer"], method: "直调", glass: "啤酒杯", strength: 2, diff: 1,
-    ing: [["韩国烧酒", "50 ml"], ["拉格啤酒", "200 ml"], ["青柠角", "1 块（可选）"]],
+    ing: [["烧酒 Shochu", "50 ml"], ["啤酒 Beer", "200 ml"], ["青柠角 Lime Wedge", "1 块（可选）"]],
     steps: [
       "啤酒杯冰镇，倒入冰镇烧酒。",
       "沿杯壁注入冰镇拉格，轻搅一次。",
@@ -57,7 +57,7 @@ const COCKTAILS_OTHER = [
   {
     id: "saketini", zh: "清酒马天尼", en: "Saketini", fam: "duo", base: "rice", sub: "纯米清酒",
     mods: ["vermouth", "aromatic"], method: "搅拌", glass: "碟形杯", strength: 4, diff: 2,
-    ing: [["清酒", "45 ml"], ["金酒", "30 ml"], ["干味美思", "5 ml"], ["黄瓜片", "1 片"]],
+    ing: [["清酒 Sake", "45 ml"], ["金酒 Gin", "30 ml"], ["干味美思 Dry Vermouth", "5 ml"], ["黄瓜 Cucumber", "1 片"]],
     steps: [
       "所有液体加冰搅拌 20–25 秒。",
       "滤入冰镇碟形杯。",
@@ -72,9 +72,9 @@ const COCKTAILS_OTHER = [
     ]
   },
   {
-    id: "baijiu-sour", zh: "白酒酸", en: "Baijiu Sour", fam: "sour", base: "rice", sub: "清香型白酒",
+    id: "baijiu-sour", zh: "白酒酸", en: "Baijiu Sour", fam: "sour", base: "rice", sub: "白酒",
     mods: ["citrus", "syrup", "cream"], method: "摇和", glass: "碟形杯", strength: 4, diff: 2,
-    ing: [["清香型白酒", "45 ml"], ["青柠汁", "20 ml"], ["单糖浆", "15 ml"], ["蛋清", "15 ml（可选）"]],
+    ing: [["白酒 Baijiu", "45 ml"], ["青柠汁 Lime Juice", "20 ml"], ["单糖浆 Simple Syrup", "15 ml"], ["蛋清 Egg White", "15 ml（可选）"]],
     steps: [
       "所有材料先干摇 10 秒（含蛋清时）。",
       "加冰摇和 12 秒，双重过滤入冰镇碟形杯。",

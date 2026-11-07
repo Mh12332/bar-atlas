@@ -59,5 +59,22 @@ const GRAPH_RELATIONS = [
   ["nui-nui", "jet-pilot", "base"],
   ["saturn", "chartreuse-swizzle", "family"],
   ["army-and-navy", "ford-cocktail", "base"],
-  ["alaska", "obituary", "base"]
+  ["alaska", "obituary", "base"],
+  ["piscola", "pisco-sour", "base"],
+  ["piscola", "cuba-libre", "family"],
+  ["piscola", "kalimotxo", "family"],
+  ["vermut-con-cola", "tinto-de-verano", "family"],
+  ["vermut-con-cola", "kalimotxo", "family"],
+  ["whiskey-cola", "cuba-libre", "family"],
+  ["whiskey-cola", "piscola", "family"],
+  ["cherry-cola-highball", "whiskey-cola", "variant"],
+  ["cherry-cola-highball", "cuba-libre", "family"],
+  ["cola-sour", "whiskey-sour", "lineage"],
+  ["cola-sour", "cola-collins", "family"],
+  ["cuba-libre-especial", "cuba-libre", "variant"],
+  ["cuba-libre-especial", "cherry-cola-highball", "modifier"],
+  ["cola-collins", "tom-collins", "lineage"],
+  ["tinto-de-verano-con-cola", "tinto-de-verano", "variant"],
+  ["tinto-de-verano-con-cola", "kalimotxo", "lineage"],
+  ["tinto-de-verano-con-cola", "vermut-con-cola", "family"]
 ];

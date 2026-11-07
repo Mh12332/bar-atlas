@@ -6,7 +6,7 @@ const COCKTAILS_VODKA = [
   {
     id: "moscow-mule", zh: "莫斯科骡子", en: "Moscow Mule", fam: "highball", base: "vodka", sub: "中性伏特加",
     mods: ["mixer", "citrus"], method: "直调", glass: "铜杯 / 高球杯", strength: 2, diff: 1,
-    ing: [["伏特加", "45 ml"], ["青柠汁", "15 ml"], ["姜啤", "100 ml"], ["青柠角", "1 块"]],
+    ing: [["伏特加 Vodka", "45 ml"], ["青柠汁 Lime Juice", "15 ml"], ["姜啤 Ginger Beer", "100 ml"], ["青柠角 Lime Wedge", "1 块"]],
     steps: [
       "铜杯或高球杯加满冰，倒入伏特加与青柠汁。",
       "补满冰镇姜啤，轻提拉一次。",
@@ -24,7 +24,7 @@ const COCKTAILS_VODKA = [
   {
     id: "bloody-mary", zh: "血腥玛丽", en: "Bloody Mary", fam: "highball", base: "vodka", sub: "中性伏特加",
     mods: ["juice", "citrus", "aromatic", "bitters"], method: "摇和", glass: "高球杯", strength: 2, diff: 2,
-    ing: [["伏特加", "45 ml"], ["番茄汁", "120 ml"], ["柠檬汁", "15 ml"], ["伍斯特酱", "3 dash"], ["辣酱", "3 dash"], ["芹菜盐", "1 小撮"], ["黑胡椒", "1 小撮"]],
+    ing: [["伏特加 Vodka", "45 ml"], ["番茄汁 Tomato Juice", "120 ml"], ["柠檬汁 Lemon Juice", "15 ml"], ["伍斯特酱 Worcestershire Sauce", "3 dash"], ["辣酱 Hot Sauce", "3 dash"], ["芹菜盐 Celery Salt", "1 小撮"], ["黑胡椒 Black Pepper", "1 小撮"]],
     steps: [
       "所有材料加冰，用滚动法（rolling）在摇壶与杯中来回倒 6–8 次，避免番茄汁起泡。",
       "滤入加冰高球杯，或连冰倒入。",
@@ -43,7 +43,7 @@ const COCKTAILS_VODKA = [
   {
     id: "cosmopolitan", zh: "大都会", en: "Cosmopolitan", fam: "daisy", base: "vodka", sub: "柑橘伏特加 / 中性",
     mods: ["citrus", "liqueur", "juice"], method: "摇和", glass: "碟形杯", strength: 3, diff: 1,
-    ing: [["柑橘伏特加", "40 ml"], ["君度", "15 ml"], ["青柠汁", "15 ml"], ["蔓越莓汁", "30 ml"]],
+    ing: [["柑橘伏特加 Citrus Vodka", "40 ml"], ["君度 Cointreau", "15 ml"], ["青柠汁 Lime Juice", "15 ml"], ["蔓越莓汁 Cranberry Juice", "30 ml"]],
     steps: [
       "所有材料加冰摇和 10–12 秒。",
       "双重过滤入冰镇碟形杯。",
@@ -60,7 +60,7 @@ const COCKTAILS_VODKA = [
   {
     id: "espresso-martini", zh: "浓缩咖啡马天尼", en: "Espresso Martini", fam: "coffee", base: "vodka", sub: "香草伏特加 / 中性",
     mods: ["coffee", "liqueur", "syrup"], method: "摇和", glass: "碟形杯 / 马天尼杯", strength: 3, diff: 2,
-    ing: [["伏特加", "30 ml"], ["浓缩咖啡", "30 ml"], ["咖啡利口酒", "20 ml"], ["单糖浆", "10 ml"]],
+    ing: [["伏特加 Vodka", "30 ml"], ["浓缩咖啡 Espresso", "30 ml"], ["咖啡利口酒 Coffee Liqueur", "20 ml"], ["单糖浆 Simple Syrup", "10 ml"]],
     steps: [
       "现萃浓缩咖啡，加冰快速降温。",
       "所有材料加冰大力摇和 12–15 秒，产生厚泡沫。",
@@ -78,7 +78,7 @@ const COCKTAILS_VODKA = [
   {
     id: "white-russian", zh: "白俄罗斯", en: "White Russian", fam: "flip", base: "vodka", sub: "中性伏特加",
     mods: ["coffee", "cream"], method: "直调", glass: "古典杯", strength: 3, diff: 1,
-    ing: [["伏特加", "50 ml"], ["咖啡利口酒", "20 ml"], ["淡奶油", "30 ml"]],
+    ing: [["伏特加 Vodka", "50 ml"], ["咖啡利口酒 Coffee Liqueur", "20 ml"], ["淡奶油 Heavy Cream", "30 ml"]],
     steps: [
       "古典杯加满冰，倒入伏特加与咖啡利口酒。",
       "搅拌 10 秒，沿吧勺背面缓慢倒入奶油，形成分层。",
@@ -96,7 +96,7 @@ const COCKTAILS_VODKA = [
   {
     id: "black-russian", zh: "黑俄罗斯", en: "Black Russian", fam: "coffee", base: "vodka", sub: "中性伏特加",
     mods: ["coffee"], method: "直调", glass: "古典杯", strength: 4, diff: 1,
-    ing: [["伏特加", "50 ml"], ["咖啡利口酒", "20 ml"]],
+    ing: [["伏特加 Vodka", "50 ml"], ["咖啡利口酒 Coffee Liqueur", "20 ml"]],
     steps: [
       "古典杯加一大块冰。",
       "倒入伏特加与咖啡利口酒，搅拌 15 秒。",
@@ -113,7 +113,7 @@ const COCKTAILS_VODKA = [
   {
     id: "vesper", zh: "维斯帕", en: "Vesper", fam: "duo", base: "vodka", sub: "伏特加 + 金酒",
     mods: ["vermouth", "bitters"], method: "搅拌", glass: "碟形杯", strength: 5, diff: 2,
-    ing: [["金酒", "45 ml"], ["伏特加", "15 ml"], ["Lillet Blanc", "7.5 ml"], ["橙味苦精", "1 dash"]],
+    ing: [["金酒 Gin", "45 ml"], ["伏特加 Vodka", "15 ml"], ["Blanc 味美思 Blanc Vermouth", "7.5 ml"], ["橙味苦精 Orange Bitters", "1 dash"]],
     steps: [
       "所有液体加冰搅拌 25–30 秒。",
       "滤入冰镇碟形杯。",
@@ -130,7 +130,7 @@ const COCKTAILS_VODKA = [
   {
     id: "lemon-drop", zh: "柠檬糖", en: "Lemon Drop", fam: "sour", base: "vodka", sub: "柠檬伏特加",
     mods: ["citrus", "syrup", "aromatic"], method: "摇和", glass: "碟形杯", strength: 3, diff: 1,
-    ing: [["柠檬伏特加", "45 ml"], ["柠檬汁", "25 ml"], ["单糖浆", "15 ml"], ["细砂糖", "杯口"]],
+    ing: [["柠檬伏特加 Lemon Vodka", "45 ml"], ["柠檬汁 Lemon Juice", "25 ml"], ["单糖浆 Simple Syrup", "15 ml"], ["砂糖 Sugar", "杯口"]],
     steps: [
       "杯口蘸细砂糖，杯身冰镇。",
       "所有液体加冰摇和 10–12 秒。",
@@ -147,7 +147,7 @@ const COCKTAILS_VODKA = [
   {
     id: "kamikaze", zh: "神风", en: "Kamikaze", fam: "sour", base: "vodka", sub: "中性伏特加",
     mods: ["citrus", "liqueur"], method: "摇和", glass: "碟形杯", strength: 4, diff: 1,
-    ing: [["伏特加", "30 ml"], ["君度", "30 ml"], ["青柠汁", "30 ml"]],
+    ing: [["伏特加 Vodka", "30 ml"], ["君度 Cointreau", "30 ml"], ["青柠汁 Lime Juice", "30 ml"]],
     steps: [
       "所有材料加冰摇和 10 秒。",
       "双重过滤入冰镇碟形杯。",
@@ -164,7 +164,7 @@ const COCKTAILS_VODKA = [
   {
     id: "sea-breeze", zh: "海风", en: "Sea Breeze", fam: "highball", base: "vodka", sub: "中性伏特加",
     mods: ["juice"], method: "直调", glass: "高球杯", strength: 2, diff: 1,
-    ing: [["伏特加", "40 ml"], ["蔓越莓汁", "90 ml"], ["西柚汁", "30 ml"], ["青柠角", "1 块"]],
+    ing: [["伏特加 Vodka", "40 ml"], ["蔓越莓汁 Cranberry Juice", "90 ml"], ["西柚汁 Grapefruit Juice", "30 ml"], ["青柠角 Lime Wedge", "1 块"]],
     steps: [
       "高球杯加满冰，倒入伏特加、蔓越莓汁与西柚汁。",
       "搅拌 10 秒，挤入青柠角。",
@@ -181,7 +181,7 @@ const COCKTAILS_VODKA = [
   {
     id: "harvey-wallbanger", zh: "哈维撞墙", en: "Harvey Wallbanger", fam: "highball", base: "vodka", sub: "中性伏特加",
     mods: ["juice", "liqueur"], method: "直调", glass: "高球杯", strength: 2, diff: 1,
-    ing: [["伏特加", "45 ml"], ["橙汁", "90 ml"], ["Galliano", "15 ml"]],
+    ing: [["伏特加 Vodka", "45 ml"], ["橙汁 Orange Juice", "90 ml"], ["Galliano", "15 ml"]],
     steps: [
       "高球杯加冰，倒入伏特加与橙汁，搅拌。",
       "沿吧勺背面漂浮 Galliano。",
@@ -198,7 +198,7 @@ const COCKTAILS_VODKA = [
   {
     id: "chi-chi", zh: "奇奇", en: "Chi Chi", fam: "blended", base: "vodka", sub: "中性伏特加",
     mods: ["juice", "cream"], method: "搅拌机", glass: "飓风杯", strength: 2, diff: 1,
-    ing: [["伏特加", "50 ml"], ["菠萝汁", "60 ml"], ["椰奶油", "30 ml"], ["青柠汁", "10 ml"], ["碎冰", "1 杯"]],
+    ing: [["伏特加 Vodka", "50 ml"], ["菠萝汁 Pineapple Juice", "60 ml"], ["椰奶油 Coconut Cream", "30 ml"], ["青柠汁 Lime Juice", "10 ml"], ["碎冰 Crushed Ice", "1 杯"]],
     steps: [
       "所有液体与碎冰放入搅拌机。",
       "高速搅打 15–20 秒，至顺滑。",

@@ -6,7 +6,7 @@ const COCKTAILS_WINE = [
   {
     id: "aperol-spritz", zh: "阿佩罗橙光", en: "Aperol Spritz", fam: "aperitivo", base: "wine", sub: "Prosecco",
     mods: ["liqueur", "mixer"], method: "直调", glass: "大葡萄酒杯", strength: 1, diff: 1,
-    ing: [["Prosecco", "90 ml"], ["Aperol", "60 ml"], ["苏打水", "30 ml"], ["橙片", "1 片"]],
+    ing: [["Prosecco", "90 ml"], ["Aperol", "60 ml"], ["苏打水 Soda Water", "30 ml"], ["橙片 Orange Wheel", "1 片"]],
     steps: [
       "大葡萄酒杯加满冰，先倒入冰镇 Prosecco。",
       "加入 Aperol，再补苏打水。",
@@ -24,7 +24,7 @@ const COCKTAILS_WINE = [
   {
     id: "sbagliato", zh: "错误内格罗尼", en: "Negroni Sbagliato", fam: "aperitivo", base: "wine", sub: "Prosecco",
     mods: ["vermouth", "amaro", "mixer"], method: "直调", glass: "古典杯 / 葡萄酒杯", strength: 2, diff: 1,
-    ing: [["金巴利", "30 ml"], ["甜味美思", "30 ml"], ["Prosecco", "60 ml"], ["橙片", "1 片"]],
+    ing: [["金巴利 Campari", "30 ml"], ["甜味美思 Sweet Vermouth", "30 ml"], ["Prosecco", "60 ml"], ["橙片 Orange Wheel", "1 片"]],
     steps: [
       "古典杯或葡萄酒杯加满冰。",
       "倒入金巴利与甜味美思，搅拌 8 秒。",
@@ -39,9 +39,9 @@ const COCKTAILS_WINE = [
     ]
   },
   {
-    id: "sherry-cobbler", zh: "雪莉库布勒", en: "Sherry Cobbler", fam: "punch", base: "wine", sub: "Amontillado 雪莉",
+    id: "sherry-cobbler", zh: "雪莉库布勒", en: "Sherry Cobbler", fam: "punch", base: "wine", sub: "阿蒙提亚多雪莉",
     mods: ["syrup", "citrus", "aromatic"], method: "直调", glass: "大葡萄酒杯 / 高球杯", strength: 1, diff: 1,
-    ing: [["Amontillado 雪莉", "90 ml"], ["单糖浆", "15 ml"], ["柠檬汁", "10 ml"], ["橙片", "2 片"], ["当季莓果", "3 颗"], ["碎冰", "满杯"]],
+    ing: [["阿蒙提亚多雪莉 Amontillado Sherry", "90 ml"], ["单糖浆 Simple Syrup", "15 ml"], ["柠檬汁 Lemon Juice", "10 ml"], ["橙片 Orange Wheel", "2 片"], ["当季莓果 Seasonal Berries", "3 颗"], ["碎冰 Crushed Ice", "满杯"]],
     steps: [
       "杯中放入橙片与莓果，加糖浆与柠檬汁轻压。",
       "倒入雪莉，加入碎冰至满。",
@@ -56,9 +56,9 @@ const COCKTAILS_WINE = [
     ]
   },
   {
-    id: "bamboo", zh: "竹子", en: "Bamboo", fam: "duo", base: "wine", sub: "Fino 雪莉",
+    id: "bamboo", zh: "竹子", en: "Bamboo", fam: "duo", base: "wine", sub: "菲诺雪莉",
     mods: ["vermouth", "bitters"], method: "搅拌", glass: "碟形杯", strength: 3, diff: 2,
-    ing: [["Fino 雪莉", "45 ml"], ["干味美思", "45 ml"], ["橙味苦精", "2 dash"], ["安高天娜", "1 dash"], ["柠檬皮", "1 片"]],
+    ing: [["菲诺雪莉 Fino Sherry", "45 ml"], ["干味美思 Dry Vermouth", "45 ml"], ["橙味苦精 Orange Bitters", "2 dash"], ["安高天娜苦精 Angostura Bitters", "1 dash"], ["柠檬皮 Lemon Peel", "1 片"]],
     steps: [
       "所有液体加冰搅拌 20–25 秒。",
       "滤入冰镇碟形杯。",
@@ -73,9 +73,9 @@ const COCKTAILS_WINE = [
     ]
   },
   {
-    id: "adonis", zh: "阿多尼斯", en: "Adonis", fam: "duo", base: "wine", sub: "Fino 雪莉",
+    id: "adonis", zh: "阿多尼斯", en: "Adonis", fam: "duo", base: "wine", sub: "菲诺雪莉",
     mods: ["vermouth", "bitters"], method: "搅拌", glass: "碟形杯", strength: 3, diff: 2,
-    ing: [["Fino 雪莉", "45 ml"], ["甜味美思", "30 ml"], ["橙味苦精", "2 dash"], ["橙皮", "1 片"]],
+    ing: [["菲诺雪莉 Fino Sherry", "45 ml"], ["甜味美思 Sweet Vermouth", "30 ml"], ["橙味苦精 Orange Bitters", "2 dash"], ["橙皮 Orange Peel", "1 片"]],
     steps: [
       "所有液体加冰搅拌 20 秒。",
       "滤入冰镇碟形杯。",
@@ -92,7 +92,7 @@ const COCKTAILS_WINE = [
   {
     id: "vermouth-tonic", zh: "味美思汤力", en: "Vermouth & Tonic", fam: "highball", base: "wine", sub: "干味美思",
     mods: ["mixer", "citrus"], method: "直调", glass: "高球杯 / Copa 杯", strength: 1, diff: 1,
-    ing: [["干味美思", "60 ml"], ["汤力水", "120 ml"], ["橙皮", "1 片"], ["迷迭香", "1 枝（可选）"]],
+    ing: [["干味美思 Dry Vermouth", "60 ml"], ["汤力水 Tonic Water", "120 ml"], ["橙皮 Orange Peel", "1 片"], ["迷迭香 Rosemary", "1 枝（可选）"]],
     steps: [
       "杯中加满冰，倒入干味美思。",
       "补满冰镇汤力水，轻提拉。",
@@ -109,7 +109,7 @@ const COCKTAILS_WINE = [
   {
     id: "kir-royale", zh: "皇家基尔", en: "Kir Royale", fam: "aperitivo", base: "wine", sub: "起泡酒",
     mods: ["liqueur", "mixer"], method: "直调", glass: "香槟杯", strength: 1, diff: 1,
-    ing: [["黑加仑利口酒", "15 ml"], ["香槟 / 起泡酒", "120 ml"]],
+    ing: [["黑加仑利口酒 Crème de Cassis", "15 ml"], ["起泡酒 Sparkling Wine", "120 ml"]],
     steps: [
       "香槟杯冰镇，倒入黑加仑利口酒。",
       "缓慢补入冰镇起泡酒。",
@@ -126,7 +126,7 @@ const COCKTAILS_WINE = [
   {
     id: "bellini", zh: "贝里尼", en: "Bellini", fam: "aperitivo", base: "wine", sub: "Prosecco",
     mods: ["juice", "mixer"], method: "直调", glass: "香槟杯", strength: 1, diff: 1,
-    ing: [["白桃果泥", "50 ml"], ["Prosecco", "100 ml"], ["柠檬汁", "5 ml（可选）"]],
+    ing: [["白桃果泥 White Peach Purée", "50 ml"], ["Prosecco", "100 ml"], ["柠檬汁 Lemon Juice", "5 ml（可选）"]],
     steps: [
       "白桃果泥与柠檬汁（如用）倒入冰镇香槟杯。",
       "缓慢补入冰镇 Prosecco，轻搅一次。",
@@ -143,7 +143,7 @@ const COCKTAILS_WINE = [
   {
     id: "mimosa", zh: "含羞草", en: "Mimosa", fam: "aperitivo", base: "wine", sub: "起泡酒",
     mods: ["juice", "mixer"], method: "直调", glass: "香槟杯", strength: 1, diff: 1,
-    ing: [["橙汁", "60 ml"], ["香槟 / 起泡酒", "120 ml"], ["橙片", "1 片"]],
+    ing: [["橙汁 Orange Juice", "60 ml"], ["起泡酒 Sparkling Wine", "120 ml"], ["橙片 Orange Wheel", "1 片"]],
     steps: [
       "香槟杯冰镇，倒入冰镇鲜榨橙汁。",
       "缓慢补入起泡酒，轻提拉一次。",
@@ -160,7 +160,7 @@ const COCKTAILS_WINE = [
   {
     id: "death-in-the-afternoon", zh: "午后之死", en: "Death in the Afternoon", fam: "aperitivo", base: "wine", sub: "香槟",
     mods: ["aromatic", "mixer"], method: "直调", glass: "香槟杯", strength: 3, diff: 1,
-    ing: [["苦艾酒", "15 ml"], ["香槟", "120 ml"], ["柠檬皮", "1 片（可选）"]],
+    ing: [["苦艾酒 Absinthe", "15 ml"], ["香槟 Champagne", "120 ml"], ["柠檬皮 Lemon Peel", "1 片（可选）"]],
     steps: [
       "香槟杯冰镇，倒入苦艾酒。",
       "缓慢补入冰镇香槟。",
@@ -177,7 +177,7 @@ const COCKTAILS_WINE = [
   {
     id: "champagne-cocktail", zh: "香槟鸡尾酒", en: "Champagne Cocktail", fam: "aperitivo", base: "wine", sub: "香槟",
     mods: ["syrup", "bitters", "mixer"], method: "直调", glass: "香槟杯", strength: 2, diff: 1,
-    ing: [["方糖", "1 块"], ["安高天娜苦精", "2 dash"], ["香槟", "120 ml"], ["柠檬皮", "1 片"]],
+    ing: [["方糖 Sugar Cube", "1 块"], ["安高天娜苦精 Angostura Bitters", "2 dash"], ["香槟 Champagne", "120 ml"], ["柠檬皮 Lemon Peel", "1 片"]],
     steps: [
       "方糖放入香槟杯，滴上苦精，静置 1 分钟让其渗透。",
       "缓慢补入冰镇香槟。",

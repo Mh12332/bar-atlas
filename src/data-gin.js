@@ -4,9 +4,9 @@
 
 const COCKTAILS_GIN = [
   {
-    id: "dry-martini", zh: "干马天尼", en: "Dry Martini", fam: "duo", base: "gin", sub: "London Dry",
+    id: "dry-martini", zh: "干马天尼", en: "Dry Martini", fam: "duo", base: "gin", sub: "伦敦干金",
     mods: ["vermouth", "bitters"], method: "搅拌", glass: "碟形杯 / 马天尼杯", strength: 5, diff: 3,
-    ing: [["金酒", "60 ml"], ["干味美思", "10 ml"], ["橙味苦精", "1 dash"]],
+    ing: [["金酒 Gin", "60 ml"], ["干味美思 Dry Vermouth", "10 ml"], ["橙味苦精 Orange Bitters", "1 dash"]],
     steps: [
       "把碟形杯与搅拌杯提前冰镇，味美思与金酒保持冷藏。",
       "搅拌杯中加满大冰块，倒入金酒、干味美思与苦精，搅拌 25–30 秒。",
@@ -23,9 +23,9 @@ const COCKTAILS_GIN = [
     ]
   },
   {
-    id: "negroni", zh: "内格罗尼", en: "Negroni", fam: "aperitivo", base: "gin", sub: "London Dry",
+    id: "negroni", zh: "内格罗尼", en: "Negroni", fam: "aperitivo", base: "gin", sub: "伦敦干金",
     mods: ["vermouth", "amaro", "aromatic"], method: "搅拌", glass: "古典杯", strength: 4, diff: 1,
-    ing: [["金酒", "30 ml"], ["金巴利", "30 ml"], ["甜味美思", "30 ml"], ["橙皮", "1 片"]],
+    ing: [["金酒 Gin", "30 ml"], ["金巴利 Campari", "30 ml"], ["甜味美思 Sweet Vermouth", "30 ml"], ["橙皮 Orange Peel", "1 片"]],
     steps: [
       "古典杯中放入一大块透明冰，搅拌杯加冰预冷。",
       "依次倒入金酒、金巴利与甜味美思，搅拌 20–25 秒。",
@@ -42,9 +42,9 @@ const COCKTAILS_GIN = [
     ]
   },
   {
-    id: "white-negroni", zh: "白色内格罗尼", en: "White Negroni", fam: "aperitivo", base: "gin", sub: "London Dry",
+    id: "white-negroni", zh: "白色内格罗尼", en: "White Negroni", fam: "aperitivo", base: "gin", sub: "伦敦干金",
     mods: ["vermouth", "amaro"], method: "搅拌", glass: "古典杯", strength: 4, diff: 2,
-    ing: [["金酒", "40 ml"], ["Lillet Blanc", "30 ml"], ["Suze", "20 ml"], ["葡萄柚皮", "1 片"]],
+    ing: [["金酒 Gin", "40 ml"], ["Blanc 味美思 Blanc Vermouth", "30 ml"], ["Suze", "20 ml"], ["葡萄柚皮 Grapefruit Peel", "1 片"]],
     steps: [
       "古典杯加冰预冷，搅拌杯加满冰。",
       "倒入金酒、Lillet Blanc 与 Suze，搅拌 20 秒。",
@@ -59,9 +59,9 @@ const COCKTAILS_GIN = [
     ]
   },
   {
-    id: "tom-collins", zh: "汤姆柯林斯", en: "Tom Collins", fam: "collins", base: "gin", sub: "London Dry",
+    id: "tom-collins", zh: "汤姆柯林斯", en: "Tom Collins", fam: "collins", base: "gin", sub: "伦敦干金",
     mods: ["citrus", "syrup", "mixer"], method: "直调", glass: "柯林斯杯", strength: 2, diff: 1,
-    ing: [["金酒", "45 ml"], ["柠檬汁", "30 ml"], ["单糖浆", "15 ml"], ["苏打水", "60 ml"]],
+    ing: [["金酒 Gin", "45 ml"], ["柠檬汁 Lemon Juice", "30 ml"], ["单糖浆 Simple Syrup", "15 ml"], ["苏打水 Soda Water", "60 ml"]],
     steps: [
       "柯林斯杯加满冰，倒入金酒、柠檬汁与糖浆。",
       "用吧勺提拉 8–10 次，让材料与冰充分接触。",
@@ -77,9 +77,9 @@ const COCKTAILS_GIN = [
     ]
   },
   {
-    id: "gin-fizz", zh: "金菲士", en: "Gin Fizz", fam: "collins", base: "gin", sub: "London Dry",
+    id: "gin-fizz", zh: "金菲士", en: "Gin Fizz", fam: "collins", base: "gin", sub: "伦敦干金",
     mods: ["citrus", "syrup", "mixer", "cream"], method: "摇和", glass: "小高球杯", strength: 2, diff: 2,
-    ing: [["金酒", "45 ml"], ["柠檬汁", "30 ml"], ["单糖浆", "15 ml"], ["蛋清", "15 ml（可选）"], ["苏打水", "60 ml"]],
+    ing: [["金酒 Gin", "45 ml"], ["柠檬汁 Lemon Juice", "30 ml"], ["单糖浆 Simple Syrup", "15 ml"], ["蛋清 Egg White", "15 ml（可选）"], ["苏打水 Soda Water", "60 ml"]],
     steps: [
       "金酒、柠檬、糖浆与蛋清（如用）先干摇 10 秒。",
       "加冰摇和 12 秒，滤入冰镇小高球杯。",
@@ -95,9 +95,9 @@ const COCKTAILS_GIN = [
     ]
   },
   {
-    id: "ramos-gin-fizz", zh: "拉莫斯金菲士", en: "Ramos Gin Fizz", fam: "collins", base: "gin", sub: "London Dry",
+    id: "ramos-gin-fizz", zh: "拉莫斯金菲士", en: "Ramos Gin Fizz", fam: "collins", base: "gin", sub: "伦敦干金",
     mods: ["citrus", "syrup", "cream", "mixer", "aromatic"], method: "摇和", glass: "小高球杯", strength: 2, diff: 3,
-    ing: [["金酒", "45 ml"], ["柠檬汁", "15 ml"], ["青柠汁", "15 ml"], ["单糖浆", "20 ml"], ["淡奶油", "30 ml"], ["蛋清", "1 个"], ["橙花水", "3 dash"], ["苏打水", "30 ml"]],
+    ing: [["金酒 Gin", "45 ml"], ["柠檬汁 Lemon Juice", "15 ml"], ["青柠汁 Lime Juice", "15 ml"], ["单糖浆 Simple Syrup", "20 ml"], ["淡奶油 Heavy Cream", "30 ml"], ["蛋清 Egg White", "1 个"], ["橙花水 Orange Blossom Water", "3 dash"], ["苏打水 Soda Water", "30 ml"]],
     steps: [
       "除苏打外全部材料加入摇壶，先干摇 15 秒。",
       "加冰，持续摇和 45–60 秒，直到壶身结霜、内部形成浓密泡沫。",
@@ -112,9 +112,9 @@ const COCKTAILS_GIN = [
     ]
   },
   {
-    id: "gimlet", zh: "吉姆雷特", en: "Gimlet", fam: "sour", base: "gin", sub: "London Dry",
+    id: "gimlet", zh: "吉姆雷特", en: "Gimlet", fam: "sour", base: "gin", sub: "伦敦干金",
     mods: ["citrus", "syrup"], method: "摇和", glass: "碟形杯", strength: 4, diff: 1,
-    ing: [["金酒", "60 ml"], ["青柠汁", "20 ml"], ["单糖浆", "15 ml"], ["青柠皮", "1 片"]],
+    ing: [["金酒 Gin", "60 ml"], ["青柠汁 Lime Juice", "20 ml"], ["单糖浆 Simple Syrup", "15 ml"], ["青柠皮 Lime Peel", "1 片"]],
     steps: [
       "金酒、青柠汁与糖浆加入加冰摇壶。",
       "摇和 10–12 秒，充分冷却并带入稀释。",
@@ -130,9 +130,9 @@ const COCKTAILS_GIN = [
     ]
   },
   {
-    id: "white-lady", zh: "白色佳人", en: "White Lady", fam: "daisy", base: "gin", sub: "London Dry",
+    id: "white-lady", zh: "白色佳人", en: "White Lady", fam: "daisy", base: "gin", sub: "伦敦干金",
     mods: ["citrus", "liqueur", "cream"], method: "摇和", glass: "碟形杯", strength: 4, diff: 2,
-    ing: [["金酒", "40 ml"], ["君度", "20 ml"], ["柠檬汁", "20 ml"], ["蛋清", "15 ml（可选）"]],
+    ing: [["金酒 Gin", "40 ml"], ["君度 Cointreau", "20 ml"], ["柠檬汁 Lemon Juice", "20 ml"], ["蛋清 Egg White", "15 ml（可选）"]],
     steps: [
       "所有材料（含蛋清）先干摇 10 秒。",
       "加冰摇和 12 秒，双重过滤入冰镇碟形杯。",
@@ -148,9 +148,9 @@ const COCKTAILS_GIN = [
     ]
   },
   {
-    id: "bees-knees", zh: "蜂之膝", en: "Bee's Knees", fam: "sour", base: "gin", sub: "London Dry",
+    id: "bees-knees", zh: "蜂之膝", en: "Bee's Knees", fam: "sour", base: "gin", sub: "伦敦干金",
     mods: ["citrus", "syrup"], method: "摇和", glass: "碟形杯", strength: 4, diff: 1,
-    ing: [["金酒", "60 ml"], ["柠檬汁", "22.5 ml"], ["蜂蜜糖浆", "20 ml"]],
+    ing: [["金酒 Gin", "60 ml"], ["柠檬汁 Lemon Juice", "22.5 ml"], ["蜂蜜糖浆 Honey Syrup", "20 ml"]],
     steps: [
       "蜂蜜按 3:1 与水调成糖浆，冷却备用。",
       "金酒、柠檬汁与蜂蜜糖浆加冰摇和 12 秒。",
@@ -166,9 +166,9 @@ const COCKTAILS_GIN = [
     ]
   },
   {
-    id: "clover-club", zh: "三叶草俱乐部", en: "Clover Club", fam: "sour", base: "gin", sub: "London Dry",
+    id: "clover-club", zh: "三叶草俱乐部", en: "Clover Club", fam: "sour", base: "gin", sub: "伦敦干金",
     mods: ["citrus", "syrup", "cream"], method: "摇和", glass: "碟形杯", strength: 3, diff: 2,
-    ing: [["金酒", "45 ml"], ["柠檬汁", "20 ml"], ["覆盆子糖浆", "15 ml"], ["蛋清", "20 ml"]],
+    ing: [["金酒 Gin", "45 ml"], ["柠檬汁 Lemon Juice", "20 ml"], ["覆盆子糖浆 Raspberry Syrup", "15 ml"], ["蛋清 Egg White", "20 ml"]],
     steps: [
       "所有材料先干摇 10–15 秒，让蛋清充气。",
       "加冰摇和 12 秒，双重过滤入冰镇碟形杯。",
@@ -184,9 +184,9 @@ const COCKTAILS_GIN = [
     ]
   },
   {
-    id: "southside", zh: "南区", en: "Southside", fam: "julep", base: "gin", sub: "London Dry",
+    id: "southside", zh: "南区", en: "Southside", fam: "julep", base: "gin", sub: "伦敦干金",
     mods: ["citrus", "syrup", "aromatic"], method: "摇和", glass: "碟形杯", strength: 3, diff: 1,
-    ing: [["金酒", "60 ml"], ["青柠汁", "25 ml"], ["单糖浆", "20 ml"], ["薄荷叶", "8 片"]],
+    ing: [["金酒 Gin", "60 ml"], ["青柠汁 Lime Juice", "25 ml"], ["单糖浆 Simple Syrup", "20 ml"], ["薄荷 Mint", "8 片"]],
     steps: [
       "薄荷叶与糖浆在摇壶中轻压 2–3 次，只出香不捣碎。",
       "加入金酒、青柠汁与冰，摇和 10–12 秒。",
@@ -202,9 +202,9 @@ const COCKTAILS_GIN = [
     ]
   },
   {
-    id: "last-word", zh: "最后一语", en: "Last Word", fam: "sour", base: "gin", sub: "London Dry",
+    id: "last-word", zh: "最后一语", en: "Last Word", fam: "sour", base: "gin", sub: "伦敦干金",
     mods: ["citrus", "liqueur", "amaro"], method: "摇和", glass: "碟形杯", strength: 4, diff: 2,
-    ing: [["金酒", "22.5 ml"], ["绿查特", "22.5 ml"], ["黑樱桃利口酒", "22.5 ml"], ["青柠汁", "22.5 ml"]],
+    ing: [["金酒 Gin", "22.5 ml"], ["绿查特 Green Chartreuse", "22.5 ml"], ["黑樱桃利口酒 Maraschino Liqueur", "22.5 ml"], ["青柠汁 Lime Juice", "22.5 ml"]],
     steps: [
       "四款材料等量加入加冰摇壶。",
       "摇和 10–12 秒，双重过滤入冰镇碟形杯。",
@@ -221,9 +221,9 @@ const COCKTAILS_GIN = [
     ]
   },
   {
-    id: "corpse-reviver-2", zh: "复苏者二号", en: "Corpse Reviver #2", fam: "sour", base: "gin", sub: "London Dry",
+    id: "corpse-reviver-2", zh: "复苏者二号", en: "Corpse Reviver #2", fam: "sour", base: "gin", sub: "伦敦干金",
     mods: ["citrus", "liqueur", "vermouth", "aromatic"], method: "摇和", glass: "碟形杯", strength: 4, diff: 2,
-    ing: [["金酒", "22.5 ml"], ["君度", "22.5 ml"], ["Lillet Blanc", "22.5 ml"], ["柠檬汁", "22.5 ml"], ["苦艾酒", "1 dash"]],
+    ing: [["金酒 Gin", "22.5 ml"], ["君度 Cointreau", "22.5 ml"], ["Blanc 味美思 Blanc Vermouth", "22.5 ml"], ["柠檬汁 Lemon Juice", "22.5 ml"], ["苦艾酒 Absinthe", "1 dash"]],
     steps: [
       "碟形杯用苦艾酒冲洗，倒掉多余酒液。",
       "其余材料加冰摇和 10–12 秒。",
@@ -239,9 +239,9 @@ const COCKTAILS_GIN = [
     ]
   },
   {
-    id: "aviation", zh: "航空", en: "Aviation", fam: "sour", base: "gin", sub: "London Dry",
+    id: "aviation", zh: "航空", en: "Aviation", fam: "sour", base: "gin", sub: "伦敦干金",
     mods: ["citrus", "liqueur"], method: "摇和", glass: "碟形杯", strength: 4, diff: 3,
-    ing: [["金酒", "45 ml"], ["黑樱桃利口酒", "15 ml"], ["紫罗兰利口酒", "7.5 ml"], ["柠檬汁", "20 ml"]],
+    ing: [["金酒 Gin", "45 ml"], ["黑樱桃利口酒 Maraschino Liqueur", "15 ml"], ["紫罗兰利口酒 Crème de Violette", "7.5 ml"], ["柠檬汁 Lemon Juice", "20 ml"]],
     steps: [
       "所有材料加冰摇和 10–12 秒。",
       "双重过滤入冰镇碟形杯。",
@@ -257,9 +257,9 @@ const COCKTAILS_GIN = [
     ]
   },
   {
-    id: "french-75", zh: "法式 75", en: "French 75", fam: "collins", base: "gin", sub: "London Dry",
+    id: "french-75", zh: "法式 75", en: "French 75", fam: "collins", base: "gin", sub: "伦敦干金",
     mods: ["citrus", "syrup", "mixer"], method: "摇和", glass: "香槟杯", strength: 3, diff: 2,
-    ing: [["金酒", "30 ml"], ["柠檬汁", "15 ml"], ["单糖浆", "15 ml"], ["香槟 / 起泡酒", "90 ml"]],
+    ing: [["金酒 Gin", "30 ml"], ["柠檬汁 Lemon Juice", "15 ml"], ["单糖浆 Simple Syrup", "15 ml"], ["起泡酒 Sparkling Wine", "90 ml"]],
     steps: [
       "金酒、柠檬汁与糖浆加冰摇和 8–10 秒。",
       "滤入冰镇香槟杯，缓慢补入冰镇起泡酒。",
@@ -275,9 +275,9 @@ const COCKTAILS_GIN = [
     ]
   },
   {
-    id: "gin-tonic", zh: "金汤力", en: "Gin & Tonic", fam: "highball", base: "gin", sub: "London Dry",
+    id: "gin-tonic", zh: "金汤力", en: "Gin & Tonic", fam: "highball", base: "gin", sub: "伦敦干金",
     mods: ["mixer", "citrus"], method: "直调", glass: "高球杯 / Copa 杯", strength: 2, diff: 1,
-    ing: [["金酒", "45 ml"], ["汤力水", "120 ml"], ["青柠角", "1 块"]],
+    ing: [["金酒 Gin", "45 ml"], ["汤力水 Tonic Water", "120 ml"], ["青柠角 Lime Wedge", "1 块"]],
     steps: [
       "高球杯加满大冰块，搅动 10 秒冰杯，倒掉融水。",
       "倒入金酒，沿吧勺缓慢注入冰镇汤力水。",
@@ -296,7 +296,7 @@ const COCKTAILS_GIN = [
   {
     id: "pimms-cup", zh: "皮姆杯", en: "Pimm's Cup", fam: "punch", base: "gin", sub: "Pimm's No.1",
     mods: ["mixer", "citrus", "syrup", "aromatic"], method: "直调", glass: "高球杯", strength: 1, diff: 1,
-    ing: [["Pimm's No.1", "50 ml"], ["柠檬水 / 姜汁汽水", "100 ml"], ["黄瓜片", "3 片"], ["草莓", "1 颗"], ["薄荷枝", "1 枝"]],
+    ing: [["Pimm's No.1", "50 ml"], ["柠檬水 Lemonade", "100 ml"], ["黄瓜 Cucumber", "3 片"], ["草莓 Strawberry", "1 颗"], ["薄荷 Mint", "1 枝"]],
     steps: [
       "高球杯加满冰，放入黄瓜、草莓与薄荷。",
       "倒入 Pimm's No.1，补满冰镇柠檬水。",
@@ -311,9 +311,9 @@ const COCKTAILS_GIN = [
     ]
   },
   {
-    id: "saturn", zh: "土星", en: "Saturn", fam: "tiki", base: "gin", sub: "London Dry",
+    id: "saturn", zh: "土星", en: "Saturn", fam: "tiki", base: "gin", sub: "伦敦干金",
     mods: ["citrus", "syrup", "liqueur"], method: "摇和", glass: "碟形杯 / Tiki 杯", strength: 4, diff: 3,
-    ing: [["金酒", "45 ml"], ["柠檬汁", "20 ml"], ["百香果糖浆", "15 ml"], ["杏仁糖浆", "10 ml"], ["法勒南", "5 ml"]],
+    ing: [["金酒 Gin", "45 ml"], ["柠檬汁 Lemon Juice", "20 ml"], ["百香果糖浆 Passion Fruit Syrup", "15 ml"], ["杏仁糖浆 Orgeat", "10 ml"], ["法勒南 Falernum", "5 ml"]],
     steps: [
       "所有材料加冰摇和 12 秒。",
       "双重过滤入冰镇碟形杯或加碎冰的 Tiki 杯。",
@@ -328,9 +328,9 @@ const COCKTAILS_GIN = [
     ]
   },
   {
-    id: "jasmine", zh: "茉莉", en: "Jasmine", fam: "sour", base: "gin", sub: "London Dry",
+    id: "jasmine", zh: "茉莉", en: "Jasmine", fam: "sour", base: "gin", sub: "伦敦干金",
     mods: ["citrus", "liqueur", "amaro"], method: "摇和", glass: "碟形杯", strength: 4, diff: 2,
-    ing: [["金酒", "45 ml"], ["金巴利", "20 ml"], ["君度", "20 ml"], ["柠檬汁", "20 ml"]],
+    ing: [["金酒 Gin", "45 ml"], ["金巴利 Campari", "20 ml"], ["君度 Cointreau", "20 ml"], ["柠檬汁 Lemon Juice", "20 ml"]],
     steps: [
       "所有材料加冰摇和 10–12 秒。",
       "双重过滤入冰镇碟形杯。",

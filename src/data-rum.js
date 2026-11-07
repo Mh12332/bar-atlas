@@ -6,7 +6,7 @@ const COCKTAILS_RUM = [
   {
     id: "daiquiri", zh: "大吉利", en: "Daiquiri", fam: "sour", base: "rum", sub: "白朗姆",
     mods: ["citrus", "syrup"], method: "摇和", glass: "碟形杯", strength: 4, diff: 1,
-    ing: [["白朗姆", "60 ml"], ["青柠汁", "25 ml"], ["单糖浆", "15 ml"]],
+    ing: [["白朗姆 White Rum", "60 ml"], ["青柠汁 Lime Juice", "25 ml"], ["单糖浆 Simple Syrup", "15 ml"]],
     steps: [
       "白朗姆、青柠汁与糖浆加冰摇和 10–12 秒。",
       "双重过滤入冰镇碟形杯。",
@@ -25,7 +25,7 @@ const COCKTAILS_RUM = [
   {
     id: "hemingway-daiquiri", zh: "海明威大吉利", en: "Hemingway Daiquiri", fam: "sour", base: "rum", sub: "白朗姆",
     mods: ["citrus", "liqueur"], method: "摇和", glass: "碟形杯", strength: 4, diff: 2,
-    ing: [["白朗姆", "60 ml"], ["青柠汁", "15 ml"], ["西柚汁", "20 ml"], ["黑樱桃利口酒", "10 ml"]],
+    ing: [["白朗姆 White Rum", "60 ml"], ["青柠汁 Lime Juice", "15 ml"], ["西柚汁 Grapefruit Juice", "20 ml"], ["黑樱桃利口酒 Maraschino Liqueur", "10 ml"]],
     steps: [
       "所有材料加冰摇和 10–12 秒。",
       "双重过滤入冰镇碟形杯。",
@@ -42,7 +42,7 @@ const COCKTAILS_RUM = [
   {
     id: "mojito", zh: "莫吉托", en: "Mojito", fam: "highball", base: "rum", sub: "白朗姆",
     mods: ["citrus", "syrup", "aromatic", "mixer"], method: "捣压", glass: "高球杯", strength: 2, diff: 2,
-    ing: [["白朗姆", "45 ml"], ["青柠汁", "20 ml"], ["单糖浆", "15 ml"], ["薄荷叶", "8 片"], ["苏打水", "60 ml"]],
+    ing: [["白朗姆 White Rum", "45 ml"], ["青柠汁 Lime Juice", "20 ml"], ["单糖浆 Simple Syrup", "15 ml"], ["薄荷 Mint", "8 片"], ["苏打水 Soda Water", "60 ml"]],
     steps: [
       "高球杯中放薄荷与糖浆，轻压 2 次，加入青柠汁。",
       "加满碎冰，倒入白朗姆，用吧勺提拉均匀。",
@@ -61,7 +61,7 @@ const COCKTAILS_RUM = [
   {
     id: "caipirinha", zh: "卡琵莉亚", en: "Caipirinha", fam: "julep", base: "cane", sub: "卡莎萨",
     mods: ["citrus", "syrup"], method: "捣压", glass: "古典杯", strength: 4, diff: 1,
-    ing: [["卡莎萨", "60 ml"], ["青柠", "1 个（切 8 块）"], ["砂糖", "2 茶匙"], ["碎冰", "满杯"]],
+    ing: [["卡莎萨 Cachaça", "60 ml"], ["青柠 Lime", "1 个（切 8 块）"], ["砂糖 Sugar", "2 茶匙"], ["碎冰 Crushed Ice", "满杯"]],
     steps: [
       "青柠洗净去芯，切 8 块放入古典杯，加砂糖。",
       "用捣棒轻压青柠与糖，释放汁液与皮油，不要捣烂果皮。",
@@ -79,7 +79,7 @@ const COCKTAILS_RUM = [
   {
     id: "mai-tai", zh: "迈泰", en: "Mai Tai", fam: "tiki", base: "rum", sub: "陈年朗姆",
     mods: ["citrus", "liqueur", "syrup"], method: "摇和", glass: "古典杯 / Tiki 杯", strength: 4, diff: 3,
-    ing: [["陈年牙买加朗姆", "30 ml"], ["农业朗姆", "30 ml"], ["青柠汁", "20 ml"], ["橙味利口酒", "15 ml"], ["杏仁糖浆", "15 ml"]],
+    ing: [["牙买加朗姆 Jamaican Rum", "30 ml"], ["农业朗姆 Rhum Agricole", "30 ml"], ["青柠汁 Lime Juice", "20 ml"], ["橙味利口酒 Orange Liqueur", "15 ml"], ["杏仁糖浆 Orgeat", "15 ml"]],
     steps: [
       "所有材料加冰摇和 12 秒。",
       "连冰倒入古典杯，或滤入加碎冰的 Tiki 杯。",
@@ -97,7 +97,7 @@ const COCKTAILS_RUM = [
   {
     id: "zombie", zh: "僵尸", en: "Zombie", fam: "tiki", base: "rum", sub: "多款朗姆",
     mods: ["citrus", "syrup", "liqueur", "aromatic"], method: "摇和", glass: "Tiki 杯", strength: 5, diff: 3,
-    ing: [["牙买加朗姆", "45 ml"], ["波多黎各金朗姆", "45 ml"], ["青柠汁", "20 ml"], ["西柚汁", "15 ml"], ["肉桂糖浆", "10 ml"], ["法勒南", "10 ml"], ["苦艾酒", "1 dash"], ["安高天娜", "1 dash"]],
+    ing: [["牙买加朗姆 Jamaican Rum", "45 ml"], ["波多黎各朗姆 Puerto Rican Rum", "45 ml"], ["青柠汁 Lime Juice", "20 ml"], ["西柚汁 Grapefruit Juice", "15 ml"], ["肉桂糖浆 Cinnamon Syrup", "10 ml"], ["法勒南 Falernum", "10 ml"], ["苦艾酒 Absinthe", "1 dash"], ["安高天娜苦精 Angostura Bitters", "1 dash"]],
     steps: [
       "除苦艾与苦精外全部材料加冰摇和 12 秒。",
       "连冰倒入 Tiki 杯，补碎冰。",
@@ -114,7 +114,7 @@ const COCKTAILS_RUM = [
   {
     id: "jungle-bird", zh: "丛林鸟", en: "Jungle Bird", fam: "tiki", base: "rum", sub: "黑朗姆",
     mods: ["citrus", "juice", "amaro", "syrup"], method: "摇和", glass: "古典杯", strength: 4, diff: 2,
-    ing: [["黑朗姆", "45 ml"], ["金巴利", "20 ml"], ["菠萝汁", "45 ml"], ["青柠汁", "15 ml"], ["单糖浆", "15 ml"]],
+    ing: [["黑朗姆 Dark Rum", "45 ml"], ["金巴利 Campari", "20 ml"], ["菠萝汁 Pineapple Juice", "45 ml"], ["青柠汁 Lime Juice", "15 ml"], ["单糖浆 Simple Syrup", "15 ml"]],
     steps: [
       "所有材料加冰摇和 12 秒。",
       "双重过滤入加冰古典杯。",
@@ -131,7 +131,7 @@ const COCKTAILS_RUM = [
   {
     id: "painkiller", zh: "止痛药", en: "Painkiller", fam: "tiki", base: "rum", sub: "黑朗姆",
     mods: ["juice", "cream", "aromatic"], method: "摇和", glass: "Tiki 杯 / 高球杯", strength: 3, diff: 2,
-    ing: [["黑朗姆", "60 ml"], ["菠萝汁", "60 ml"], ["橙汁", "30 ml"], ["椰奶油", "30 ml"], ["现磨肉豆蔻", "适量"]],
+    ing: [["黑朗姆 Dark Rum", "60 ml"], ["菠萝汁 Pineapple Juice", "60 ml"], ["橙汁 Orange Juice", "30 ml"], ["椰奶油 Coconut Cream", "30 ml"], ["肉豆蔻 Nutmeg", "适量"]],
     steps: [
       "所有液体加冰摇和 12 秒。",
       "连冰倒入 Tiki 杯或高球杯，补碎冰。",
@@ -149,7 +149,7 @@ const COCKTAILS_RUM = [
   {
     id: "pina-colada", zh: "椰林飘香", en: "Piña Colada", fam: "blended", base: "rum", sub: "白朗姆 / 黑朗姆",
     mods: ["juice", "cream"], method: "搅拌机", glass: "飓风杯 / Tiki 杯", strength: 2, diff: 1,
-    ing: [["朗姆", "50 ml"], ["菠萝汁", "60 ml"], ["椰奶油", "30 ml"], ["青柠汁", "10 ml"], ["碎冰", "1 杯"]],
+    ing: [["朗姆酒 Rum", "50 ml"], ["菠萝汁 Pineapple Juice", "60 ml"], ["椰奶油 Coconut Cream", "30 ml"], ["青柠汁 Lime Juice", "10 ml"], ["碎冰 Crushed Ice", "1 杯"]],
     steps: [
       "所有液体与碎冰放入搅拌机。",
       "高速搅打 15–20 秒，直到质地均匀、无大冰粒。",
@@ -167,7 +167,7 @@ const COCKTAILS_RUM = [
   {
     id: "navy-grog", zh: "海军格罗格", en: "Navy Grog", fam: "tiki", base: "rum", sub: "多款朗姆",
     mods: ["citrus", "syrup", "aromatic"], method: "摇和", glass: "Tiki 杯", strength: 5, diff: 3,
-    ing: [["牙买加朗姆", "30 ml"], ["德梅拉拉朗姆", "30 ml"], ["青柠汁", "20 ml"], ["西柚汁", "20 ml"], ["蜂蜜糖浆", "15 ml"], ["多香果利口酒", "5 ml"]],
+    ing: [["牙买加朗姆 Jamaican Rum", "30 ml"], ["德梅拉拉朗姆 Demerara Rum", "30 ml"], ["青柠汁 Lime Juice", "20 ml"], ["西柚汁 Grapefruit Juice", "20 ml"], ["蜂蜜糖浆 Honey Syrup", "15 ml"], ["多香果利口酒 Allspice Dram", "5 ml"]],
     steps: [
       "所有材料加冰摇和 12 秒。",
       "滤入加碎冰的 Tiki 杯。",
@@ -184,7 +184,7 @@ const COCKTAILS_RUM = [
   {
     id: "hurricane", zh: "飓风", en: "Hurricane", fam: "tiki", base: "rum", sub: "黑朗姆 / 陈年朗姆",
     mods: ["citrus", "syrup"], method: "摇和", glass: "飓风杯", strength: 4, diff: 1,
-    ing: [["黑朗姆", "60 ml"], ["百香果糖浆", "30 ml"], ["柠檬汁", "20 ml"], ["橙片", "1 片"]],
+    ing: [["黑朗姆 Dark Rum", "60 ml"], ["百香果糖浆 Passion Fruit Syrup", "30 ml"], ["柠檬汁 Lemon Juice", "20 ml"], ["橙片 Orange Wheel", "1 片"]],
     steps: [
       "黑朗姆、百香果糖浆与柠檬汁加冰摇和 12 秒。",
       "连冰倒入飓风杯，补碎冰。",
@@ -201,7 +201,7 @@ const COCKTAILS_RUM = [
   {
     id: "planters-punch", zh: "种植者潘趣", en: "Planter's Punch", fam: "punch", base: "rum", sub: "黑朗姆",
     mods: ["citrus", "syrup", "bitters", "mixer"], method: "摇和", glass: "高球杯", strength: 3, diff: 1,
-    ing: [["黑朗姆", "60 ml"], ["青柠汁", "30 ml"], ["德梅拉拉糖浆", "22.5 ml"], ["安高天娜苦精", "2 dash"], ["苏打水", "30 ml"]],
+    ing: [["黑朗姆 Dark Rum", "60 ml"], ["青柠汁 Lime Juice", "30 ml"], ["德梅拉拉糖浆 Demerara Syrup", "22.5 ml"], ["安高天娜苦精 Angostura Bitters", "2 dash"], ["苏打水 Soda Water", "30 ml"]],
     steps: [
       "除苏打外全部材料加冰摇和 10–12 秒。",
       "滤入加冰高球杯，补少量苏打。",
@@ -218,7 +218,7 @@ const COCKTAILS_RUM = [
   {
     id: "dark-n-stormy", zh: "暗黑风暴", en: "Dark 'n' Stormy", fam: "highball", base: "rum", sub: "黑朗姆",
     mods: ["mixer", "citrus"], method: "直调", glass: "高球杯", strength: 2, diff: 1,
-    ing: [["黑朗姆", "60 ml"], ["姜啤", "100 ml"], ["青柠汁", "10 ml"]],
+    ing: [["黑朗姆 Dark Rum", "60 ml"], ["姜啤 Ginger Beer", "100 ml"], ["青柠汁 Lime Juice", "10 ml"]],
     steps: [
       "高球杯加满冰，倒入青柠汁与黑朗姆。",
       "沿吧勺注入姜啤，轻提拉一次。",
@@ -235,7 +235,7 @@ const COCKTAILS_RUM = [
   {
     id: "cuba-libre", zh: "自由古巴", en: "Cuba Libre", fam: "highball", base: "rum", sub: "白朗姆 / 金朗姆",
     mods: ["mixer", "citrus"], method: "直调", glass: "高球杯", strength: 2, diff: 1,
-    ing: [["朗姆", "50 ml"], ["可乐", "100 ml"], ["青柠汁", "10 ml"]],
+    ing: [["朗姆酒 Rum", "50 ml"], ["可乐 Cola", "100 ml"], ["青柠汁 Lime Juice", "10 ml"]],
     steps: [
       "高球杯加满冰，倒入朗姆与青柠汁。",
       "补满冰镇可乐，轻提拉。",
@@ -252,7 +252,7 @@ const COCKTAILS_RUM = [
   {
     id: "el-presidente", zh: "总统", en: "El Presidente", fam: "duo", base: "rum", sub: "白朗姆",
     mods: ["vermouth", "liqueur", "syrup"], method: "搅拌", glass: "碟形杯", strength: 4, diff: 2,
-    ing: [["白朗姆", "45 ml"], ["干味美思", "20 ml"], ["橙味利口酒", "10 ml"], ["石榴糖浆", "5 ml"]],
+    ing: [["白朗姆 White Rum", "45 ml"], ["干味美思 Dry Vermouth", "20 ml"], ["橙味利口酒 Orange Liqueur", "10 ml"], ["石榴糖浆 Grenadine", "5 ml"]],
     steps: [
       "所有液体加冰搅拌 20 秒。",
       "滤入冰镇碟形杯。",
@@ -269,7 +269,7 @@ const COCKTAILS_RUM = [
   {
     id: "mary-pickford", zh: "玛丽·碧克馥", en: "Mary Pickford", fam: "sour", base: "rum", sub: "白朗姆",
     mods: ["juice", "liqueur", "syrup"], method: "摇和", glass: "碟形杯", strength: 3, diff: 2,
-    ing: [["白朗姆", "45 ml"], ["菠萝汁", "30 ml"], ["黑樱桃利口酒", "7.5 ml"], ["石榴糖浆", "5 ml"]],
+    ing: [["白朗姆 White Rum", "45 ml"], ["菠萝汁 Pineapple Juice", "30 ml"], ["黑樱桃利口酒 Maraschino Liqueur", "7.5 ml"], ["石榴糖浆 Grenadine", "5 ml"]],
     steps: [
       "所有材料加冰摇和 10–12 秒。",
       "双重过滤入冰镇碟形杯。",
@@ -286,7 +286,7 @@ const COCKTAILS_RUM = [
   {
     id: "rum-old-fashioned", zh: "朗姆古典", en: "Rum Old Fashioned", fam: "old-fashioned", base: "rum", sub: "陈年朗姆",
     mods: ["syrup", "bitters", "aromatic"], method: "搅拌", glass: "古典杯", strength: 4, diff: 1,
-    ing: [["陈年朗姆", "60 ml"], ["德梅拉拉糖浆", "5 ml"], ["橙味苦精", "2 dash"], ["橙皮", "1 片"]],
+    ing: [["陈年朗姆 Aged Rum", "60 ml"], ["德梅拉拉糖浆 Demerara Syrup", "5 ml"], ["橙味苦精 Orange Bitters", "2 dash"], ["橙皮 Orange Peel", "1 片"]],
     steps: [
       "古典杯加大冰，搅拌杯加冰。",
       "朗姆、糖浆与苦精搅拌 20 秒。",
@@ -301,9 +301,9 @@ const COCKTAILS_RUM = [
     ]
   },
   {
-    id: "tia-mia", zh: "蒂亚米娅", en: "Tia Mia", fam: "tiki", base: "rum", sub: "朗姆 + 梅斯卡尔",
+    id: "tia-mia", zh: "蒂亚米娅", en: "Tia Mia", fam: "tiki", base: "rum", sub: "朗姆酒 + 梅斯卡尔",
     mods: ["citrus", "liqueur", "syrup"], method: "摇和", glass: "古典杯", strength: 4, diff: 2,
-    ing: [["梅斯卡尔", "30 ml"], ["牙买加朗姆", "30 ml"], ["青柠汁", "20 ml"], ["杏仁糖浆", "15 ml"], ["橙味利口酒", "10 ml"]],
+    ing: [["梅斯卡尔 Mezcal", "30 ml"], ["牙买加朗姆 Jamaican Rum", "30 ml"], ["青柠汁 Lime Juice", "20 ml"], ["杏仁糖浆 Orgeat", "15 ml"], ["橙味利口酒 Orange Liqueur", "10 ml"]],
     steps: [
       "所有材料加冰摇和 12 秒。",
       "连冰倒入古典杯，补碎冰。",

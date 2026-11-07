@@ -124,17 +124,17 @@ const IBA_COUNT = Object.keys(IBA_INDEX).length;
 
 /* 已核对的 IBA 官方配方（与吧台版并列展示） */
 const IBA_SPECS = {
-  daiquiri: [["白古巴朗姆", "60 ml"], ["鲜榨青柠汁", "20 ml"], ["超细砂糖", "2 吧勺"]],
-  "dry-martini": [["金酒", "60 ml"], ["干味美思", "10 ml"]],
-  negroni: [["金酒", "30 ml"], ["金巴利", "30 ml"], ["甜味美思", "30 ml"]],
-  manhattan: [["黑麦威士忌", "50 ml"], ["甜味美思", "20 ml"], ["安高天娜", "1 dash"]],
-  margarita: [["100% 龙舌兰", "50 ml"], ["Triple Sec", "20 ml"], ["鲜榨青柠汁", "15 ml"]],
-  "old-fashioned": [["波本或黑麦", "45 ml"], ["方糖", "1 块"], ["安高天娜", "数 dash"], ["清水", "数 dash"]],
-  "whiskey-sour": [["波本", "45 ml"], ["鲜榨柠檬汁", "25 ml"], ["糖浆", "20 ml"], ["蛋清", "数滴（可选）"]],
-  mojito: [["白古巴朗姆", "45 ml"], ["鲜榨青柠汁", "20 ml"], ["薄荷枝", "6 枝"], ["白甘蔗糖", "2 茶匙"], ["苏打水", "补满"]],
-  "mai-tai": [["牙买加琥珀朗姆", "30 ml"], ["马丁尼克糖蜜朗姆", "30 ml"], ["橙味库拉索", "15 ml"], ["杏仁糖浆", "15 ml"], ["青柠汁", "30 ml"], ["糖浆", "7.5 ml"]],
-  "aperol-spritz": [["Prosecco", "90 ml"], ["Aperol", "60 ml"], ["苏打水", "少量"]],
-  "white-lady": [["金酒", "40 ml"], ["Triple Sec", "30 ml"], ["鲜榨柠檬汁", "20 ml"]]
+  daiquiri: [["白古巴朗姆", "60 ml"], ["青柠汁 Lime Juice", "20 ml"], ["超细砂糖", "2 吧勺"]],
+  "dry-martini": [["金酒 Gin", "60 ml"], ["干味美思 Dry Vermouth", "10 ml"]],
+  negroni: [["金酒 Gin", "30 ml"], ["金巴利 Campari", "30 ml"], ["甜味美思 Sweet Vermouth", "30 ml"]],
+  manhattan: [["黑麦威士忌 Rye Whiskey", "50 ml"], ["甜味美思 Sweet Vermouth", "20 ml"], ["安高天娜苦精 Angostura Bitters", "1 dash"]],
+  margarita: [["100% 龙舌兰 100% Agave Tequila", "50 ml"], ["三重橙酒 Triple Sec", "20 ml"], ["青柠汁 Lime Juice", "15 ml"]],
+  "old-fashioned": [["波本威士忌 Bourbon Whiskey", "45 ml"], ["方糖 Sugar Cube", "1 块"], ["安高天娜苦精 Angostura Bitters", "数 dash"], ["清水", "数 dash"]],
+  "whiskey-sour": [["波本威士忌 Bourbon Whiskey", "45 ml"], ["柠檬汁 Lemon Juice", "25 ml"], ["单糖浆 Simple Syrup", "20 ml"], ["蛋清 Egg White", "数滴（可选）"]],
+  mojito: [["白古巴朗姆", "45 ml"], ["青柠汁 Lime Juice", "20 ml"], ["薄荷 Mint", "6 枝"], ["白甘蔗糖", "2 茶匙"], ["苏打水 Soda Water", "补满"]],
+  "mai-tai": [["牙买加琥珀朗姆", "30 ml"], ["马丁尼克糖蜜朗姆", "30 ml"], ["橙味库拉索 Orange Curaçao", "15 ml"], ["杏仁糖浆 Orgeat", "15 ml"], ["青柠汁 Lime Juice", "30 ml"], ["单糖浆 Simple Syrup", "7.5 ml"]],
+  "aperol-spritz": [["Prosecco", "90 ml"], ["Aperol", "60 ml"], ["苏打水 Soda Water", "少量"]],
+  "white-lady": [["金酒 Gin", "40 ml"], ["三重橙酒 Triple Sec", "30 ml"], ["柠檬汁 Lemon Juice", "20 ml"]]
 };
 
 /* 非 IBA 或 IBA 变体配方的历史补充 */
@@ -331,220 +331,220 @@ const NON_IBATAGS = {
    键为「母配方 id::变体英文名」，与正文变体说明合并显示。 */
 const VARIANT_SPECS = {
   "daiquiri::Hemingway Daiquiri": {
-    ing: [["白朗姆", "60 ml"], ["青柠汁", "15 ml"], ["西柚汁", "20 ml"], ["黑樱桃利口酒", "10 ml"]],
+    ing: [["白朗姆 White Rum", "60 ml"], ["青柠汁 Lime Juice", "15 ml"], ["西柚汁 Grapefruit Juice", "20 ml"], ["黑樱桃利口酒 Maraschino Liqueur", "10 ml"]],
     method: "摇和", glass: "碟形杯", note: "不加糖，靠黑樱桃与西柚平衡；西柚必须鲜榨。"
   },
   "daiquiri::Floridita Daiquiri": {
-    ing: [["白朗姆", "60 ml"], ["青柠汁", "25 ml"], ["单糖浆", "10 ml"], ["黑樱桃利口酒", "5 ml"]],
+    ing: [["白朗姆 White Rum", "60 ml"], ["青柠汁 Lime Juice", "25 ml"], ["单糖浆 Simple Syrup", "10 ml"], ["黑樱桃利口酒 Maraschino Liqueur", "5 ml"]],
     method: "摇和", glass: "碟形杯", note: "比标准大吉利略甜，黑樱桃只做尾韵。"
   },
   "daiquiri::Banana Daiquiri": {
-    ing: [["白朗姆", "60 ml"], ["青柠汁", "20 ml"], ["单糖浆", "15 ml"], ["香蕉利口酒", "30 ml"]],
+    ing: [["白朗姆 White Rum", "60 ml"], ["青柠汁 Lime Juice", "20 ml"], ["单糖浆 Simple Syrup", "15 ml"], ["香蕉利口酒 Banana Liqueur", "30 ml"]],
     method: "摇和", glass: "碟形杯", note: "用熟香蕉利口酒，青柠要够酸；也可加半根香蕉搅打。"
   },
   "daiquiri::Frozen Daiquiri": {
-    ing: [["白朗姆", "60 ml"], ["青柠汁", "25 ml"], ["单糖浆", "20 ml"], ["碎冰", "1 杯"]],
+    ing: [["白朗姆 White Rum", "60 ml"], ["青柠汁 Lime Juice", "25 ml"], ["单糖浆 Simple Syrup", "20 ml"], ["碎冰 Crushed Ice", "1 杯"]],
     method: "搅拌机", glass: "高脚杯", note: "冰沙版糖浆略增，搅打至雪泥状。"
   },
 
   "margarita::Tommy's Margarita": {
-    ing: [["龙舌兰 Blanco", "60 ml"], ["青柠汁", "30 ml"], ["龙舌兰糖浆", "15 ml"], ["盐", "1 小撮"]],
+    ing: [["白色龙舌兰 Blanco Tequila", "60 ml"], ["青柠汁 Lime Juice", "30 ml"], ["龙舌兰糖浆 Agave Syrup", "15 ml"], ["盐 Salt", "1 小撮"]],
     method: "摇和", glass: "古典杯", note: "不加橙味利口酒，龙舌兰与青柠直接对话。"
   },
   "margarita::Mezcal Margarita": {
-    ing: [["梅斯卡尔", "50 ml"], ["青柠汁", "25 ml"], ["君度", "20 ml"], ["盐", "1 小撮"]],
+    ing: [["梅斯卡尔 Mezcal", "50 ml"], ["青柠汁 Lime Juice", "25 ml"], ["君度 Cointreau", "20 ml"], ["盐 Salt", "1 小撮"]],
     method: "摇和", glass: "碟形杯", note: "烟熏会放大甜味，青柠可加到 30 ml。"
   },
   "margarita::Spicy Margarita": {
-    ing: [["龙舌兰 Blanco", "50 ml"], ["青柠汁", "25 ml"], ["君度", "20 ml"], ["墨西哥辣椒", "2–3 片"]],
+    ing: [["白色龙舌兰 Blanco Tequila", "50 ml"], ["青柠汁 Lime Juice", "25 ml"], ["君度 Cointreau", "20 ml"], ["墨西哥辣椒", "2–3 片"]],
     method: "摇和", glass: "古典杯", note: "辣椒与酒液一起短摇，双重过滤去籽。"
   },
   "margarita::Cadillac Margarita": {
-    ing: [["龙舌兰 Blanco", "50 ml"], ["Grand Marnier", "20 ml"], ["青柠汁", "15 ml"], ["橙味苦精", "1 dash"]],
+    ing: [["白色龙舌兰 Blanco Tequila", "50 ml"], ["Grand Marnier", "20 ml"], ["青柠汁 Lime Juice", "15 ml"], ["橙味苦精 Orange Bitters", "1 dash"]],
     method: "摇和", glass: "碟形杯", note: "Grand Marnier 更甜，青柠减到 15 ml。"
   },
   "margarita::Frozen Margarita": {
-    ing: [["龙舌兰 Blanco", "50 ml"], ["青柠汁", "25 ml"], ["君度", "20 ml"], ["单糖浆", "5 ml"], ["碎冰", "1 杯"]],
+    ing: [["白色龙舌兰 Blanco Tequila", "50 ml"], ["青柠汁 Lime Juice", "25 ml"], ["君度 Cointreau", "20 ml"], ["单糖浆 Simple Syrup", "5 ml"], ["碎冰 Crushed Ice", "1 杯"]],
     method: "搅拌机", glass: "高球杯", note: "盐边保留，冰沙版糖浆略增。"
   },
 
   "old-fashioned::Oaxaca Old Fashioned": {
-    ing: [["龙舌兰 Reposado", "45 ml"], ["梅斯卡尔", "15 ml"], ["龙舌兰糖浆", "7.5 ml"], ["莫尔苦精", "2 dash"]],
+    ing: [["微陈龙舌兰 Reposado Tequila", "45 ml"], ["梅斯卡尔 Mezcal", "15 ml"], ["龙舌兰糖浆 Agave Syrup", "7.5 ml"], ["莫尔苦精 Mole Bitters", "2 dash"]],
     method: "搅拌", glass: "古典杯", note: "烧橙皮油；梅斯卡尔 15 ml 足够提供烟熏。"
   },
   "old-fashioned::Rum Old Fashioned": {
-    ing: [["陈年朗姆", "60 ml"], ["德梅拉拉糖浆", "5 ml"], ["橙味苦精", "2 dash"], ["橙皮", "1 片"]],
+    ing: [["陈年朗姆 Aged Rum", "60 ml"], ["德梅拉拉糖浆 Demerara Syrup", "5 ml"], ["橙味苦精 Orange Bitters", "2 dash"], ["橙皮 Orange Peel", "1 片"]],
     method: "搅拌", glass: "古典杯", note: "陈年朗姆自带甜感，糖浆只需 5 ml。"
   },
   "old-fashioned::Toronto": {
-    ing: [["黑麦威士忌", "60 ml"], ["Fernet-Branca", "7.5 ml"], ["单糖浆", "7.5 ml"], ["安高天娜", "1 dash"]],
+    ing: [["黑麦威士忌 Rye Whiskey", "60 ml"], ["Fernet-Branca", "7.5 ml"], ["单糖浆 Simple Syrup", "7.5 ml"], ["安高天娜苦精 Angostura Bitters", "1 dash"]],
     method: "搅拌", glass: "古典杯", note: "Fernet 不要超过 10 ml；橙皮油收尾。"
   },
   "old-fashioned::Wisconsin Old Fashioned": {
-    ing: [["白兰地", "60 ml"], ["单糖浆", "7.5 ml"], ["安高天娜", "2 dash"], ["樱桃与橙片", "各 1"], ["苏打水", "30 ml"]],
+    ing: [["白兰地 Brandy", "60 ml"], ["单糖浆 Simple Syrup", "7.5 ml"], ["安高天娜苦精 Angostura Bitters", "2 dash"], ["樱桃与橙片", "各 1"], ["苏打水 Soda Water", "30 ml"]],
     method: "捣压", glass: "古典杯", note: "樱桃与橙片先轻压，加冰、白兰地与苦精，最后补苏打。"
   },
 
   "dry-martini::Wet Martini": {
-    ing: [["金酒", "60 ml"], ["干味美思", "25 ml"]],
+    ing: [["金酒 Gin", "60 ml"], ["干味美思 Dry Vermouth", "25 ml"]],
     method: "搅拌", glass: "碟形杯", note: "味美思回温后香气更明显，搅拌 20–25 秒。"
   },
   "dry-martini::Dirty Martini": {
-    ing: [["金酒", "60 ml"], ["干味美思", "10 ml"], ["橄榄盐水", "10 ml"], ["橄榄", "2 颗"]],
+    ing: [["金酒 Gin", "60 ml"], ["干味美思 Dry Vermouth", "10 ml"], ["橄榄盐水 Olive Brine", "10 ml"], ["橄榄 Olive", "2 颗"]],
     method: "搅拌", glass: "碟形杯", note: "盐水先少后多，避免盖过金酒。"
   },
   "dry-martini::Gibson": {
-    ing: [["金酒", "60 ml"], ["干味美思", "10 ml"], ["珍珠洋葱", "1 颗"]],
+    ing: [["金酒 Gin", "60 ml"], ["干味美思 Dry Vermouth", "10 ml"], ["珍珠洋葱 Pearl Onion", "1 颗"]],
     method: "搅拌", glass: "碟形杯", note: "洋葱的辛甜比橄榄更干，适合清亮型金酒。"
   },
   "dry-martini::Fifty-Fifty": {
-    ing: [["金酒", "45 ml"], ["干味美思", "45 ml"], ["橙味苦精", "1 dash"]],
+    ing: [["金酒 Gin", "45 ml"], ["干味美思 Dry Vermouth", "45 ml"], ["橙味苦精 Orange Bitters", "1 dash"]],
     method: "搅拌", glass: "碟形杯", note: "低酒精版本，味美思必须新鲜冷藏。"
   },
 
   "negroni::Boulevardier": {
-    ing: [["波本或黑麦", "45 ml"], ["金巴利", "30 ml"], ["甜味美思", "30 ml"], ["橙皮", "1 片"]],
+    ing: [["波本威士忌 Bourbon Whiskey", "45 ml"], ["金巴利 Campari", "30 ml"], ["甜味美思 Sweet Vermouth", "30 ml"], ["橙皮 Orange Peel", "1 片"]],
     method: "搅拌", glass: "古典杯", note: "比内格罗尼更温暖；波本甜、黑麦辛，按基酒调整。"
   },
   "negroni::White Negroni": {
-    ing: [["金酒", "40 ml"], ["Lillet Blanc", "30 ml"], ["Suze", "20 ml"], ["葡萄柚皮", "1 片"]],
+    ing: [["金酒 Gin", "40 ml"], ["Blanc 味美思 Blanc Vermouth", "30 ml"], ["Suze", "20 ml"], ["葡萄柚皮 Grapefruit Peel", "1 片"]],
     method: "搅拌", glass: "古典杯", note: "Suze 很干，怕苦可减到 15 ml。"
   },
   "negroni::Negroni Sbagliato": {
-    ing: [["金巴利", "30 ml"], ["甜味美思", "30 ml"], ["Prosecco", "60 ml"], ["橙片", "1 片"]],
+    ing: [["金巴利 Campari", "30 ml"], ["甜味美思 Sweet Vermouth", "30 ml"], ["Prosecco", "60 ml"], ["橙片 Orange Wheel", "1 片"]],
     method: "直调", glass: "古典杯", note: "先搅拌金巴利与味美思，再补起泡酒。"
   },
   "negroni::Old Pal": {
-    ing: [["黑麦威士忌", "30 ml"], ["干味美思", "30 ml"], ["金巴利", "30 ml"], ["橙皮", "1 片"]],
+    ing: [["黑麦威士忌 Rye Whiskey", "30 ml"], ["干味美思 Dry Vermouth", "30 ml"], ["金巴利 Campari", "30 ml"], ["橙皮 Orange Peel", "1 片"]],
     method: "搅拌", glass: "碟形杯", note: "比 Boulevardier 更干，干味美思要新鲜。"
   },
 
   "whiskey-sour::Boston Sour": {
-    ing: [["波本", "60 ml"], ["柠檬汁", "30 ml"], ["单糖浆", "20 ml"], ["蛋清", "20 ml"]],
+    ing: [["波本威士忌 Bourbon Whiskey", "60 ml"], ["柠檬汁 Lemon Juice", "30 ml"], ["单糖浆 Simple Syrup", "20 ml"], ["蛋清 Egg White", "20 ml"]],
     method: "摇和", glass: "古典杯", note: "先干摇 15 秒，再加冰摇；泡沫上点苦精。"
   },
   "whiskey-sour::New York Sour": {
-    ing: [["波本", "60 ml"], ["柠檬汁", "30 ml"], ["单糖浆", "20 ml"], ["蛋清", "20 ml"], ["红葡萄酒", "15 ml"]],
+    ing: [["波本威士忌 Bourbon Whiskey", "60 ml"], ["柠檬汁 Lemon Juice", "30 ml"], ["单糖浆 Simple Syrup", "20 ml"], ["蛋清 Egg White", "20 ml"], ["红葡萄酒 Red Wine", "15 ml"]],
     method: "摇和", glass: "古典杯", note: "红酒沿吧勺背面漂浮，不要搅拌。"
   },
   "whiskey-sour::Gold Rush": {
-    ing: [["波本", "60 ml"], ["柠檬汁", "22.5 ml"], ["蜂蜜糖浆", "20 ml"]],
+    ing: [["波本威士忌 Bourbon Whiskey", "60 ml"], ["柠檬汁 Lemon Juice", "22.5 ml"], ["蜂蜜糖浆 Honey Syrup", "20 ml"]],
     method: "摇和", glass: "古典杯", note: "蜂蜜按 3:1 稀释；加冰古典杯出品。"
   },
   "whiskey-sour::Penicillin": {
-    ing: [["苏格兰调和", "60 ml"], ["柠檬汁", "22.5 ml"], ["蜂蜜姜糖浆", "20 ml"], ["泥煤威士忌", "7.5 ml"]],
+    ing: [["苏格兰调和", "60 ml"], ["柠檬汁 Lemon Juice", "22.5 ml"], ["蜂蜜姜糖浆 Honey-Ginger Syrup", "20 ml"], ["泥煤威士忌", "7.5 ml"]],
     method: "摇和", glass: "古典杯", note: "前三者摇和滤冰，最后漂浮泥煤威士忌。"
   },
 
   "manhattan::Perfect Manhattan": {
-    ing: [["黑麦", "60 ml"], ["甜味美思", "15 ml"], ["干味美思", "15 ml"], ["安高天娜", "2 dash"]],
+    ing: [["黑麦威士忌 Rye Whiskey", "60 ml"], ["甜味美思 Sweet Vermouth", "15 ml"], ["干味美思 Dry Vermouth", "15 ml"], ["安高天娜苦精 Angostura Bitters", "2 dash"]],
     method: "搅拌", glass: "碟形杯", note: "甜与干各半，柠檬皮或樱桃都可。"
   },
   "manhattan::Dry Manhattan": {
-    ing: [["黑麦", "60 ml"], ["干味美思", "30 ml"], ["橙味苦精", "1 dash"]],
+    ing: [["黑麦威士忌 Rye Whiskey", "60 ml"], ["干味美思 Dry Vermouth", "30 ml"], ["橙味苦精 Orange Bitters", "1 dash"]],
     method: "搅拌", glass: "碟形杯", note: "柠檬皮装饰，酒体更锐利。"
   },
   "manhattan::Black Manhattan": {
-    ing: [["黑麦", "60 ml"], ["Averna", "30 ml"], ["橙味苦精", "2 dash"]],
+    ing: [["黑麦威士忌 Rye Whiskey", "60 ml"], ["Averna", "30 ml"], ["橙味苦精 Orange Bitters", "2 dash"]],
     method: "搅拌", glass: "碟形杯", note: "Averna 替代甜味美思，苦甜更深、焦糖更多。"
   },
   "manhattan::Brooklyn": {
-    ing: [["黑麦", "60 ml"], ["干味美思", "20 ml"], ["黑樱桃利口酒", "10 ml"], ["Amer Picon", "5 ml"]],
+    ing: [["黑麦威士忌 Rye Whiskey", "60 ml"], ["干味美思 Dry Vermouth", "20 ml"], ["黑樱桃利口酒 Maraschino Liqueur", "10 ml"], ["Amer Picon", "5 ml"]],
     method: "搅拌", glass: "碟形杯", note: "没有 Amer Picon 时用 Cynar 5 ml 替代。"
   },
   "manhattan::Little Italy": {
-    ing: [["黑麦", "45 ml"], ["Cynar", "20 ml"], ["甜味美思", "20 ml"], ["橙皮", "1 片"]],
+    ing: [["黑麦威士忌 Rye Whiskey", "45 ml"], ["Cynar", "20 ml"], ["甜味美思 Sweet Vermouth", "20 ml"], ["橙皮 Orange Peel", "1 片"]],
     method: "搅拌", glass: "碟形杯", note: "Cynar 的朝鲜蓟苦与焦糖，橙皮必须现喷。"
   },
   "manhattan::Greenpoint": {
-    ing: [["黑麦", "60 ml"], ["黄查特", "15 ml"], ["甜味美思", "15 ml"], ["安高天娜", "1 dash"]],
+    ing: [["黑麦威士忌 Rye Whiskey", "60 ml"], ["黄查特 Yellow Chartreuse", "15 ml"], ["甜味美思 Sweet Vermouth", "15 ml"], ["安高天娜苦精 Angostura Bitters", "1 dash"]],
     method: "搅拌", glass: "碟形杯", note: "黄查特的蜂蜜花香很浓，15 ml 足够。"
   },
 
   "gin-tonic::Spanish G&T": {
-    ing: [["金酒", "50 ml"], ["汤力水", "120 ml"], ["迷迭香", "1 枝"], ["葡萄柚片", "1 片"]],
+    ing: [["金酒 Gin", "50 ml"], ["汤力水 Tonic Water", "120 ml"], ["迷迭香 Rosemary", "1 枝"], ["葡萄柚片", "1 片"]],
     method: "直调", glass: "Copa 杯", note: "大杯、满冰、缓慢注气；草本与柑橘按金酒风格搭配。"
   },
   "gin-tonic::Gin Sonic": {
-    ing: [["金酒", "45 ml"], ["汤力水", "60 ml"], ["苏打水", "60 ml"], ["青柠角", "1 块"]],
+    ing: [["金酒 Gin", "45 ml"], ["汤力水 Tonic Water", "60 ml"], ["苏打水 Soda Water", "60 ml"], ["青柠角 Lime Wedge", "1 块"]],
     method: "直调", glass: "高球杯", note: "汤力与苏打 1:1，降低甜度、突出气泡。"
   },
   "gin-tonic::Pink Gin & Tonic": {
-    ing: [["金酒", "45 ml"], ["汤力水", "120 ml"], ["橙味苦精", "2 dash"], ["橙皮", "1 片"]],
+    ing: [["金酒 Gin", "45 ml"], ["汤力水 Tonic Water", "120 ml"], ["橙味苦精 Orange Bitters", "2 dash"], ["橙皮 Orange Peel", "1 片"]],
     method: "直调", glass: "高球杯", note: "苦精先入杯，再加冰与汤力，颜色更均匀。"
   },
 
   "moscow-mule::Mexican Mule": {
-    ing: [["龙舌兰 Blanco", "45 ml"], ["青柠汁", "15 ml"], ["姜啤", "100 ml"], ["安高天娜", "1 dash"]],
+    ing: [["白色龙舌兰 Blanco Tequila", "45 ml"], ["青柠汁 Lime Juice", "15 ml"], ["姜啤 Ginger Beer", "100 ml"], ["安高天娜苦精 Angostura Bitters", "1 dash"]],
     method: "直调", glass: "铜杯 / 高球杯", note: "龙舌兰的植物感与姜的辛辣很合。"
   },
   "moscow-mule::Gin-Gin Mule": {
-    ing: [["金酒", "45 ml"], ["青柠汁", "15 ml"], ["姜糖浆", "15 ml"], ["姜啤", "100 ml"], ["薄荷", "6 片"]],
+    ing: [["金酒 Gin", "45 ml"], ["青柠汁 Lime Juice", "15 ml"], ["姜糖浆 Ginger Syrup", "15 ml"], ["姜啤 Ginger Beer", "100 ml"], ["薄荷 Mint", "6 片"]],
     method: "直调", glass: "高球杯", note: "薄荷轻压，姜糖浆补足辛辣。"
   },
   "moscow-mule::Kentucky Mule": {
-    ing: [["波本", "45 ml"], ["青柠汁", "15 ml"], ["姜啤", "100 ml"], ["薄荷", "1 枝"]],
+    ing: [["波本威士忌 Bourbon Whiskey", "45 ml"], ["青柠汁 Lime Juice", "15 ml"], ["姜啤 Ginger Beer", "100 ml"], ["薄荷 Mint", "1 枝"]],
     method: "直调", glass: "铜杯 / 高球杯", note: "波本的香草与姜啤很搭，青柠提亮。"
   },
 
   "mai-tai::Royal Hawaiian Mai Tai": {
-    ing: [["陈年朗姆", "30 ml"], ["农业朗姆", "30 ml"], ["青柠汁", "20 ml"], ["橙味利口酒", "15 ml"], ["杏仁糖浆", "15 ml"], ["菠萝汁", "30 ml"], ["石榴糖浆", "10 ml"]],
+    ing: [["陈年朗姆 Aged Rum", "30 ml"], ["农业朗姆 Rhum Agricole", "30 ml"], ["青柠汁 Lime Juice", "20 ml"], ["橙味利口酒 Orange Liqueur", "15 ml"], ["杏仁糖浆 Orgeat", "15 ml"], ["菠萝汁 Pineapple Juice", "30 ml"], ["石榴糖浆 Grenadine", "10 ml"]],
     method: "摇和", glass: "Tiki 杯", note: "度假版更甜，菠萝汁与石榴是后来加入的。"
   },
   "mai-tai::Mai Tai Swizzle": {
-    ing: [["陈年朗姆", "30 ml"], ["农业朗姆", "30 ml"], ["青柠汁", "20 ml"], ["橙味利口酒", "15 ml"], ["杏仁糖浆", "15 ml"], ["151 朗姆", "7.5 ml 漂浮"]],
+    ing: [["陈年朗姆 Aged Rum", "30 ml"], ["农业朗姆 Rhum Agricole", "30 ml"], ["青柠汁 Lime Juice", "20 ml"], ["橙味利口酒 Orange Liqueur", "15 ml"], ["杏仁糖浆 Orgeat", "15 ml"], ["151 朗姆", "7.5 ml 漂浮"]],
     method: "直调", glass: "Tiki 杯", note: "碎冰中旋转搅拌，顶部漂浮 151 朗姆。"
   },
   "mai-tai::Jungle Bird": {
-    ing: [["黑朗姆", "45 ml"], ["金巴利", "20 ml"], ["菠萝汁", "45 ml"], ["青柠汁", "15 ml"], ["单糖浆", "15 ml"]],
+    ing: [["黑朗姆 Dark Rum", "45 ml"], ["金巴利 Campari", "20 ml"], ["菠萝汁 Pineapple Juice", "45 ml"], ["青柠汁 Lime Juice", "15 ml"], ["单糖浆 Simple Syrup", "15 ml"]],
     method: "摇和", glass: "古典杯", note: "鲜榨菠萝汁才有泡沫与酸度。"
   },
 
   "espresso-martini::Espresso Martini No. 2": {
-    ing: [["伏特加", "30 ml"], ["浓缩咖啡", "30 ml"], ["Mr Black", "20 ml"], ["单糖浆", "10 ml"]],
+    ing: [["伏特加 Vodka", "30 ml"], ["浓缩咖啡 Espresso", "30 ml"], ["Mr Black", "20 ml"], ["单糖浆 Simple Syrup", "10 ml"]],
     method: "摇和", glass: "碟形杯", note: "Mr Black 更干，糖浆按咖啡苦度调整。"
   },
   "espresso-martini::Cold Brew Martini": {
-    ing: [["冷萃咖啡", "45 ml"], ["伏特加", "30 ml"], ["咖啡利口酒", "15 ml"], ["单糖浆", "5 ml"]],
+    ing: [["冷萃咖啡 Cold Brew Coffee", "45 ml"], ["伏特加 Vodka", "30 ml"], ["咖啡利口酒 Coffee Liqueur", "15 ml"], ["单糖浆 Simple Syrup", "5 ml"]],
     method: "摇和", glass: "碟形杯", note: "冷萃泡沫较薄，但口感更圆。"
   },
   "espresso-martini::Carajillo": {
-    ing: [["Licor 43", "45 ml"], ["浓缩咖啡", "30 ml"], ["冰", "满杯"]],
+    ing: [["Licor 43", "45 ml"], ["浓缩咖啡 Espresso", "30 ml"], ["冰 Ice", "满杯"]],
     method: "摇和", glass: "古典杯", note: "摇和后倒入加冰古典杯，香草与咖啡。"
   },
 
   "aperol-spritz::Aperol Spritz 2.0": {
-    ing: [["Prosecco", "90 ml"], ["Aperol", "45 ml"], ["葡萄柚苏打", "15 ml"], ["橙片", "1 片"]],
+    ing: [["Prosecco", "90 ml"], ["Aperol", "45 ml"], ["葡萄柚苏打", "15 ml"], ["橙片 Orange Wheel", "1 片"]],
     method: "直调", glass: "大葡萄酒杯", note: "减少 Aperol、补葡萄柚苏打，更干。"
   },
   "aperol-spritz::Campari Spritz": {
-    ing: [["Prosecco", "90 ml"], ["金巴利", "60 ml"], ["苏打水", "30 ml"], ["橙片", "1 片"]],
+    ing: [["Prosecco", "90 ml"], ["金巴利 Campari", "60 ml"], ["苏打水 Soda Water", "30 ml"], ["橙片 Orange Wheel", "1 片"]],
     method: "直调", glass: "大葡萄酒杯", note: "金巴利比 Aperol 更苦，适合餐前。"
   },
 
   "french-75::French 75 Cognac": {
-    ing: [["干邑", "30 ml"], ["柠檬汁", "15 ml"], ["单糖浆", "15 ml"], ["香槟", "90 ml"]],
+    ing: [["干邑 Cognac", "30 ml"], ["柠檬汁 Lemon Juice", "15 ml"], ["单糖浆 Simple Syrup", "15 ml"], ["香槟 Champagne", "90 ml"]],
     method: "摇和", glass: "香槟杯", note: "干邑的果香比金酒更圆，起泡酒要冰。"
   },
   "french-75::Rosé 75": {
-    ing: [["金酒", "30 ml"], ["柠檬汁", "15 ml"], ["单糖浆", "10 ml"], ["桃红起泡酒", "90 ml"]],
+    ing: [["金酒 Gin", "30 ml"], ["柠檬汁 Lemon Juice", "15 ml"], ["单糖浆 Simple Syrup", "10 ml"], ["桃红起泡酒", "90 ml"]],
     method: "摇和", glass: "香槟杯", note: "桃红起泡酒的果味让糖浆可减 5 ml。"
   },
   "french-75::French 125": {
-    ing: [["波本", "30 ml"], ["青柠汁", "15 ml"], ["单糖浆", "15 ml"], ["香槟", "90 ml"]],
+    ing: [["波本威士忌 Bourbon Whiskey", "30 ml"], ["青柠汁 Lime Juice", "15 ml"], ["单糖浆 Simple Syrup", "15 ml"], ["香槟 Champagne", "90 ml"]],
     method: "摇和", glass: "香槟杯", note: "波本与青柠的组合更甜润。"
   },
 
   "last-word::Final Ward": {
-    ing: [["黑麦", "22.5 ml"], ["绿查特", "22.5 ml"], ["黑樱桃利口酒", "22.5 ml"], ["柠檬汁", "22.5 ml"]],
+    ing: [["黑麦威士忌 Rye Whiskey", "22.5 ml"], ["绿查特 Green Chartreuse", "22.5 ml"], ["黑樱桃利口酒 Maraschino Liqueur", "22.5 ml"], ["柠檬汁 Lemon Juice", "22.5 ml"]],
     method: "摇和", glass: "碟形杯", note: "把金酒换成黑麦、青柠换成柠檬，更温暖。"
   },
   "last-word::Paper Plane": {
-    ing: [["波本", "22.5 ml"], ["Aperol", "22.5 ml"], ["Amaro Nonino", "22.5 ml"], ["柠檬汁", "22.5 ml"]],
+    ing: [["波本威士忌 Bourbon Whiskey", "22.5 ml"], ["Aperol", "22.5 ml"], ["Amaro Nonino", "22.5 ml"], ["柠檬汁 Lemon Juice", "22.5 ml"]],
     method: "摇和", glass: "碟形杯", note: "四等分，橙皮油收尾。"
   },
   "last-word::Naked and Famous": {
-    ing: [["梅斯卡尔", "22.5 ml"], ["Aperol", "22.5 ml"], ["黄查特", "22.5 ml"], ["青柠汁", "22.5 ml"]],
+    ing: [["梅斯卡尔 Mezcal", "22.5 ml"], ["Aperol", "22.5 ml"], ["黄查特 Yellow Chartreuse", "22.5 ml"], ["青柠汁 Lime Juice", "22.5 ml"]],
     method: "摇和", glass: "碟形杯", note: "烟熏与苦甜并置，青柠必须够酸。"
   }
 };

@@ -6,7 +6,7 @@ const COCKTAILS_BRANDY = [
   {
     id: "sidecar", zh: "边车", en: "Sidecar", fam: "daisy", base: "brandy", sub: "干邑",
     mods: ["citrus", "liqueur", "aromatic"], method: "摇和", glass: "碟形杯", strength: 4, diff: 2,
-    ing: [["干邑", "50 ml"], ["君度", "20 ml"], ["柠檬汁", "20 ml"], ["细砂糖", "杯口（可选）"]],
+    ing: [["干邑 Cognac", "50 ml"], ["君度 Cointreau", "20 ml"], ["柠檬汁 Lemon Juice", "20 ml"], ["砂糖 Sugar", "杯口（可选）"]],
     steps: [
       "杯口用柠檬润湿，蘸一圈细砂糖（可选），杯身冰镇。",
       "干邑、君度与柠檬汁加冰摇和 10–12 秒。",
@@ -22,9 +22,9 @@ const COCKTAILS_BRANDY = [
     ]
   },
   {
-    id: "between-the-sheets", zh: "床笫之间", en: "Between the Sheets", fam: "sour", base: "brandy", sub: "干邑 + 朗姆",
+    id: "between-the-sheets", zh: "床笫之间", en: "Between the Sheets", fam: "sour", base: "brandy", sub: "干邑 + 朗姆酒",
     mods: ["citrus", "liqueur"], method: "摇和", glass: "碟形杯", strength: 5, diff: 2,
-    ing: [["干邑", "30 ml"], ["白朗姆", "30 ml"], ["君度", "20 ml"], ["柠檬汁", "20 ml"]],
+    ing: [["干邑 Cognac", "30 ml"], ["白朗姆 White Rum", "30 ml"], ["君度 Cointreau", "20 ml"], ["柠檬汁 Lemon Juice", "20 ml"]],
     steps: [
       "所有材料加冰摇和 10–12 秒。",
       "双重过滤入冰镇碟形杯。",
@@ -41,7 +41,7 @@ const COCKTAILS_BRANDY = [
   {
     id: "brandy-alexander", zh: "白兰地亚历山大", en: "Brandy Alexander", fam: "flip", base: "brandy", sub: "干邑",
     mods: ["coffee", "cream"], method: "摇和", glass: "碟形杯", strength: 3, diff: 2,
-    ing: [["干邑", "30 ml"], ["白可可利口酒", "30 ml"], ["淡奶油", "30 ml"], ["肉豆蔻", "现磨"]],
+    ing: [["干邑 Cognac", "30 ml"], ["白可可利口酒 White Cacao Liqueur", "30 ml"], ["淡奶油 Heavy Cream", "30 ml"], ["肉豆蔻 Nutmeg", "现磨"]],
     steps: [
       "干邑、白可可与奶油加冰摇和 12 秒。",
       "双重过滤入冰镇碟形杯。",
@@ -59,7 +59,7 @@ const COCKTAILS_BRANDY = [
   {
     id: "french-connection", zh: "法国贩毒网", en: "French Connection", fam: "old-fashioned", base: "brandy", sub: "干邑",
     mods: ["liqueur"], method: "直调", glass: "古典杯", strength: 4, diff: 1,
-    ing: [["干邑", "45 ml"], ["杏仁利口酒", "20 ml"]],
+    ing: [["干邑 Cognac", "45 ml"], ["杏仁利口酒 Amaretto", "20 ml"]],
     steps: [
       "古典杯加一大块冰。",
       "倒入干邑与杏仁利口酒，搅拌 15 秒。",
@@ -76,7 +76,7 @@ const COCKTAILS_BRANDY = [
   {
     id: "stinger", zh: "毒刺", en: "Stinger", fam: "old-fashioned", base: "brandy", sub: "干邑",
     mods: ["liqueur"], method: "搅拌", glass: "碟形杯 / 古典杯", strength: 5, diff: 1,
-    ing: [["干邑", "50 ml"], ["白薄荷利口酒", "20 ml"]],
+    ing: [["干邑 Cognac", "50 ml"], ["白薄荷利口酒 White Crème de Menthe", "20 ml"]],
     steps: [
       "所有液体加冰搅拌 20 秒。",
       "滤入冰镇碟形杯，或加碎冰倒入古典杯。",
@@ -93,7 +93,7 @@ const COCKTAILS_BRANDY = [
   {
     id: "japanese-cocktail", zh: "日本鸡尾酒", en: "Japanese Cocktail", fam: "old-fashioned", base: "brandy", sub: "干邑",
     mods: ["syrup", "bitters"], method: "搅拌", glass: "碟形杯", strength: 4, diff: 1,
-    ing: [["干邑", "60 ml"], ["杏仁糖浆", "15 ml"], ["安高天娜苦精", "2 dash"], ["柠檬皮", "1 片"]],
+    ing: [["干邑 Cognac", "60 ml"], ["杏仁糖浆 Orgeat", "15 ml"], ["安高天娜苦精 Angostura Bitters", "2 dash"], ["柠檬皮 Lemon Peel", "1 片"]],
     steps: [
       "所有液体加冰搅拌 20 秒。",
       "滤入冰镇碟形杯。",
@@ -110,7 +110,7 @@ const COCKTAILS_BRANDY = [
   {
     id: "pisco-sour", zh: "皮斯科酸", en: "Pisco Sour", fam: "sour", base: "brandy", sub: "皮斯科",
     mods: ["citrus", "syrup", "cream", "bitters"], method: "摇和", glass: "古典杯 / 碟形杯", strength: 3, diff: 2,
-    ing: [["皮斯科", "60 ml"], ["青柠汁", "25 ml"], ["单糖浆", "20 ml"], ["蛋清", "20 ml"], ["安高天娜苦精", "3 dash"]],
+    ing: [["皮斯科 Pisco", "60 ml"], ["青柠汁 Lime Juice", "25 ml"], ["单糖浆 Simple Syrup", "20 ml"], ["蛋清 Egg White", "20 ml"], ["安高天娜苦精 Angostura Bitters", "3 dash"]],
     steps: [
       "皮斯科、青柠、糖浆与蛋清先干摇 10–15 秒。",
       "加冰摇和 12 秒，双重过滤入冰镇杯。",
@@ -128,7 +128,7 @@ const COCKTAILS_BRANDY = [
   {
     id: "chilcano", zh: "奇尔卡诺", en: "Chilcano", fam: "highball", base: "brandy", sub: "皮斯科",
     mods: ["citrus", "mixer"], method: "直调", glass: "高球杯", strength: 2, diff: 1,
-    ing: [["皮斯科", "50 ml"], ["青柠汁", "15 ml"], ["姜汁汽水", "100 ml"], ["安高天娜苦精", "1 dash"]],
+    ing: [["皮斯科 Pisco", "50 ml"], ["青柠汁 Lime Juice", "15 ml"], ["姜啤 Ginger Beer", "100 ml"], ["安高天娜苦精 Angostura Bitters", "1 dash"]],
     steps: [
       "高球杯加满冰，倒入皮斯科与青柠汁。",
       "补满冰镇姜汁汽水，加 1 dash 苦精。",
@@ -145,7 +145,7 @@ const COCKTAILS_BRANDY = [
   {
     id: "brandy-crusta", zh: "白兰地卡斯达", en: "Brandy Crusta", fam: "sour", base: "brandy", sub: "白兰地",
     mods: ["citrus", "liqueur", "bitters", "aromatic"], method: "摇和", glass: "小葡萄酒杯", strength: 4, diff: 3,
-    ing: [["白兰地", "50 ml"], ["柠檬汁", "20 ml"], ["橙味利口酒", "10 ml"], ["黑樱桃利口酒", "5 ml"], ["安高天娜苦精", "1 dash"], ["细砂糖", "杯口"]],
+    ing: [["白兰地 Brandy", "50 ml"], ["柠檬汁 Lemon Juice", "20 ml"], ["橙味利口酒 Orange Liqueur", "10 ml"], ["黑樱桃利口酒 Maraschino Liqueur", "5 ml"], ["安高天娜苦精 Angostura Bitters", "1 dash"], ["砂糖 Sugar", "杯口"]],
     steps: [
       "杯口润湿后蘸细砂糖，尽量做出宽糖边。",
       "所有液体加冰摇和 10–12 秒。",

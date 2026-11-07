@@ -58,34 +58,34 @@ const TOTAL_VARIANTS = ALL.reduce((sum, c) => sum + c.v.length, 0);
 const IBA_TOTAL = Object.keys(IBA_INDEX).length;
 
 function materialCategory(name) {
-  if (/金酒|伏特加|朗姆|威士忌|龙舌兰|梅斯卡尔|白兰地|干邑|皮斯科|卡莎萨|清酒|烧酒|白酒|格拉帕/.test(name)) return "基酒";
-  if (/味美思|雪莉|波特|葡萄酒|香槟|起泡|Prosecco|Cava|Lillet|Blanc/.test(name)) return "加强酒";
-  if (/苦精|Peychaud|安高天娜/.test(name)) return "苦精";
-  if (/金巴利|Aperol|查特|利口酒|君度|库拉索|苦艾|Pernod|Suze|Cynar|Fernet|Bénédictine|Galliano|Pimm|Limoncello|Sloe Gin|Amaro|Amer|杜林标|榛子|Noyaux|Cordial|cordial/.test(name)) return "利口酒 / 苦酒";
-  if (/汁|果泥|果肉|柠檬水/.test(name)) return "果汁 / 果泥";
-  if (/奶油|牛奶|炼乳|椰奶|蛋|黄油/.test(name)) return "乳制品 / 蛋";
-  if (/糖浆|糖$|蜂蜜|枫糖/.test(name)) return "糖与甜味";
-  if (/苏打|汤力|姜啤|可乐|汽水|啤酒/.test(name)) return "气泡 / 混合饮料";
-  if (/冰|^水$|热水/.test(name)) return "冰与水";
-  if (/盐|胡椒|辣椒|辣酱|伍斯特|芹菜|肉桂|丁香|八角|肉豆蔻|香草|可可/.test(name)) return "香料 / 调味";
-  if (/橙皮|柠檬皮|青柠皮|葡萄柚皮|橙片|柠檬片|柠檬角|青柠角|薄荷|罗勒|黄瓜|草莓|黑莓|莓果|菠萝|百香果|樱桃|橄榄|洋葱|酒渍/.test(name)) return "水果 / 装饰";
-  return "其他";
+  if (/金酒|伏特加|朗姆|威士忌|龙舌兰|梅斯卡尔|白兰地|干邑|皮斯科|卡莎萨|清酒|烧酒|白酒|格拉帕/.test(name)) return "基酒 Base Spirit";
+  if (/味美思|雪莉|波特|葡萄酒|香槟|起泡|Prosecco|Cava|Lillet|Blanc/.test(name)) return "加强酒 Fortified Wine";
+  if (/苦精|Peychaud|安高天娜/.test(name)) return "苦精 Bitters";
+  if (/金巴利|Aperol|查特|利口酒|君度|库拉索|苦艾|Pernod|Suze|Cynar|Fernet|Bénédictine|Galliano|Pimm|Limoncello|Sloe Gin|Amaro|Amer|杜林标|榛子|Noyaux|Cordial|cordial/.test(name)) return "利口酒 / 苦味酒 Liqueur & Bitters";
+  if (/汁|果泥|果肉|柠檬水/.test(name)) return "果汁 / 果泥 Juice & Purée";
+  if (/奶油|牛奶|炼乳|椰奶|蛋|黄油/.test(name)) return "乳制品 / 蛋 Dairy & Egg";
+  if (/糖浆|糖$|蜂蜜|枫糖/.test(name)) return "糖与甜味 Sugar & Sweetener";
+  if (/苏打|汤力|姜啤|可乐|汽水|啤酒/.test(name)) return "气泡 / 混合饮料 Soda & Mixer";
+  if (/冰|^水$|热水/.test(name)) return "冰与水 Ice & Water";
+  if (/盐|胡椒|辣椒|辣酱|伍斯特|芹菜|肉桂|丁香|八角|肉豆蔻|香草|可可/.test(name)) return "香料 / 调味 Spice & Seasoning";
+  if (/橙皮|柠檬皮|青柠皮|葡萄柚皮|橙片|柠檬片|柠檬角|青柠角|薄荷|罗勒|黄瓜|草莓|黑莓|莓果|菠萝|百香果|樱桃|橄榄|洋葱|酒渍/.test(name)) return "水果 / 装饰 Fruit & Garnish";
+  return "其他 Other";
 }
 
 function materialProfile(name) {
   const exact = MATERIAL_NOTES.find((row) => row.name === name);
   if (exact) return exact;
-  if (/苦精|安高天娜/.test(name) && !/橙味|Peychaud|莫尔/.test(name)) return MATERIAL_NOTES.find((r) => r.name === "安高天娜");
-  if (/雪莉/.test(name) && !/Manzanilla|Amontillado|Fino/.test(name)) return MATERIAL_NOTES.find((r) => r.name === "雪莉");
-  if (/波特/.test(name)) return MATERIAL_NOTES.find((r) => r.name === "波特");
-  if (/白兰地|干邑|卡尔瓦多斯|格拉帕/.test(name)) return MATERIAL_NOTES.find((r) => r.name === "白兰地 / 干邑");
-  if (/清酒|烧酒/.test(name)) return MATERIAL_NOTES.find((r) => r.name === "清酒 / 烧酒");
-  if (/金酒/.test(name)) return MATERIAL_NOTES.find((r) => r.name === "金酒");
-  if (/威士忌|波本|黑麦/.test(name)) return MATERIAL_NOTES.find((r) => r.name === "威士忌");
-  if (/朗姆/.test(name)) return MATERIAL_NOTES.find((r) => r.name === "朗姆");
-  if (/龙舌兰/.test(name)) return MATERIAL_NOTES.find((r) => r.name === "龙舌兰");
-  if (/梅斯卡尔/.test(name)) return MATERIAL_NOTES.find((r) => r.name === "梅斯卡尔");
-  if (/伏特加/.test(name)) return MATERIAL_NOTES.find((r) => r.name === "伏特加");
+  if (/苦精|安高天娜/.test(name) && !/橙味|Peychaud|莫尔/.test(name)) return MATERIAL_NOTES.find((r) => r.name === "安高天娜苦精 Angostura Bitters");
+  if (/雪莉/.test(name) && !/Manzanilla|Amontillado|Fino/.test(name)) return MATERIAL_NOTES.find((r) => r.name === "雪莉 Sherry");
+  if (/波特/.test(name)) return MATERIAL_NOTES.find((r) => r.name === "波特 Port");
+  if (/白兰地|干邑|卡尔瓦多斯|格拉帕/.test(name)) return MATERIAL_NOTES.find((r) => r.name === "白兰地 / 干邑 Brandy & Cognac");
+  if (/清酒|烧酒/.test(name)) return MATERIAL_NOTES.find((r) => r.name === "清酒 / 烧酒 Sake & Shochu");
+  if (/金酒/.test(name)) return MATERIAL_NOTES.find((r) => r.name === "金酒 Gin");
+  if (/威士忌|波本|黑麦/.test(name)) return MATERIAL_NOTES.find((r) => r.name === "威士忌 Whiskey");
+  if (/朗姆/.test(name)) return MATERIAL_NOTES.find((r) => r.name === "朗姆酒 Rum");
+  if (/龙舌兰/.test(name)) return MATERIAL_NOTES.find((r) => r.name === "龙舌兰 Tequila");
+  if (/梅斯卡尔/.test(name)) return MATERIAL_NOTES.find((r) => r.name === "梅斯卡尔 Mezcal");
+  if (/伏特加/.test(name)) return MATERIAL_NOTES.find((r) => r.name === "伏特加 Vodka");
   return null;
 }
 
@@ -105,11 +105,11 @@ function buildMaterialLibrary() {
   }
   return [...map.values()].map((row) => {
     const profile = materialProfile(row.name);
-    const category = materialCategory(row.name) || profile?.cat || "其他";
+    const category = materialCategory(row.name) || profile?.cat || "其他 Other";
     const examples = [...row.recipes].slice(0, 3).map((c) => c.zh).join("、");
     const short = profile
       ? (profile.name === row.name ? profile.short : `${row.name}：${profile.short}`)
-      : `${MATERIAL_CATEGORY_HINTS[category] || MATERIAL_CATEGORY_HINTS["其他"]} 在本站 ${row.count} 个配方中使用${examples ? `，如 ${examples}` : ""}。`;
+      : `${MATERIAL_CATEGORY_HINTS[category] || MATERIAL_CATEGORY_HINTS["其他 Other"]} 在本站 ${row.count} 个配方中使用${examples ? `，如 ${examples}` : ""}。`;
     return {
       name: row.name,
       count: row.count,
@@ -147,6 +147,10 @@ function sourceInfo(c) {
   const tag = NON_IBATAGS[c.id];
   if (tag) return { tag: tag[0], label: tag[1], url: tag[2] || "" };
   return { tag: "非 IBA", label: "经典/现代配方，参考页面底部书目", url: "" };
+}
+
+function ingKey(name) {
+  return String(name).split(" ")[0];
 }
 
 function pantryText(c) {
@@ -1209,12 +1213,12 @@ function buildGraph() {
     nodes[j].deg++;
   };
 
-  const generic = new Set(["冰", "水", "苏打水", "盐", "糖", "单糖浆", "糖浆", "薄荷", "柠檬皮", "橙皮", "青柠角", "柠檬片", "樱桃", "菠萝角", "肉豆蔻", "丁香", "肉桂"]);
+  const generic = new Set(["冰", "水", "苏打水", "盐", "砂糖", "单糖浆", "浓糖浆", "薄荷", "柠檬皮", "橙皮", "青柠角", "柠檬片", "酒渍樱桃", "菠萝块", "肉豆蔻", "丁香", "肉桂"]);
   const relationFor = (a, b) => {
     const explicit = GRAPH_REL_BY_PAIR.get(pairKey(a.c.id, b.c.id));
     if (explicit) return explicit;
     const sharedMods = a.c.mods.filter((m) => b.c.mods.includes(m)).length;
-    const sharedKey = [...a.ing].filter((x) => b.ing.has(x) && !generic.has(x)).length;
+    const sharedKey = [...a.ing].filter((x) => b.ing.has(x) && !generic.has(ingKey(x))).length;
     if (a.c.base === b.c.base && a.c.fam === b.c.fam && (sharedKey >= 2 || sharedMods >= 2)) return "variant";
     if (a.c.base === b.c.base && (sharedKey >= 2 || sharedMods >= 2)) return "base";
     if (a.c.fam === b.c.fam && (sharedKey >= 2 || sharedMods >= 2)) return "family";
@@ -1236,7 +1240,7 @@ function buildGraph() {
       const type = relationFor(a, b);
       if (!type) continue;
       const sharedMods = a.c.mods.filter((m) => b.c.mods.includes(m)).length;
-      const sharedKey = [...a.ing].filter((x) => b.ing.has(x) && !generic.has(x)).length;
+      const sharedKey = [...a.ing].filter((x) => b.ing.has(x) && !generic.has(ingKey(x))).length;
       const weight = { variant: 6, base: 4, family: 3, modifier: 2, lineage: 8 }[type] || 1;
       candidates.push([weight + Math.min(3, sharedKey) * .7 + sharedMods * .45, j, type]);
     }
@@ -1351,7 +1355,7 @@ function relationReason(a, b) {
   const sharedMods = a.mods.filter((m) => b.mods.includes(m));
   if (sharedMods.length) reasons.push(sharedMods.slice(0, 2).map((m) => MOD_BY_ID[m]?.zh || m).join("/"));
   const bIng = new Set((b.ing || []).map((x) => x[0]));
-  const sharedIng = (a.ing || []).map((x) => x[0]).filter((x) => bIng.has(x) && !["冰", "水", "糖", "盐"].includes(x));
+  const sharedIng = (a.ing || []).map((x) => x[0]).filter((x) => bIng.has(x) && !["冰", "水", "砂糖", "盐"].includes(ingKey(x)));
   if (sharedIng.length) reasons.push("共享" + sharedIng.slice(0, 2).join("/"));
   return reasons.slice(0, 3).join(" · ") || "相近结构";
 }

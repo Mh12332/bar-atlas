@@ -4,6 +4,22 @@
 
 版本号的唯一来源是根目录的 `VERSION` 文件，由 `build.py` 注入 `bar-atlas.html`。每次发布在这里补一段记录，并在 git 上打对应的 `vX.Y.Z` 标签。
 
+## [1.2.0] - 2026-11-07
+
+### 新增
+
+- 8 款以可乐为主体的配方：Piscola（皮斯科可乐）、Vermut con Cola（味美思可乐）、Whiskey-Cola（威士忌可乐）、Cherry Cola Highball（樱桃可乐高球）、Cola Sour（可乐酸酒）、Cuba Libre Especial（特别自由古巴）、Cola Collins（可乐柯林斯）、Tinto de Verano con Cola（夏日红酒可乐）。每款附 2–3 个带完整材料表的变体、来源标签与历史注记；补齐中文别名与关系图谱连线（其中 Tinto de Verano con Cola 与 Kalimotxo 的差别写在 note 与 history 里）。
+- 新增材料「可乐糖浆 Cola Syrup」，用于摇和型可乐酸酒。
+
+### 变更
+
+- 全站酒名统一为「中文 English」单一写法：基酒、利口酒、味美思、苦精、果汁、糖浆等 200 余条名称，在材料小词典、配方材料、酒柜清单与辅料栏目中显示同一字符串（如「金巴利 Campari」「安高天娜苦精 Angostura Bitters」）。
+- 归一 90 余条同义写法：朗姆 / 朗姆酒、波特 / 波特酒、Campari / 金巴利、Cointreau / 君度、Pernod / 苦艾酒、Fino 雪莉 / 菲诺雪莉、Blanc 味美思 / Lillet 等；材料库条目由 216 合并为 214。
+- 「酒款速查」家族由 9 个补齐为 12 个，与「基酒」一一对应、同序同名：新增卡莎萨、啤酒、无酒精三个家族；卡莎萨从伏特加家族迁出，原来的「起泡酒 / 啤酒」拆成两行。
+- 子类别名称中文化：London Dry → 伦敦干金、Blanco / Reposado / Añejo → 白色 / 微陈 / 陈年龙舌兰、Overproof → 高酒精度朗姆等，英文只保留在 en 字段。
+- 页头、侧栏与统计文案中的静态数字与数据同步：235 杯配方 / 455 个变体 / 34 类风格 / 12 个家族 / 133 杯非 IBA。
+- 版本号 1.1.0 → 1.2.0。
+
 ## [1.1.0] - 2026-11-07
 
 ### 新增

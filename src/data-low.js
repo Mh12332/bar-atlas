@@ -6,7 +6,7 @@ const COCKTAILS_LOW = [
   {
     id: "virgin-mojito", zh: "无酒精莫吉托", en: "Virgin Mojito", fam: "low-no", base: "low", sub: "无酒精",
     mods: ["citrus", "syrup", "aromatic", "mixer"], method: "捣压", glass: "高球杯", strength: 1, diff: 1,
-    ing: [["青柠汁", "30 ml"], ["单糖浆", "20 ml"], ["薄荷叶", "10 片"], ["苏打水", "120 ml"], ["盐", "1 小撮"]],
+    ing: [["青柠汁 Lime Juice", "30 ml"], ["单糖浆 Simple Syrup", "20 ml"], ["薄荷 Mint", "10 片"], ["苏打水 Soda Water", "120 ml"], ["盐 Salt", "1 小撮"]],
     steps: [
       "薄荷与糖浆轻压 2 次，加入青柠汁与一小撮盐。",
       "加满碎冰，注入苏打水。",
@@ -23,7 +23,7 @@ const COCKTAILS_LOW = [
   {
     id: "phony-negroni", zh: "仿制内格罗尼", en: "Phony Negroni", fam: "low-no", base: "low", sub: "无酒精",
     mods: ["vermouth", "amaro", "aromatic"], method: "搅拌", glass: "古典杯", strength: 1, diff: 2,
-    ing: [["无酒精金酒", "30 ml"], ["无酒精金巴利", "30 ml"], ["无酒精味美思", "30 ml"], ["橙皮", "1 片"]],
+    ing: [["无酒精金酒 Non-Alcoholic Gin", "30 ml"], ["无酒精金巴利 Non-Alcoholic Campari", "30 ml"], ["无酒精味美思 Non-Alcoholic Vermouth", "30 ml"], ["橙皮 Orange Peel", "1 片"]],
     steps: [
       "古典杯加大冰预冷。",
       "所有无酒精材料加冰搅拌 20 秒。",
@@ -40,7 +40,7 @@ const COCKTAILS_LOW = [
   {
     id: "cold-brew-tonic", zh: "冷萃汤力", en: "Cold Brew Tonic", fam: "low-no", base: "low", sub: "无酒精",
     mods: ["coffee", "mixer", "aromatic"], method: "直调", glass: "高球杯", strength: 1, diff: 1,
-    ing: [["冷萃咖啡", "90 ml"], ["汤力水", "120 ml"], ["橙皮", "1 片"], ["糖浆", "5 ml（可选）"]],
+    ing: [["冷萃咖啡 Cold Brew Coffee", "90 ml"], ["汤力水 Tonic Water", "120 ml"], ["橙皮 Orange Peel", "1 片"], ["单糖浆 Simple Syrup", "5 ml（可选）"]],
     steps: [
       "高球杯加满冰，倒入冷萃咖啡与糖浆（如用）。",
       "沿吧勺注入冰镇汤力水。",
@@ -57,7 +57,7 @@ const COCKTAILS_LOW = [
   {
     id: "shirley-temple", zh: "秀兰·邓波儿", en: "Shirley Temple", fam: "low-no", base: "low", sub: "无酒精",
     mods: ["syrup", "mixer", "citrus"], method: "直调", glass: "高球杯", strength: 1, diff: 1,
-    ing: [["石榴糖浆", "15 ml"], ["姜汁汽水", "120 ml"], ["青柠汁", "10 ml"], ["酒渍樱桃", "1 颗"]],
+    ing: [["石榴糖浆 Grenadine", "15 ml"], ["姜啤 Ginger Beer", "120 ml"], ["青柠汁 Lime Juice", "10 ml"], ["酒渍樱桃 Maraschino Cherry", "1 颗"]],
     steps: [
       "高球杯加满冰，倒入石榴糖浆与青柠汁。",
       "补满冰镇姜汁汽水，轻提拉。",
@@ -74,7 +74,7 @@ const COCKTAILS_LOW = [
   {
     id: "arnold-palmer", zh: "阿诺德·帕尔默", en: "Arnold Palmer", fam: "low-no", base: "low", sub: "无酒精",
     mods: ["tea", "juice", "citrus"], method: "直调", glass: "高球杯", strength: 1, diff: 1,
-    ing: [["冷萃红茶", "60 ml"], ["柠檬水", "60 ml"], ["柠檬片", "1 片"], ["薄荷", "1 枝"]],
+    ing: [["冷萃红茶 Cold Brew Black Tea", "60 ml"], ["柠檬水 Lemonade", "60 ml"], ["柠檬片 Lemon Wheel", "1 片"], ["薄荷 Mint", "1 枝"]],
     steps: [
       "高球杯加满冰，倒入冷萃红茶与柠檬水。",
       "搅拌 8 秒，补少量冰。",

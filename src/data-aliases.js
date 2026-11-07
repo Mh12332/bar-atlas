@@ -231,5 +231,13 @@ const NAME_ALIASES = {
   "gin-gin-mule": ["金金骡子"],
   "earl-grey-marteani": ["伯爵茶马天尼"],
   "french-pearl": ["法国珍珠"],
-  "de-la-louisiane": ["路易斯安那"]
+  "de-la-louisiane": ["路易斯安那"],
+  "piscola": ["皮斯科可乐", "Piscola"],
+  "vermut-con-cola": ["味美思可乐", "味美思加可乐"],
+  "whiskey-cola": ["威士忌可乐", "可乐威士忌", "波本可乐"],
+  "cherry-cola-highball": ["樱桃可乐高球", "樱桃可乐"],
+  "cola-sour": ["可乐酸酒", "可乐酸"],
+  "cuba-libre-especial": ["特别自由古巴", "升级自由古巴"],
+  "cola-collins": ["可乐柯林斯"],
+  "tinto-de-verano-con-cola": ["夏日红酒可乐", "加可乐的夏日红酒"]
 };

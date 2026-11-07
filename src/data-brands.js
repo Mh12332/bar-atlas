@@ -8,13 +8,6 @@
 /* 家族：显示顺序即本数组顺序 */
 const BOTTLE_FAMILIES = [
   {
-    id: "whiskey",
-    zh: "威士忌",
-    en: "WHISKEY",
-    base: "whiskey",
-    intro: "威士忌先分谷物与产地：美国玉米与黑麦、苏格兰调和与泥煤、爱尔兰的柔顺、日本的细腻。买瓶先立一支日常调和或波本，再按需要的烟熏与辛香补。"
-  },
-  {
     id: "gin",
     zh: "金酒",
     en: "GIN",
@@ -22,8 +15,15 @@ const BOTTLE_FAMILIES = [
     intro: "金酒的分岔在蒸馏后的处理：London Dry 干、杜松子突出；Old Tom 微甜圆润。先买一瓶干净的 London Dry 当吧台主力，再补 Old Tom 做古典短饮。"
   },
   {
+    id: "whiskey",
+    zh: "威士忌",
+    en: "WHISKEY",
+    base: "whiskey",
+    intro: "威士忌先分谷物与产地：美国玉米与黑麦、苏格兰调和与泥煤、爱尔兰的柔顺、日本的细腻。买瓶先立一支日常调和或波本，再按需要的烟熏与辛香补。"
+  },
+  {
     id: "rum",
-    zh: "朗姆",
+    zh: "朗姆酒",
     en: "RUM",
     base: "rum",
     intro: "朗姆按工艺与颜色分白、陈年与 overproof：白朗姆清爽、陈年带焦糖、overproof 香气强。先立一瓶白朗姆和一瓶陈年，overproof 买小瓶即可。"
@@ -44,10 +44,17 @@ const BOTTLE_FAMILIES = [
   },
   {
     id: "vodka",
-    zh: "伏特加 / 卡莎萨",
-    en: "VODKA & CACHAÇA",
+    zh: "伏特加",
+    en: "VODKA",
     base: "vodka",
-    intro: "伏特加与卡莎萨都是中性底，但目的相反：伏特加要干净、质地顺；卡莎萨要保留甘蔗与青草。先立一瓶中性伏特加，卡莎萨等做 Caipirinha 时再补。"
+    intro: "伏特加只做一件事：把干净与质地做到位。小麦、黑麦与马铃薯带来的差异都在细节里，选一瓶 40% 左右的常规款当不抢戏的底，不必追高价小批次。"
+  },
+  {
+    id: "cane",
+    zh: "卡莎萨",
+    en: "CACHAÇA",
+    base: "cane",
+    intro: "卡莎萨是巴西的甘蔗汁蒸馏酒，分未陈年与陈年：未陈年版清冽，带青草、甘蔗与一点 funk；陈年版有香木与香草甜。买瓶先从 artesanal 的未陈年版起步，做 Caipirinha 才对味。"
   },
   {
     id: "rice",
@@ -58,17 +65,31 @@ const BOTTLE_FAMILIES = [
   },
   {
     id: "liqueur",
-    zh: "利口酒 / 苦味",
+    zh: "利口酒 / 苦味酒",
     en: "LIQUEUR & BITTERS",
     base: "liqueur",
     intro: "利口酒与苦味覆盖吧台后半段：苦味酒定苦甜骨架，阿玛罗更草本，橙味与樱桃负责圆润，咖啡可可走甜点方向。先立 Campari 与一款橙味，再按酒单补。"
   },
   {
     id: "wine",
-    zh: "味美思 / 加强酒 / 气泡",
-    en: "FORTIFIED & SPARKLING",
+    zh: "葡萄酒 / 加强酒",
+    en: "WINE & FORTIFIED",
     base: "wine",
-    intro: "味美思与加强酒的分岔在糖分与氧化：干型清瘦、甜型浓郁、Blanc 柔和，起泡与啤酒提供气泡。先各买小瓶干型与甜型味美思并冷藏，起泡现用现买。"
+    intro: "葡萄酒家族在这里只留加香、加强与起泡：干味美思清瘦带草本，甜味美思浓郁甜苦，Blanc 柔和介于两者之间，起泡酒负责酸度与气泡。先各买小瓶干型与甜型味美思并冷藏，起泡现用现买。"
+  },
+  {
+    id: "beer",
+    zh: "啤酒",
+    en: "BEER",
+    base: "beer",
+    intro: "啤酒在杯里既是基酒，也是气泡与苦味的来源：拉格清爽、小麦啤带香蕉与丁香、IPA 酒花苦、世涛烘焙香。吧台冰镇一款墨西哥拉格，Michelada 与 Shandy 就都有了。"
+  },
+  {
+    id: "low",
+    zh: "无酒精",
+    en: "ZERO PROOF",
+    base: "low",
+    intro: "无酒精不是把酒拿掉，而是把结构补回来：无酒精蒸馏液提供植物香气与「酒精的形状」，茶、咖啡、苦精、气泡与盐补上苦、单宁、质地与刺激。先买一瓶植物向的蒸馏液当底。"
   }
 ];
 
@@ -77,7 +98,7 @@ const BRANDS = [
   {
     id: "london-dry",
     family: "gin",
-    type: "London Dry",
+    type: "伦敦干金",
     en: "London Dry Gin",
     abv: "40–47%",
     tier: 1,
@@ -91,7 +112,7 @@ const BRANDS = [
   {
     id: "old-tom",
     family: "gin",
-    type: "Old Tom",
+    type: "老汤姆",
     en: "Old Tom Gin",
     abv: "40–45%",
     tier: 2,
@@ -105,7 +126,7 @@ const BRANDS = [
   {
     id: "bourbon",
     family: "whiskey",
-    type: "波本",
+    type: "波本威士忌",
     en: "Bourbon",
     abv: "40–50%",
     tier: 2,
@@ -119,7 +140,7 @@ const BRANDS = [
   {
     id: "rye",
     family: "whiskey",
-    type: "黑麦",
+    type: "黑麦威士忌",
     en: "Rye Whiskey",
     abv: "40–50%",
     tier: 2,
@@ -133,7 +154,7 @@ const BRANDS = [
   {
     id: "blended-scotch",
     family: "whiskey",
-    type: "调和苏格兰",
+    type: "苏格兰调和威士忌",
     en: "Blended Scotch",
     abv: "40–43%",
     tier: 2,
@@ -147,7 +168,7 @@ const BRANDS = [
   {
     id: "peated-scotch",
     family: "whiskey",
-    type: "泥煤苏格兰",
+    type: "泥煤苏格兰威士忌",
     en: "Peated Scotch",
     abv: "43–48%",
     tier: 3,
@@ -161,7 +182,7 @@ const BRANDS = [
   {
     id: "irish",
     family: "whiskey",
-    type: "爱尔兰",
+    type: "爱尔兰威士忌",
     en: "Irish Whiskey",
     abv: "40–46%",
     tier: 2,
@@ -175,7 +196,7 @@ const BRANDS = [
   {
     id: "japanese",
     family: "whiskey",
-    type: "日本",
+    type: "日本威士忌",
     en: "Japanese Whisky",
     abv: "40–48%",
     tier: 3,
@@ -217,7 +238,7 @@ const BRANDS = [
   {
     id: "overproof-rum",
     family: "rum",
-    type: "Overproof",
+    type: "高酒精度朗姆",
     en: "Overproof Rum",
     abv: "57–69%",
     tier: 2,
@@ -231,7 +252,7 @@ const BRANDS = [
   {
     id: "blanco",
     family: "agave",
-    type: "龙舌兰 Blanco",
+    type: "白色龙舌兰",
     en: "Tequila Blanco",
     abv: "38–45%",
     tier: 2,
@@ -245,7 +266,7 @@ const BRANDS = [
   {
     id: "reposado",
     family: "agave",
-    type: "龙舌兰 Reposado",
+    type: "微陈龙舌兰",
     en: "Tequila Reposado",
     abv: "40–45%",
     tier: 2,
@@ -259,7 +280,7 @@ const BRANDS = [
   {
     id: "mezcal-espadin",
     family: "agave",
-    type: "梅斯卡尔 Espadín",
+    type: "梅斯卡尔",
     en: "Mezcal Espadín",
     abv: "40–47%",
     tier: 3,
@@ -314,7 +335,7 @@ const BRANDS = [
   },
   {
     id: "cachaca",
-    family: "vodka",
+    family: "cane",
     type: "未陈年卡莎萨",
     en: "Unaged Cachaça",
     abv: "38–48%",
@@ -329,7 +350,7 @@ const BRANDS = [
   {
     id: "sake-shochu",
     family: "rice",
-    type: "纯米清酒·烧酒",
+    type: "清酒 / 烧酒",
     en: "Junmai Sake & Shochu",
     abv: "13–25%",
     tier: 2,
@@ -343,7 +364,7 @@ const BRANDS = [
   {
     id: "baijiu",
     family: "rice",
-    type: "清香·浓香白酒",
+    type: "白酒",
     en: "Baijiu",
     abv: "38–53%",
     tier: 2,
@@ -357,7 +378,7 @@ const BRANDS = [
   {
     id: "campari-aperol",
     family: "liqueur",
-    type: "Campari / Aperol",
+    type: "金巴利 / Aperol",
     en: "Campari & Aperol",
     abv: "11–25%",
     tier: 1,
@@ -399,7 +420,7 @@ const BRANDS = [
   {
     id: "maraschino-chartreuse",
     family: "liqueur",
-    type: "Maraschino / Chartreuse",
+    type: "黑樱桃利口酒 / 查特",
     en: "Maraschino & Chartreuse",
     abv: "32–55%",
     tier: 3,
@@ -413,7 +434,7 @@ const BRANDS = [
   {
     id: "coffee-cocoa",
     family: "liqueur",
-    type: "咖啡 / 可可",
+    type: "咖啡 / 可可利口酒",
     en: "Coffee & Cacao Liqueur",
     abv: "15–25%",
     tier: 2,
@@ -427,7 +448,7 @@ const BRANDS = [
   {
     id: "floral-fruit",
     family: "liqueur",
-    type: "花香 / 果味",
+    type: "花香 / 果味利口酒",
     en: "Floral & Fruit Liqueur",
     abv: "15–20%",
     tier: 2,
@@ -441,7 +462,7 @@ const BRANDS = [
   {
     id: "syrup-nut",
     family: "liqueur",
-    type: "糖浆 / 坚果",
+    type: "杏仁糖浆 / 坚果利口酒",
     en: "Orgeat & Falernum",
     abv: "0–11%",
     tier: 2,
@@ -469,7 +490,7 @@ const BRANDS = [
   {
     id: "dry-vermouth",
     family: "wine",
-    type: "干型味美思",
+    type: "干味美思",
     en: "Dry Vermouth",
     abv: "15–18%",
     tier: 1,
@@ -483,7 +504,7 @@ const BRANDS = [
   {
     id: "sweet-vermouth",
     family: "wine",
-    type: "甜型味美思",
+    type: "甜味美思",
     en: "Sweet Vermouth",
     abv: "15–18%",
     tier: 1,
@@ -497,7 +518,7 @@ const BRANDS = [
   {
     id: "blanc-lillet",
     family: "wine",
-    type: "Blanc / Lillet",
+    type: "Blanc 味美思",
     en: "Blanc Vermouth & Lillet",
     abv: "15–17%",
     tier: 2,
@@ -509,17 +530,45 @@ const BRANDS = [
     tip: "开瓶冷藏、四周内用完；它甜度低，别拿来替代甜型味美思。"
   },
   {
-    id: "sparkling-beer",
+    id: "sparkling-wine",
     family: "wine",
-    type: "起泡酒 / 啤酒",
-    en: "Sparkling Wine & Beer",
-    abv: "5–11%",
+    type: "起泡酒",
+    en: "Sparkling Wine",
+    abv: "5–12%",
     tier: 1,
     flavors: ["清爽", "酸甜"],
-    brands: ["La Marca", "Nino Franco", "Modelo"],
-    drinks: ["aperol-spritz", "french-75", "michelada"],
-    note: "气泡提供清爽与体积，起泡酒偏酸、拉格偏麦芽，适合长饮与早午餐。",
-    swap: "想要更酸换 Prosecco；想要更苦、更麦芽换拉格或 IPA。",
-    tip: "起泡酒现开现用，别提前倒；啤酒选清爽拉格，避免过重的 IPA 压味。"
+    brands: ["La Marca", "Nino Franco", "Veuve Clicquot"],
+    drinks: ["aperol-spritz", "french-75", "mimosa"],
+    note: "气泡带来清爽与体积，酸度比静态葡萄酒高；负责长饮的提气与开场的节日感。",
+    swap: "想要更酸、更便宜换 Prosecco；想要更多面包与坚果换香槟或 Crémant。",
+    tip: "现开现用，别提前倒；开瓶后气体掉得快，剩下的只适合当餐酒喝掉。"
+  },
+  {
+    id: "lager-beer",
+    family: "beer",
+    type: "啤酒",
+    en: "Lager & Wheat Beer",
+    abv: "4–8%",
+    tier: 1,
+    flavors: ["清爽", "苦香"],
+    brands: ["Modelo", "Pilsner Urquell", "Weihenstephaner"],
+    drinks: ["michelada", "shandy"],
+    note: "麦芽甜与酒花苦，加上大量气泡与低酒精度；在杯里主要提供体积、气泡与一层烘焙香。",
+    swap: "想要更多香蕉与丁香换小麦啤；想要更重的苦味换 IPA，但小心压过辅料。",
+    tip: "备一款冰镇墨西哥拉格做 Michelada；啤酒必须冷藏，开瓶后尽快用完。"
+  },
+  {
+    id: "na-distillate",
+    family: "low",
+    type: "无酒精蒸馏液",
+    en: "Non-Alcoholic Spirit",
+    abv: "0%",
+    tier: 2,
+    flavors: ["草本", "苦香"],
+    brands: ["Seedlip Garden", "Lyre's London Dry", "Ritual Gin Alternative"],
+    drinks: ["phony-negroni", "virgin-mojito"],
+    note: "把植物与苦味蒸馏进不含酒精的液体，提供「酒精的形状」而不是酒精本身；香气偏草本，甜度低。",
+    swap: "想要更干更苦换 Lyre's 的干型款；想要更柔和换浓茶汤加少量苦味剂（注意苦精含酒精）。",
+    tip: "开瓶后冷藏、两个月内用完；它压不住甜，配方里的糖要减量。"
   }
 ];

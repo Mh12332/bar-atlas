@@ -4,9 +4,9 @@
 
 const COCKTAILS_WHISKEY = [
   {
-    id: "old-fashioned", zh: "古典鸡尾酒", en: "Old Fashioned", fam: "old-fashioned", base: "whiskey", sub: "波本 / 黑麦",
+    id: "old-fashioned", zh: "古典鸡尾酒", en: "Old Fashioned", fam: "old-fashioned", base: "whiskey", sub: "波本威士忌 / 黑麦威士忌",
     mods: ["syrup", "bitters", "aromatic"], method: "搅拌", glass: "古典杯", strength: 4, diff: 2,
-    ing: [["波本或黑麦威士忌", "60 ml"], ["单糖浆", "7.5 ml"], ["安高天娜苦精", "2 dash"], ["橙皮", "1 片"]],
+    ing: [["波本威士忌 Bourbon Whiskey", "60 ml"], ["单糖浆 Simple Syrup", "7.5 ml"], ["安高天娜苦精 Angostura Bitters", "2 dash"], ["橙皮 Orange Peel", "1 片"]],
     steps: [
       "古典杯放入一大块透明冰，搅拌杯加冰预冷。",
       "威士忌、糖浆与苦精加冰搅拌 25–30 秒。",
@@ -23,9 +23,9 @@ const COCKTAILS_WHISKEY = [
     ]
   },
   {
-    id: "sazerac", zh: "萨泽拉克", en: "Sazerac", fam: "old-fashioned", base: "whiskey", sub: "黑麦",
+    id: "sazerac", zh: "萨泽拉克", en: "Sazerac", fam: "old-fashioned", base: "whiskey", sub: "黑麦威士忌",
     mods: ["syrup", "bitters", "aromatic"], method: "搅拌", glass: "古典杯", strength: 5, diff: 3,
-    ing: [["黑麦威士忌", "60 ml"], ["方糖", "1 块"], ["Peychaud's 苦精", "3 dash"], ["苦艾酒", "1 tsp 冲洗"], ["柠檬皮", "1 片"]],
+    ing: [["黑麦威士忌 Rye Whiskey", "60 ml"], ["方糖 Sugar Cube", "1 块"], ["Peychaud's 苦精", "3 dash"], ["苦艾酒 Absinthe", "1 tsp 冲洗"], ["柠檬皮 Lemon Peel", "1 片"]],
     steps: [
       "古典杯用苦艾酒冲洗，倒掉多余酒液，杯口朝下静置。",
       "搅拌杯加冰，放入方糖、Peychaud's 与黑麦，搅拌 25 秒。",
@@ -41,9 +41,9 @@ const COCKTAILS_WHISKEY = [
     ]
   },
   {
-    id: "manhattan", zh: "曼哈顿", en: "Manhattan", fam: "duo", base: "whiskey", sub: "黑麦",
+    id: "manhattan", zh: "曼哈顿", en: "Manhattan", fam: "duo", base: "whiskey", sub: "黑麦威士忌",
     mods: ["vermouth", "bitters"], method: "搅拌", glass: "碟形杯", strength: 5, diff: 2,
-    ing: [["黑麦威士忌", "60 ml"], ["甜味美思", "30 ml"], ["安高天娜苦精", "2 dash"]],
+    ing: [["黑麦威士忌 Rye Whiskey", "60 ml"], ["甜味美思 Sweet Vermouth", "30 ml"], ["安高天娜苦精 Angostura Bitters", "2 dash"]],
     steps: [
       "碟形杯提前冰镇，搅拌杯加满大冰块。",
       "倒入黑麦、甜味美思与苦精，搅拌 25–30 秒。",
@@ -62,9 +62,9 @@ const COCKTAILS_WHISKEY = [
     ]
   },
   {
-    id: "boulevardier", zh: "花花公子", en: "Boulevardier", fam: "aperitivo", base: "whiskey", sub: "波本 / 黑麦",
+    id: "boulevardier", zh: "花花公子", en: "Boulevardier", fam: "aperitivo", base: "whiskey", sub: "波本威士忌 / 黑麦威士忌",
     mods: ["vermouth", "amaro"], method: "搅拌", glass: "古典杯", strength: 4, diff: 2,
-    ing: [["波本或黑麦", "45 ml"], ["金巴利", "30 ml"], ["甜味美思", "30 ml"], ["橙皮", "1 片"]],
+    ing: [["波本威士忌 Bourbon Whiskey", "45 ml"], ["金巴利 Campari", "30 ml"], ["甜味美思 Sweet Vermouth", "30 ml"], ["橙皮 Orange Peel", "1 片"]],
     steps: [
       "古典杯加大冰预冷。",
       "所有液体加冰搅拌 20–25 秒。",
@@ -80,9 +80,9 @@ const COCKTAILS_WHISKEY = [
     ]
   },
   {
-    id: "whiskey-sour", zh: "威士忌酸", en: "Whiskey Sour", fam: "sour", base: "whiskey", sub: "波本",
+    id: "whiskey-sour", zh: "威士忌酸", en: "Whiskey Sour", fam: "sour", base: "whiskey", sub: "波本威士忌",
     mods: ["citrus", "syrup", "cream", "bitters"], method: "摇和", glass: "古典杯 / 碟形杯", strength: 3, diff: 2,
-    ing: [["波本威士忌", "60 ml"], ["柠檬汁", "30 ml"], ["单糖浆", "20 ml"], ["蛋清", "20 ml（可选）"], ["安高天娜苦精", "2 dash"]],
+    ing: [["波本威士忌 Bourbon Whiskey", "60 ml"], ["柠檬汁 Lemon Juice", "30 ml"], ["单糖浆 Simple Syrup", "20 ml"], ["蛋清 Egg White", "20 ml（可选）"], ["安高天娜苦精 Angostura Bitters", "2 dash"]],
     steps: [
       "除苦精外全部材料先干摇 10–15 秒（含蛋清时）。",
       "加冰摇和 12 秒，双重过滤入加冰古典杯或无冰碟形杯。",
@@ -99,9 +99,9 @@ const COCKTAILS_WHISKEY = [
     ]
   },
   {
-    id: "gold-rush", zh: "淘金热", en: "Gold Rush", fam: "sour", base: "whiskey", sub: "波本",
+    id: "gold-rush", zh: "淘金热", en: "Gold Rush", fam: "sour", base: "whiskey", sub: "波本威士忌",
     mods: ["citrus", "syrup"], method: "摇和", glass: "古典杯", strength: 3, diff: 1,
-    ing: [["波本威士忌", "60 ml"], ["柠檬汁", "22.5 ml"], ["蜂蜜糖浆", "20 ml"]],
+    ing: [["波本威士忌 Bourbon Whiskey", "60 ml"], ["柠檬汁 Lemon Juice", "22.5 ml"], ["蜂蜜糖浆 Honey Syrup", "20 ml"]],
     steps: [
       "蜂蜜按 3:1 与水调成糖浆，冷却。",
       "所有材料加冰摇和 12 秒。",
@@ -117,9 +117,9 @@ const COCKTAILS_WHISKEY = [
     ]
   },
   {
-    id: "penicillin", zh: "盘尼西林", en: "Penicillin", fam: "sour", base: "whiskey", sub: "苏格兰调和",
+    id: "penicillin", zh: "盘尼西林", en: "Penicillin", fam: "sour", base: "whiskey", sub: "苏格兰调和威士忌",
     mods: ["citrus", "syrup", "aromatic"], method: "摇和", glass: "古典杯", strength: 4, diff: 2,
-    ing: [["苏格兰调和威士忌", "60 ml"], ["柠檬汁", "22.5 ml"], ["蜂蜜姜糖浆", "20 ml"], ["泥煤单一麦芽", "7.5 ml 漂浮"]],
+    ing: [["苏格兰威士忌 Blended Scotch Whisky", "60 ml"], ["柠檬汁 Lemon Juice", "22.5 ml"], ["蜂蜜姜糖浆 Honey-Ginger Syrup", "20 ml"], ["泥煤单一麦芽 Peated Single Malt", "7.5 ml 漂浮"]],
     steps: [
       "除泥煤威士忌外全部材料加冰摇和 12 秒。",
       "滤入加冰古典杯，静置片刻。",
@@ -135,9 +135,9 @@ const COCKTAILS_WHISKEY = [
     ]
   },
   {
-    id: "mint-julep", zh: "薄荷朱丽普", en: "Mint Julep", fam: "julep", base: "whiskey", sub: "波本",
+    id: "mint-julep", zh: "薄荷朱丽普", en: "Mint Julep", fam: "julep", base: "whiskey", sub: "波本威士忌",
     mods: ["syrup", "aromatic"], method: "捣压", glass: "朱丽普杯", strength: 4, diff: 2,
-    ing: [["波本威士忌", "60 ml"], ["单糖浆", "15 ml"], ["薄荷叶", "8–10 片"], ["碎冰", "满杯"]],
+    ing: [["波本威士忌 Bourbon Whiskey", "60 ml"], ["单糖浆 Simple Syrup", "15 ml"], ["薄荷 Mint", "8–10 片"], ["碎冰 Crushed Ice", "满杯"]],
     steps: [
       "朱丽普杯内壁轻抹薄荷叶，杯底放薄荷与糖浆轻压 2 次。",
       "加入波本与少量碎冰，搅拌至杯壁结霜。",
@@ -153,9 +153,9 @@ const COCKTAILS_WHISKEY = [
     ]
   },
   {
-    id: "whiskey-smash", zh: "威士忌斯玛什", en: "Whiskey Smash", fam: "julep", base: "whiskey", sub: "波本",
+    id: "whiskey-smash", zh: "威士忌斯玛什", en: "Whiskey Smash", fam: "julep", base: "whiskey", sub: "波本威士忌",
     mods: ["citrus", "syrup", "aromatic"], method: "摇和", glass: "古典杯", strength: 3, diff: 1,
-    ing: [["波本威士忌", "60 ml"], ["柠檬汁", "25 ml"], ["单糖浆", "15 ml"], ["薄荷叶", "6 片"]],
+    ing: [["波本威士忌 Bourbon Whiskey", "60 ml"], ["柠檬汁 Lemon Juice", "25 ml"], ["单糖浆 Simple Syrup", "15 ml"], ["薄荷 Mint", "6 片"]],
     steps: [
       "薄荷与糖浆在摇壶中轻压，加入柠檬、波本与冰。",
       "摇和 10–12 秒，连冰倒入古典杯。",
@@ -173,7 +173,7 @@ const COCKTAILS_WHISKEY = [
   {
     id: "whiskey-highball", zh: "威士忌高球", en: "Whiskey Highball", fam: "highball", base: "whiskey", sub: "日本威士忌 / 调和",
     mods: ["mixer", "aromatic"], method: "直调", glass: "高球杯", strength: 2, diff: 1,
-    ing: [["日本威士忌或调和威士忌", "45 ml"], ["苏打水", "120 ml"], ["柠檬皮", "1 片"]],
+    ing: [["日本威士忌 Japanese Whisky", "45 ml"], ["苏打水 Soda Water", "120 ml"], ["柠檬皮 Lemon Peel", "1 片"]],
     steps: [
       "高球杯加满大冰块，搅动冰杯后倒掉融水。",
       "倒入威士忌，沿吧勺缓慢注入冰镇苏打水。",
@@ -191,7 +191,7 @@ const COCKTAILS_WHISKEY = [
   {
     id: "rob-roy", zh: "罗伊罗伊", en: "Rob Roy", fam: "duo", base: "whiskey", sub: "苏格兰",
     mods: ["vermouth", "bitters"], method: "搅拌", glass: "碟形杯", strength: 5, diff: 2,
-    ing: [["苏格兰威士忌", "60 ml"], ["甜味美思", "30 ml"], ["安高天娜苦精", "2 dash"]],
+    ing: [["苏格兰威士忌 Blended Scotch Whisky", "60 ml"], ["甜味美思 Sweet Vermouth", "30 ml"], ["安高天娜苦精 Angostura Bitters", "2 dash"]],
     steps: [
       "碟形杯冰镇，搅拌杯加冰。",
       "所有材料搅拌 25 秒。",
@@ -209,7 +209,7 @@ const COCKTAILS_WHISKEY = [
   {
     id: "rusty-nail", zh: "锈钉", en: "Rusty Nail", fam: "old-fashioned", base: "whiskey", sub: "苏格兰",
     mods: ["liqueur"], method: "搅拌", glass: "古典杯", strength: 5, diff: 1,
-    ing: [["苏格兰威士忌", "45 ml"], ["杜林标", "20 ml"], ["柠檬皮", "1 片"]],
+    ing: [["苏格兰威士忌 Blended Scotch Whisky", "45 ml"], ["杜林标 Drambuie", "20 ml"], ["柠檬皮 Lemon Peel", "1 片"]],
     steps: [
       "古典杯加大冰，倒入苏格兰与杜林标。",
       "用吧勺搅拌 15 秒，充分冷却。",
@@ -226,7 +226,7 @@ const COCKTAILS_WHISKEY = [
   {
     id: "godfather", zh: "教父", en: "Godfather", fam: "old-fashioned", base: "whiskey", sub: "苏格兰",
     mods: ["liqueur"], method: "直调", glass: "古典杯", strength: 4, diff: 1,
-    ing: [["苏格兰威士忌", "45 ml"], ["杏仁利口酒", "20 ml"]],
+    ing: [["苏格兰威士忌 Blended Scotch Whisky", "45 ml"], ["杏仁利口酒 Amaretto", "20 ml"]],
     steps: [
       "古典杯加一大块冰。",
       "倒入苏格兰与杏仁利口酒，搅拌 15 秒。",
@@ -242,9 +242,9 @@ const COCKTAILS_WHISKEY = [
     ]
   },
   {
-    id: "irish-coffee", zh: "爱尔兰咖啡", en: "Irish Coffee", fam: "coffee", base: "whiskey", sub: "爱尔兰",
+    id: "irish-coffee", zh: "爱尔兰咖啡", en: "Irish Coffee", fam: "coffee", base: "whiskey", sub: "爱尔兰威士忌",
     mods: ["coffee", "cream", "syrup"], method: "直调", glass: "带柄咖啡杯", strength: 2, diff: 2,
-    ing: [["爱尔兰威士忌", "45 ml"], ["热咖啡", "120 ml"], ["德梅拉拉糖浆", "10 ml"], ["轻打发淡奶油", "30 ml"]],
+    ing: [["爱尔兰威士忌 Irish Whiskey", "45 ml"], ["热咖啡 Hot Coffee", "120 ml"], ["德梅拉拉糖浆 Demerara Syrup", "10 ml"], ["淡奶油 Heavy Cream", "30 ml"]],
     steps: [
       "咖啡杯用热水预热，倒掉水。",
       "加入威士忌、糖浆与热咖啡，搅拌至糖完全溶解。",
@@ -260,9 +260,9 @@ const COCKTAILS_WHISKEY = [
     ]
   },
   {
-    id: "vieux-carre", zh: "老广场", en: "Vieux Carré", fam: "duo", base: "whiskey", sub: "黑麦 + 干邑",
+    id: "vieux-carre", zh: "老广场", en: "Vieux Carré", fam: "duo", base: "whiskey", sub: "黑麦威士忌 + 干邑",
     mods: ["vermouth", "liqueur", "bitters"], method: "搅拌", glass: "古典杯", strength: 5, diff: 3,
-    ing: [["黑麦威士忌", "30 ml"], ["干邑", "30 ml"], ["甜味美思", "30 ml"], ["Bénédictine", "5 ml"], ["Peychaud's", "1 dash"], ["安高天娜", "1 dash"]],
+    ing: [["黑麦威士忌 Rye Whiskey", "30 ml"], ["干邑 Cognac", "30 ml"], ["甜味美思 Sweet Vermouth", "30 ml"], ["Bénédictine", "5 ml"], ["Peychaud's", "1 dash"], ["安高天娜苦精 Angostura Bitters", "1 dash"]],
     steps: [
       "古典杯加冰预冷，搅拌杯加满冰。",
       "所有液体搅拌 25–30 秒。",
@@ -277,9 +277,9 @@ const COCKTAILS_WHISKEY = [
     ]
   },
   {
-    id: "paper-plane", zh: "纸飞机", en: "Paper Plane", fam: "sour", base: "whiskey", sub: "波本",
+    id: "paper-plane", zh: "纸飞机", en: "Paper Plane", fam: "sour", base: "whiskey", sub: "波本威士忌",
     mods: ["citrus", "amaro"], method: "摇和", glass: "碟形杯", strength: 4, diff: 2,
-    ing: [["波本威士忌", "22.5 ml"], ["Aperol", "22.5 ml"], ["Amaro Nonino", "22.5 ml"], ["柠檬汁", "22.5 ml"]],
+    ing: [["波本威士忌 Bourbon Whiskey", "22.5 ml"], ["Aperol", "22.5 ml"], ["Amaro Nonino", "22.5 ml"], ["柠檬汁 Lemon Juice", "22.5 ml"]],
     steps: [
       "所有材料加冰摇和 10–12 秒。",
       "双重过滤入冰镇碟形杯。",
@@ -295,9 +295,9 @@ const COCKTAILS_WHISKEY = [
     ]
   },
   {
-    id: "toronto", zh: "多伦多", en: "Toronto", fam: "old-fashioned", base: "whiskey", sub: "黑麦",
+    id: "toronto", zh: "多伦多", en: "Toronto", fam: "old-fashioned", base: "whiskey", sub: "黑麦威士忌",
     mods: ["syrup", "amaro", "bitters"], method: "搅拌", glass: "古典杯", strength: 5, diff: 2,
-    ing: [["黑麦威士忌", "60 ml"], ["Fernet-Branca", "7.5 ml"], ["单糖浆", "7.5 ml"], ["安高天娜苦精", "1 dash"]],
+    ing: [["黑麦威士忌 Rye Whiskey", "60 ml"], ["Fernet-Branca", "7.5 ml"], ["单糖浆 Simple Syrup", "7.5 ml"], ["安高天娜苦精 Angostura Bitters", "1 dash"]],
     steps: [
       "古典杯加冰预冷，搅拌杯加满冰。",
       "所有材料搅拌 25 秒。",
@@ -312,9 +312,9 @@ const COCKTAILS_WHISKEY = [
     ]
   },
   {
-    id: "little-italy", zh: "小意大利", en: "Little Italy", fam: "duo", base: "whiskey", sub: "黑麦",
+    id: "little-italy", zh: "小意大利", en: "Little Italy", fam: "duo", base: "whiskey", sub: "黑麦威士忌",
     mods: ["vermouth", "amaro"], method: "搅拌", glass: "碟形杯", strength: 4, diff: 2,
-    ing: [["黑麦威士忌", "45 ml"], ["Cynar", "20 ml"], ["甜味美思", "20 ml"], ["橙皮", "1 片"]],
+    ing: [["黑麦威士忌 Rye Whiskey", "45 ml"], ["Cynar", "20 ml"], ["甜味美思 Sweet Vermouth", "20 ml"], ["橙皮 Orange Peel", "1 片"]],
     steps: [
       "所有液体加冰搅拌 20–25 秒。",
       "滤入冰镇碟形杯。",
@@ -329,9 +329,9 @@ const COCKTAILS_WHISKEY = [
     ]
   },
   {
-    id: "greenpoint", zh: "绿点", en: "Greenpoint", fam: "duo", base: "whiskey", sub: "黑麦",
+    id: "greenpoint", zh: "绿点", en: "Greenpoint", fam: "duo", base: "whiskey", sub: "黑麦威士忌",
     mods: ["vermouth", "liqueur", "bitters"], method: "搅拌", glass: "碟形杯", strength: 4, diff: 2,
-    ing: [["黑麦威士忌", "60 ml"], ["黄查特", "15 ml"], ["甜味美思", "15 ml"], ["安高天娜苦精", "1 dash"]],
+    ing: [["黑麦威士忌 Rye Whiskey", "60 ml"], ["黄查特 Yellow Chartreuse", "15 ml"], ["甜味美思 Sweet Vermouth", "15 ml"], ["安高天娜苦精 Angostura Bitters", "1 dash"]],
     steps: [
       "所有液体加冰搅拌 20–25 秒。",
       "滤入冰镇碟形杯。",
@@ -346,9 +346,9 @@ const COCKTAILS_WHISKEY = [
     ]
   },
   {
-    id: "revolver", zh: "左轮手枪", en: "Revolver", fam: "old-fashioned", base: "whiskey", sub: "波本",
+    id: "revolver", zh: "左轮手枪", en: "Revolver", fam: "old-fashioned", base: "whiskey", sub: "波本威士忌",
     mods: ["coffee", "bitters"], method: "搅拌", glass: "碟形杯", strength: 4, diff: 1,
-    ing: [["波本威士忌", "60 ml"], ["咖啡利口酒", "15 ml"], ["橙味苦精", "2 dash"]],
+    ing: [["波本威士忌 Bourbon Whiskey", "60 ml"], ["咖啡利口酒 Coffee Liqueur", "15 ml"], ["橙味苦精 Orange Bitters", "2 dash"]],
     steps: [
       "所有液体加冰搅拌 20 秒。",
       "滤入冰镇碟形杯。",

@@ -303,7 +303,7 @@ const BASES = [
   },
   {
     id: "cane",
-    zh: "卡莎萨 / 甘蔗酒",
+    zh: "卡莎萨",
     en: "Cachaça",
     no: "07",
     color: "#7d8b4c",
@@ -317,7 +317,7 @@ const BASES = [
   },
   {
     id: "rice",
-    zh: "米酒 / 烧酒 / 白酒",
+    zh: "清酒 / 烧酒 / 白酒",
     en: "Rice & Baijiu",
     no: "08",
     color: "#9b9580",
@@ -396,10 +396,10 @@ const MODGROUPS = [
     color: "#8a5a2b",
     intro: "葡萄酒加强并加香。干味美思负责清爽与咸香，甜味美思负责圆润与苦甜， blanc 介于两者之间。它们不是「便宜的酒」，而是结构件。",
     items: [
-      { n: "干味美思", ex: "Dolin Dry / Noilly Prat", use: "马天尼、Bamboo、Adonis", dose: "10–30 ml", tip: "开瓶冷藏，4–6 周内用完。" },
-      { n: "甜味美思", ex: "Carpano Antica / Cocchi Storico", use: "曼哈顿、内格罗尼、Boulevardier", dose: "20–30 ml", tip: "品牌甜度差异大，先少量试。" },
-      { n: "Blanc 味美思", ex: "Dolin Blanc / Lillet Blanc", use: "White Negroni、Vesper", dose: "15–30 ml", tip: "带蜜饯与花香，比干味美思柔。" },
-      { n: "菲诺雪莉", ex: "La Ina / Tío Pepe", use: "Sherry Cobbler、Bamboo", dose: "45–90 ml", tip: "开瓶后冷藏，尽快喝完。" }
+      { n: "干味美思 Dry Vermouth", ex: "Dolin Dry / Noilly Prat", use: "马天尼、Bamboo、Adonis", dose: "10–30 ml", tip: "开瓶冷藏，4–6 周内用完。" },
+      { n: "甜味美思 Sweet Vermouth", ex: "Carpano Antica / Cocchi Storico", use: "曼哈顿、内格罗尼、Boulevardier", dose: "20–30 ml", tip: "品牌甜度差异大，先少量试。" },
+      { n: "Blanc 味美思 Blanc Vermouth", ex: "Dolin Blanc / Lillet Blanc", use: "White Negroni、Vesper", dose: "15–30 ml", tip: "带蜜饯与花香，比干味美思柔。" },
+      { n: "菲诺雪莉 Fino Sherry", ex: "La Ina / Tío Pepe", use: "Sherry Cobbler、Bamboo", dose: "45–90 ml", tip: "开瓶后冷藏，尽快喝完。" }
     ],
     examples: ["dry-martini", "manhattan", "white-negroni", "sherry-cobbler"]
   },
@@ -411,10 +411,10 @@ const MODGROUPS = [
     color: "#7b3f2e",
     intro: "高浓度酒精浸提的苦味与香料。用量以 dash 计，却决定一杯酒的「成年感」。苦精不是装饰，是配方的标点符号。",
     items: [
-      { n: "芳香苦精", ex: "Angostura", use: "古典、曼哈顿、潘趣", dose: "1–3 dash", tip: "丁香与肉桂感强，手重会苦。" },
-      { n: "橙味苦精", ex: "Regans' / Fee Brothers", use: "马天尼、朗姆古典", dose: "1–2 dash", tip: "提亮柑橘香，不增加明显苦味。" },
+      { n: "芳香苦精 Aromatic Bitters", ex: "Angostura", use: "古典、曼哈顿、潘趣", dose: "1–3 dash", tip: "丁香与肉桂感强，手重会苦。" },
+      { n: "橙味苦精 Orange Bitters", ex: "Regans' / Fee Brothers", use: "马天尼、朗姆古典", dose: "1–2 dash", tip: "提亮柑橘香，不增加明显苦味。" },
       { n: "Peychaud's", ex: "Peychaud's", use: "Sazerac、Vieux Carré", dose: "2–4 dash", tip: "樱桃与茴香，颜色偏红。" },
-      { n: "莫尔苦精", ex: "Bittermens Xocolatl", use: "Oaxaca Old Fashioned", dose: "1–2 dash", tip: "可可、辣椒与烟熏，适合龙舌兰。" }
+      { n: "莫尔苦精 Mole Bitters", ex: "Bittermens Xocolatl", use: "Oaxaca Old Fashioned", dose: "1–2 dash", tip: "可可、辣椒与烟熏，适合龙舌兰。" }
     ],
     examples: ["old-fashioned", "sazerac", "manhattan", "oaxaca-old-fashioned"]
   },
@@ -426,10 +426,10 @@ const MODGROUPS = [
     color: "#b8a23c",
     intro: "酸是鸡尾酒的发动机。鲜榨、当天使用、按品种调整；柠檬更圆润，青柠更锐利，葡萄柚带苦，柚子更香。",
     items: [
-      { n: "柠檬汁", ex: "Eureka / Meyer", use: "酸酒、柯林斯、边车", dose: "20–30 ml", tip: "Meyer 更甜，需减糖。" },
-      { n: "青柠汁", ex: "Persian / Key", use: "大吉利、玛格丽特、莫吉托", dose: "15–30 ml", tip: "Key 更香更酸，别盲目等量替换。" },
-      { n: "葡萄柚汁", ex: "Ruby Red / White", use: "海明威、帕洛玛、Siesta", dose: "30–60 ml", tip: "白葡萄柚更苦，适合苦味酒。" },
-      { n: "酸调整液", ex: "柠檬酸 + 水", use: "批量、无酒精", dose: "按 1–2% 添加", tip: "让风味更亮，但别替代鲜榨。" }
+      { n: "柠檬汁 Lemon Juice", ex: "Eureka / Meyer", use: "酸酒、柯林斯、边车", dose: "20–30 ml", tip: "Meyer 更甜，需减糖。" },
+      { n: "青柠汁 Lime Juice", ex: "Persian / Key", use: "大吉利、玛格丽特、莫吉托", dose: "15–30 ml", tip: "Key 更香更酸，别盲目等量替换。" },
+      { n: "西柚汁 Grapefruit Juice", ex: "Ruby Red / White", use: "海明威、帕洛玛、Siesta", dose: "30–60 ml", tip: "白葡萄柚更苦，适合苦味酒。" },
+      { n: "酸调整液 Acid Adjuster", ex: "柠檬酸 + 水", use: "批量、无酒精", dose: "按 1–2% 添加", tip: "让风味更亮，但别替代鲜榨。" }
     ],
     examples: ["daiquiri", "whiskey-sour", "margarita", "hemingway-daiquiri"]
   },
@@ -441,11 +441,11 @@ const MODGROUPS = [
     color: "#b07235",
     intro: "糖不只是甜。不同糖源带来质地与香气：德梅拉拉有焦糖，蜂蜜有花香，龙舌兰有植物甜，杏仁糖浆有坚果与奶油感。",
     items: [
-      { n: "单糖浆", ex: "糖 1 : 水 1", use: "通用酸甜平衡", dose: "10–20 ml", tip: "冷藏可放 2–4 周。" },
-      { n: "浓糖浆", ex: "糖 2 : 水 1", use: "需要浓甜与质地", dose: "7.5–15 ml", tip: "溶解慢，用温水或搅拌机。" },
-      { n: "蜂蜜糖浆", ex: "蜂蜜 3 : 水 1", use: "Bee's Knees、Gold Rush", dose: "15–20 ml", tip: "纯蜂蜜难量难溶，必须稀释。" },
-      { n: "杏仁糖浆", ex: "Orgeat", use: "Mai Tai、Japanese Cocktail", dose: "10–20 ml", tip: "品牌甜度差异大，先试。" },
-      { n: "法勒南", ex: "Falernum", use: "Tiki、Saturn、Zombie", dose: "5–15 ml", tip: "丁香、杏仁与青柠，甜度高。" }
+      { n: "单糖浆 Simple Syrup", ex: "糖 1 : 水 1", use: "通用酸甜平衡", dose: "10–20 ml", tip: "冷藏可放 2–4 周。" },
+      { n: "浓糖浆 Rich Syrup", ex: "糖 2 : 水 1", use: "需要浓甜与质地", dose: "7.5–15 ml", tip: "溶解慢，用温水或搅拌机。" },
+      { n: "蜂蜜糖浆 Honey Syrup", ex: "蜂蜜 3 : 水 1", use: "Bee's Knees、Gold Rush", dose: "15–20 ml", tip: "纯蜂蜜难量难溶，必须稀释。" },
+      { n: "杏仁糖浆 Orgeat", ex: "Orgeat", use: "Mai Tai、Japanese Cocktail", dose: "10–20 ml", tip: "品牌甜度差异大，先试。" },
+      { n: "法勒南 Falernum", ex: "Falernum", use: "Tiki、Saturn、Zombie", dose: "5–15 ml", tip: "丁香、杏仁与青柠，甜度高。" }
     ],
     examples: ["bees-knees", "mai-tai", "gold-rush", "japanese-cocktail"]
   },
@@ -457,11 +457,11 @@ const MODGROUPS = [
     color: "#b65b3c",
     intro: "利口酒是「带糖的香水」。橙味利口酒连接基酒与柑橘，樱桃、紫罗兰、接骨木花与桃子则负责方向性香气。",
     items: [
-      { n: "Cointreau", ex: "Cointreau", use: "玛格丽特、边车、White Lady", dose: "15–25 ml", tip: "干净、酒精度高、甜度中等。" },
-      { n: "Triple Sec", ex: "Combier / Bols", use: "通用橙味", dose: "15–25 ml", tip: "甜度差异大，别与 Cointreau 等量替换。" },
-      { n: "黑樱桃利口酒", ex: "Luxardo Maraschino", use: "Last Word、Aviation、Hemingway", dose: "5–15 ml", tip: "杏仁与樱桃核香，几毫升就够。" },
-      { n: "接骨木花利口酒", ex: "St-Germain", use: "Southside、Spritz", dose: "10–20 ml", tip: "花香脆弱，别与重泥煤同用。" },
-      { n: "紫罗兰利口酒", ex: "Rothman & Winter", use: "Aviation、Blue Moon", dose: "5–10 ml", tip: "颜色与花香都强，过量像香水。" }
+      { n: "君度 Cointreau", ex: "Cointreau", use: "玛格丽特、边车、White Lady", dose: "15–25 ml", tip: "干净、酒精度高、甜度中等。" },
+      { n: "三重橙酒 Triple Sec", ex: "Combier / Bols", use: "通用橙味", dose: "15–25 ml", tip: "甜度差异大，别与 Cointreau 等量替换。" },
+      { n: "黑樱桃利口酒 Maraschino Liqueur", ex: "Luxardo Maraschino", use: "Last Word、Aviation、Hemingway", dose: "5–15 ml", tip: "杏仁与樱桃核香，几毫升就够。" },
+      { n: "接骨木花利口酒 Elderflower Liqueur", ex: "St-Germain", use: "Southside、Spritz", dose: "10–20 ml", tip: "花香脆弱，别与重泥煤同用。" },
+      { n: "紫罗兰利口酒 Crème de Violette", ex: "Rothman & Winter", use: "Aviation、Blue Moon", dose: "5–10 ml", tip: "颜色与花香都强，过量像香水。" }
     ],
     examples: ["margarita", "sidecar", "last-word", "aviation"]
   },
@@ -473,7 +473,7 @@ const MODGROUPS = [
     color: "#8f3b30",
     intro: "苦味是成人风味的捷径。Campari 的红与苦、Aperol 的橙与轻、Fernet 的薄荷与药感、Cynar 的朝鲜蓟与泥土。",
     items: [
-      { n: "Campari", ex: "Campari", use: "内格罗尼、Boulevardier、Jungle Bird", dose: "20–30 ml", tip: "苦甜强烈，适合红色基酒。" },
+      { n: "金巴利 Campari", ex: "Campari", use: "内格罗尼、Boulevardier、Jungle Bird", dose: "20–30 ml", tip: "苦甜强烈，适合红色基酒。" },
       { n: "Aperol", ex: "Aperol", use: "Aperol Spritz、Paper Plane", dose: "20–30 ml", tip: "更甜更低苦，适合开胃。" },
       { n: "Fernet-Branca", ex: "Fernet-Branca", use: "Toronto、Hanky Panky", dose: "5–10 ml", tip: "薄荷、药草与极强苦味，少量。" },
       { n: "Cynar", ex: "Cynar", use: "Little Italy、Rabo de Galo", dose: "15–25 ml", tip: "朝鲜蓟与焦糖，苦中带甜。" },
@@ -489,10 +489,10 @@ const MODGROUPS = [
     color: "#5b4036",
     intro: "咖啡提供烘焙苦与油脂，可可提供粉质甜香。它们既能做主角，也能像苦精一样给烈酒加深度。",
     items: [
-      { n: "浓缩咖啡", ex: "现萃 Espresso", use: "Espresso Martini、Irish Coffee", dose: "30 ml", tip: "降温后摇，避免过度稀释。" },
-      { n: "冷萃咖啡", ex: "Cold Brew", use: "Cold Brew Tonic、咖啡高球", dose: "60–90 ml", tip: "浓度高，风味更圆。" },
-      { n: "咖啡利口酒", ex: "Mr Black / Kahlúa", use: "White Russian、Revolver", dose: "15–30 ml", tip: "Mr Black 更干，Kahlúa 更甜。" },
-      { n: "白可可利口酒", ex: "Tempus Fugit Crème de Cacao", use: "Grasshopper、Brandy Alexander", dose: "20–30 ml", tip: "白色版本不改变颜色。" }
+      { n: "浓缩咖啡 Espresso", ex: "现萃 Espresso", use: "Espresso Martini、Irish Coffee", dose: "30 ml", tip: "降温后摇，避免过度稀释。" },
+      { n: "冷萃咖啡 Cold Brew Coffee", ex: "Cold Brew", use: "Cold Brew Tonic、咖啡高球", dose: "60–90 ml", tip: "浓度高，风味更圆。" },
+      { n: "咖啡利口酒 Coffee Liqueur", ex: "Mr Black / Kahlúa", use: "White Russian、Revolver", dose: "15–30 ml", tip: "Mr Black 更干，Kahlúa 更甜。" },
+      { n: "白可可利口酒 White Cacao Liqueur", ex: "Tempus Fugit Crème de Cacao", use: "Grasshopper、Brandy Alexander", dose: "20–30 ml", tip: "白色版本不改变颜色。" }
     ],
     examples: ["espresso-martini", "white-russian", "brandy-alexander", "revolver"]
   },
@@ -504,11 +504,11 @@ const MODGROUPS = [
     color: "#aa9270",
     intro: "蛋清增加泡沫与丝绒感，全蛋增加厚度，奶油增加甜点感，椰奶增加热带质地。它们都需要更低的温度和更明确的收尾。",
     items: [
-      { n: "蛋清", ex: "新鲜巴氏蛋清", use: "Whiskey Sour、Clover Club", dose: "20–25 ml", tip: "干摇 10–15 秒，再加冰摇。" },
-      { n: "全蛋", ex: "新鲜鸡蛋", use: "Flip、Eggnog", dose: "1 个", tip: "肉豆蔻与酒精度是必要平衡。" },
-      { n: "淡奶油", ex: "35% Heavy Cream", use: "Alexander、Irish Coffee", dose: "20–30 ml", tip: "轻微打发，不要硬性发泡。" },
-      { n: "椰奶油", ex: "Coco López", use: "Piña Colada、Painkiller", dose: "30–45 ml", tip: "摇匀罐中内容，甜度很高。" },
-      { n: "Aquafaba", ex: "鹰嘴豆水", use: "纯素替代蛋清", dose: "20–30 ml", tip: "摇和时间更长，泡沫略松。" }
+      { n: "蛋清 Egg White", ex: "新鲜巴氏蛋清", use: "Whiskey Sour、Clover Club", dose: "20–25 ml", tip: "干摇 10–15 秒，再加冰摇。" },
+      { n: "全蛋 Whole Egg", ex: "新鲜鸡蛋", use: "Flip、Eggnog", dose: "1 个", tip: "肉豆蔻与酒精度是必要平衡。" },
+      { n: "淡奶油 Heavy Cream", ex: "35% Heavy Cream", use: "Alexander、Irish Coffee", dose: "20–30 ml", tip: "轻微打发，不要硬性发泡。" },
+      { n: "椰奶油 Coconut Cream", ex: "Coco López", use: "Piña Colada、Painkiller", dose: "30–45 ml", tip: "摇匀罐中内容，甜度很高。" },
+      { n: "鹰嘴豆水 Aquafaba", ex: "鹰嘴豆水", use: "纯素替代蛋清", dose: "20–30 ml", tip: "摇和时间更长，泡沫略松。" }
     ],
     examples: ["whiskey-sour", "clover-club", "pina-colada", "brandy-alexander"]
   },
@@ -520,11 +520,11 @@ const MODGROUPS = [
     color: "#a8863c",
     intro: "果汁不是填充液。菠萝提供泡沫与酸，葡萄柚提供苦，番茄提供鲜味，桃子提供质地。选择与比例决定一杯酒的方向。",
     items: [
-      { n: "菠萝汁", ex: "鲜榨 / 高压杀菌", use: "Tiki、Piña Colada", dose: "45–90 ml", tip: "鲜榨会起泡，摇和更绵密。" },
-      { n: "橙汁", ex: "鲜榨 Valencia", use: "Garibaldi、Tequila Sunrise", dose: "90–120 ml", tip: "现榨，不要用含糖果汁。" },
-      { n: "西柚汁", ex: "Ruby Red", use: "Paloma、Hemingway", dose: "30–60 ml", tip: "白柚更苦，适合 Campari。" },
-      { n: "蔓越莓汁", ex: "100% 果汁", use: "Cosmopolitan、Sea Breeze", dose: "30–90 ml", tip: "酸涩，别与过多糖并用。" },
-      { n: "番茄汁", ex: "高品质番茄汁", use: "Bloody Mary", dose: "120 ml", tip: "盐、酸、鲜味缺一不可。" }
+      { n: "菠萝汁 Pineapple Juice", ex: "鲜榨 / 高压杀菌", use: "Tiki、Piña Colada", dose: "45–90 ml", tip: "鲜榨会起泡，摇和更绵密。" },
+      { n: "橙汁 Orange Juice", ex: "鲜榨 Valencia", use: "Garibaldi、Tequila Sunrise", dose: "90–120 ml", tip: "现榨，不要用含糖果汁。" },
+      { n: "西柚汁 Grapefruit Juice", ex: "Ruby Red", use: "Paloma、Hemingway", dose: "30–60 ml", tip: "白柚更苦，适合 Campari。" },
+      { n: "蔓越莓汁 Cranberry Juice", ex: "100% 果汁", use: "Cosmopolitan、Sea Breeze", dose: "30–90 ml", tip: "酸涩，别与过多糖并用。" },
+      { n: "番茄汁 Tomato Juice", ex: "高品质番茄汁", use: "Bloody Mary", dose: "120 ml", tip: "盐、酸、鲜味缺一不可。" }
     ],
     examples: ["pina-colada", "paloma", "bloody-mary", "garibaldi"]
   },
@@ -536,11 +536,11 @@ const MODGROUPS = [
     color: "#5f7d76",
     intro: "气泡是口感的一部分。苏打中性，汤力水带奎宁苦，姜啤带辛辣，可乐带焦糖与磷酸，起泡酒带酸与酒体。",
     items: [
-      { n: "苏打水", ex: "高碳酸矿泉水", use: "Collins、Ranch Water", dose: "60–120 ml", tip: "冰镇、现开、沿杯壁注入。" },
-      { n: "汤力水", ex: "Fever-Tree / Schweppes", use: "Gin & Tonic", dose: "90–150 ml", tip: "奎宁苦度差异大，选一款固定使用。" },
-      { n: "姜啤", ex: "Fever-Tree / Gosling's", use: "Moscow Mule、Dark 'n' Stormy", dose: "90–120 ml", tip: "辛辣度决定是否需要额外糖。" },
-      { n: "可乐", ex: "可口可乐 / 百事", use: "Cuba Libre、Batanga", dose: "90–120 ml", tip: "冰镇与青柠是灵魂。" },
-      { n: "起泡酒", ex: "Prosecco / Champagne", use: "Spritz、French 75、Bellini", dose: "60–120 ml", tip: "提前冰镇，开瓶后尽快用完。" }
+      { n: "苏打水 Soda Water", ex: "高碳酸矿泉水", use: "Collins、Ranch Water", dose: "60–120 ml", tip: "冰镇、现开、沿杯壁注入。" },
+      { n: "汤力水 Tonic Water", ex: "Fever-Tree / Schweppes", use: "Gin & Tonic", dose: "90–150 ml", tip: "奎宁苦度差异大，选一款固定使用。" },
+      { n: "姜啤 Ginger Beer", ex: "Fever-Tree / Gosling's", use: "Moscow Mule、Dark 'n' Stormy", dose: "90–120 ml", tip: "辛辣度决定是否需要额外糖。" },
+      { n: "可乐 Cola", ex: "可口可乐 / 百事", use: "Cuba Libre、Batanga", dose: "90–120 ml", tip: "冰镇与青柠是灵魂。" },
+      { n: "起泡酒 Sparkling Wine", ex: "Prosecco / Champagne", use: "Spritz、French 75、Bellini", dose: "60–120 ml", tip: "提前冰镇，开瓶后尽快用完。" }
     ],
     examples: ["gin-tonic", "moscow-mule", "cuba-libre", "aperol-spritz"]
   },
@@ -552,12 +552,12 @@ const MODGROUPS = [
     color: "#74624c",
     intro: "盐能压低苦味、提升甜味与香气；辣椒与胡椒增加刺激；肉豆蔻、肉桂与八角提供温暖；鲜味让番茄与肉感鸡尾酒更完整。",
     items: [
-      { n: "盐 / 盐水", ex: "20% 盐水", use: "玛格丽特、Bloody Mary", dose: "1–3 dash", tip: "盐水比盐粒更易控制。" },
-      { n: "现磨肉豆蔻", ex: "Whole Nutmeg", use: "Alexander、Painkiller", dose: "现磨少许", tip: "香气挥发快，出品前磨。" },
-      { n: "肉桂 / 肉桂糖浆", ex: "Ceylon Cinnamon", use: "Zombie、Tiki", dose: "5–15 ml", tip: "与丁香、多香果搭配。" },
-      { n: "苦艾酒冲洗", ex: "Absinthe", use: "Sazerac、Corpse Reviver", dose: "1 tsp 冲洗", tip: "倒掉多余，只留香气。" },
-      { n: "橄榄盐水", ex: "Olive Brine", use: "Dirty Martini", dose: "5–15 ml", tip: "咸鲜强，别盖过酒。" },
-      { n: "伍斯特 / 辣酱", ex: "Worcestershire / Tabasco", use: "Bloody Mary", dose: "2–4 dash", tip: "先少后多，逐杯试味。" }
+      { n: "盐 / 盐水 Salt / Brine", ex: "20% 盐水", use: "玛格丽特、Bloody Mary", dose: "1–3 dash", tip: "盐水比盐粒更易控制。" },
+      { n: "肉豆蔻 Nutmeg", ex: "Whole Nutmeg", use: "Alexander、Painkiller", dose: "现磨少许", tip: "香气挥发快，出品前磨。" },
+      { n: "肉桂 / 肉桂糖浆 Cinnamon / Cinnamon Syrup", ex: "Ceylon Cinnamon", use: "Zombie、Tiki", dose: "5–15 ml", tip: "与丁香、多香果搭配。" },
+      { n: "苦艾酒冲洗 Absinthe Rinse", ex: "Absinthe", use: "Sazerac、Corpse Reviver", dose: "1 tsp 冲洗", tip: "倒掉多余，只留香气。" },
+      { n: "橄榄盐水 Olive Brine", ex: "Olive Brine", use: "Dirty Martini", dose: "5–15 ml", tip: "咸鲜强，别盖过酒。" },
+      { n: "伍斯特 / 辣酱 Worcestershire / Hot Sauce", ex: "Worcestershire / Tabasco", use: "Bloody Mary", dose: "2–4 dash", tip: "先少后多，逐杯试味。" }
     ],
     examples: ["margarita", "bloody-mary", "sazerac", "dry-martini"]
   },
@@ -569,10 +569,10 @@ const MODGROUPS = [
     color: "#7a8656",
     intro: "茶是低酒精鸡尾酒最有力的工具：单宁提供酒体，花香提供中段，咖啡因带来轻微刺激。冷萃比热泡更少苦涩。",
     items: [
-      { n: "伯爵茶", ex: "Earl Grey", use: "无酒精高球、金汤力", dose: "60–90 ml 浓茶", tip: "佛手柑与金酒很合拍。" },
-      { n: "茉莉绿茶", ex: "Jasmine", use: "清酒、皮斯科、低酒精", dose: "60–90 ml", tip: "低温浸泡，避免苦涩。" },
-      { n: "洋甘菊", ex: "Chamomile", use: "蜂蜜酸酒、睡前饮", dose: "60–90 ml", tip: "与蜂蜜、苹果、白兰地搭配。" },
-      { n: "洛神花", ex: "Hibiscus", use: "无酒精 Spritz、潘趣", dose: "30–60 ml", tip: "酸度高、颜色强，减糖。" }
+      { n: "伯爵茶 Earl Grey Tea", ex: "Earl Grey", use: "无酒精高球、金汤力", dose: "60–90 ml 浓茶", tip: "佛手柑与金酒很合拍。" },
+      { n: "茉莉绿茶 Jasmine Green Tea", ex: "Jasmine", use: "清酒、皮斯科、低酒精", dose: "60–90 ml", tip: "低温浸泡，避免苦涩。" },
+      { n: "洋甘菊 Chamomile", ex: "Chamomile", use: "蜂蜜酸酒、睡前饮", dose: "60–90 ml", tip: "与蜂蜜、苹果、白兰地搭配。" },
+      { n: "洛神花 Hibiscus", ex: "Hibiscus", use: "无酒精 Spritz、潘趣", dose: "30–60 ml", tip: "酸度高、颜色强，减糖。" }
     ],
     examples: ["cold-brew-tonic", "phony-negroni", "sherry-cobbler"]
   }

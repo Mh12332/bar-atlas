@@ -6,7 +6,7 @@ const COCKTAILS_LIQUEUR = [
   {
     id: "amaretto-sour", zh: "杏仁酸", en: "Amaretto Sour", fam: "sour", base: "liqueur", sub: "杏仁利口酒",
     mods: ["citrus", "syrup", "cream", "bitters"], method: "摇和", glass: "古典杯 / 碟形杯", strength: 3, diff: 2,
-    ing: [["杏仁利口酒", "45 ml"], ["高酒精度波本", "30 ml"], ["柠檬汁", "30 ml"], ["浓糖浆", "5 ml"], ["蛋清", "20 ml"], ["安高天娜苦精", "2 dash"]],
+    ing: [["杏仁利口酒 Amaretto", "45 ml"], ["高酒精度波本 High-Proof Bourbon", "30 ml"], ["柠檬汁 Lemon Juice", "30 ml"], ["浓糖浆 Rich Syrup", "5 ml"], ["蛋清 Egg White", "20 ml"], ["安高天娜苦精 Angostura Bitters", "2 dash"]],
     steps: [
       "除苦精外全部材料先干摇 15 秒。",
       "加冰摇和 12 秒，双重过滤入加冰古典杯。",
@@ -24,7 +24,7 @@ const COCKTAILS_LIQUEUR = [
   {
     id: "grasshopper", zh: "蚱蜢", en: "Grasshopper", fam: "flip", base: "liqueur", sub: "薄荷利口酒",
     mods: ["coffee", "cream"], method: "摇和", glass: "碟形杯", strength: 2, diff: 1,
-    ing: [["绿薄荷利口酒", "20 ml"], ["白可可利口酒", "20 ml"], ["淡奶油", "30 ml"], ["薄荷叶", "1 片"]],
+    ing: [["绿薄荷利口酒 Green Crème de Menthe", "20 ml"], ["白可可利口酒 White Cacao Liqueur", "20 ml"], ["淡奶油 Heavy Cream", "30 ml"], ["薄荷 Mint", "1 片"]],
     steps: [
       "所有液体加冰摇和 12 秒。",
       "双重过滤入冰镇碟形杯。",
@@ -42,7 +42,7 @@ const COCKTAILS_LIQUEUR = [
   {
     id: "golden-cadillac", zh: "金色凯迪拉克", en: "Golden Cadillac", fam: "flip", base: "liqueur", sub: "Galliano",
     mods: ["coffee", "cream"], method: "摇和", glass: "碟形杯", strength: 2, diff: 1,
-    ing: [["Galliano", "20 ml"], ["白可可利口酒", "20 ml"], ["淡奶油", "30 ml"], ["肉豆蔻", "现磨"]],
+    ing: [["Galliano", "20 ml"], ["白可可利口酒 White Cacao Liqueur", "20 ml"], ["淡奶油 Heavy Cream", "30 ml"], ["肉豆蔻 Nutmeg", "现磨"]],
     steps: [
       "所有液体加冰摇和 12 秒。",
       "双重过滤入冰镇碟形杯。",
@@ -59,7 +59,7 @@ const COCKTAILS_LIQUEUR = [
   {
     id: "garibaldi", zh: "加里波第", en: "Garibaldi", fam: "highball", base: "liqueur", sub: "金巴利",
     mods: ["juice"], method: "直调", glass: "高球杯", strength: 1, diff: 1,
-    ing: [["金巴利", "45 ml"], ["鲜榨橙汁", "120 ml"], ["橙片", "1 片"]],
+    ing: [["金巴利 Campari", "45 ml"], ["橙汁 Orange Juice", "120 ml"], ["橙片 Orange Wheel", "1 片"]],
     steps: [
       "高球杯加满冰，倒入金巴利。",
       "加入鲜榨橙汁，用吧勺充分搅拌，让橙汁打出一点空气感。",
@@ -76,7 +76,7 @@ const COCKTAILS_LIQUEUR = [
   {
     id: "americano", zh: "美国佬", en: "Americano", fam: "aperitivo", base: "liqueur", sub: "金巴利 + 味美思",
     mods: ["vermouth", "amaro", "mixer"], method: "直调", glass: "高球杯", strength: 1, diff: 1,
-    ing: [["金巴利", "30 ml"], ["甜味美思", "30 ml"], ["苏打水", "60 ml"], ["橙片", "1 片"]],
+    ing: [["金巴利 Campari", "30 ml"], ["甜味美思 Sweet Vermouth", "30 ml"], ["苏打水 Soda Water", "60 ml"], ["橙片 Orange Wheel", "1 片"]],
     steps: [
       "高球杯加满冰，倒入金巴利与甜味美思。",
       "补满冰镇苏打水，轻提拉一次。",
